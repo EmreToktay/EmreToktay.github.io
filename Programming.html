@@ -1,0 +1,129 @@
+<h1 id="programming">3_ Programming</h1>
+<h2 id="python-basics">1_ Python Basics</h2>
+<h3 id="about">About</h3>
+<p>Python is a high-level programming langage. I can be used in a wide
+range of works.</p>
+<p>Commonly used in data-science, <a
+href="https://www.python.org/">Python</a> has a huge set of libraries,
+helpful to quickly do something.</p>
+<p>Most of informatics systems already support Python, without
+installing anything.</p>
+<h3 id="execute-a-script">Execute a script</h3>
+<ul>
+<li>Download the .py file on your computer</li>
+<li>Make it executable (<em>chmod +x file.py</em> on Linux)</li>
+<li>Open a terminal and go to the directory containing the python
+file</li>
+<li><em>python file.py</em> to run with Python2 or <em>python3
+file.py</em> with Python3</li>
+</ul>
+<h2 id="working-in-excel">2_ Working in excel</h2>
+<h2 id="r-setup-r-studio">3_ R setup / R studio</h2>
+<h3 id="about-1">About</h3>
+<p>R is a programming language specialized in statistics and
+mathematical visualizations.</p>
+<p>I can be used withs manually created scripts launched in the
+terminal, or directly in the R console.</p>
+<h3 id="installation">Installation</h3>
+<h4 id="linux">Linux</h4>
+<pre><code>sudo apt-get install r-base
+
+sudo apt-get install r-base-dev</code></pre>
+<h4 id="windows">Windows</h4>
+<p>Download the .exe setup available on <a
+href="https://cran.rstudio.com/bin/windows/base/">CRAN</a> website.</p>
+<h3 id="r-studio">R-studio</h3>
+<p>Rstudio is a graphical interface for R. It is available for free on
+<a href="https://www.rstudio.com/products/rstudio/download/">their
+website</a>.</p>
+<p>This interface is divided in 4 main areas :</p>
+<figure>
+<img
+src="https://owi.usgs.gov/R/training-curriculum/intro-curriculum/static/img/rstudio.png"
+alt="rstudio" />
+<figcaption aria-hidden="true">rstudio</figcaption>
+</figure>
+<ul>
+<li>The top left is the script you are working on (highlight code you
+want to execute and press Ctrl + Enter)</li>
+<li>The bottom left is the console to instant-execute some lines of
+codes</li>
+<li>The top right is showing your environment (variables, history,
+…)</li>
+<li>The bottom right show figures you plotted, packages, help … The
+result of code execution</li>
+</ul>
+<h2 id="r-basics">4_ R basics</h2>
+<p>R is an open source programming language and software environment for
+statistical computing and graphics that is supported by the R Foundation
+for Statistical Computing.</p>
+<p>The R language is widely used among statisticians and data miners for
+developing statistical software and data analysis.</p>
+<p>Polls, surveys of data miners, and studies of scholarly literature
+databases show that R’s popularity has increased substantially in recent
+years.</p>
+<h2 id="expressions">5_ Expressions</h2>
+<h2 id="variables">6_ Variables</h2>
+<h2 id="ibm-spss">7_ IBM SPSS</h2>
+<h2 id="rapid-miner">8_ Rapid Miner</h2>
+<h2 id="vectors">9_ Vectors</h2>
+<h2 id="matrices">10_ Matrices</h2>
+<h2 id="arrays">11_ Arrays</h2>
+<h2 id="factors">12_ Factors</h2>
+<h2 id="lists">13_ Lists</h2>
+<h2 id="data-frames">14_ Data frames</h2>
+<h2 id="reading-csv-data">15_ Reading CSV data</h2>
+<p>CSV is a format of <strong>tabular data</strong> comonly used in data
+science. Most of structured data will come in such a format.</p>
+<p>To <strong>open a CSV file</strong> in Python, just open the file as
+usual :</p>
+<pre><code>raw_file = open(&#39;file.csv&#39;, &#39;r&#39;)</code></pre>
+<ul>
+<li>‘r’: Reading, no modification on the file is possible</li>
+<li>‘w’: Writing, every modification will erease the file</li>
+<li>‘a’: Adding, every modification will be made at the end of the
+file</li>
+</ul>
+<h3 id="how-to-read-it">How to read it ?</h3>
+<p>Most of the time, you will parse this file line by line and do
+whatever you want on this line. If you want to store data to use them
+later, build lists or dictionnaries.</p>
+<p>To read such a file row by row, you can use :</p>
+<ul>
+<li>Python <a href="https://docs.python.org/3/library/csv.html">library
+csv</a></li>
+<li>Python <a
+href="https://docs.python.org/2/library/functions.html#open">function
+open</a></li>
+</ul>
+<h2 id="reading-raw-data">16_ Reading raw data</h2>
+<h2 id="subsetting-data">17_ Subsetting data</h2>
+<h2 id="manipulate-data-frames">18_ Manipulate data frames</h2>
+<h2 id="functions">19_ Functions</h2>
+<p>A function is helpful to execute redondant actions.</p>
+<p>First, define the function:</p>
+<pre><code>def MyFunction(number):
+	&quot;&quot;&quot;This function will multiply a number by 9&quot;&quot;&quot;
+	number = number * 9
+	return number</code></pre>
+<h2 id="factor-analysis">20_ Factor analysis</h2>
+<h2 id="install-pkgs">21_ Install PKGS</h2>
+<p>Python actually has two mainly used distributions. Python2 and
+python3.</p>
+<h3 id="install-pip">Install pip</h3>
+<p>Pip is a library manager for Python. Thus, you can easily install
+most of the packages with a one-line command. To install pip, just go to
+a terminal and do:</p>
+<pre><code># __python2__
+sudo apt-get install python-pip
+# __python3__
+sudo apt-get install python3-pip</code></pre>
+<p>You can then install a library with <a
+href="https://pypi.python.org/pypi/pip?">pip</a> via a terminal
+doing:</p>
+<pre><code># __python2__
+sudo pip install [PCKG_NAME]
+# __python3__
+sudo pip3 install [PCKG_NAME]</code></pre>
+<p>You also can install it directly from the core (see
+21_install_pkgs.py)</p>

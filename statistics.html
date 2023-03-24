@@ -1,0 +1,763 @@
+<h1 id="statistics">2_ Statistics</h1>
+<p><a
+href="https://medium.com/@debuggermalhotra/statistics-101-for-data-noobs-2e2a0e23a5dc">Statistics-101
+for data noobs</a></p>
+<h2 id="pick-a-dataset">1_ Pick a dataset</h2>
+<h3 id="datasets-repositories">Datasets repositories</h3>
+<h4 id="generalists">Generalists</h4>
+<ul>
+<li><a href="https://www.kaggle.com/datasets">KAGGLE</a></li>
+<li><a href="https://toolbox.google.com/datasetsearch">Google</a></li>
+</ul>
+<h4 id="medical">Medical</h4>
+<ul>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/">PMC</a></li>
+</ul>
+<h4 id="other-languages">Other languages</h4>
+<h5 id="french">French</h5>
+<ul>
+<li><a href="https://www.data.gouv.fr/fr/">DATAGOUV</a></li>
+</ul>
+<h2 id="descriptive-statistics">2_ Descriptive statistics</h2>
+<h3 id="mean">Mean</h3>
+<p>In probability and statistics, population mean and expected value are
+used synonymously to refer to one <strong>measure of the central
+tendency either of a probability distribution or of the random
+variable</strong> characterized by that distribution.</p>
+<p>For a data set, the terms arithmetic mean, mathematical expectation,
+and sometimes average are used synonymously to refer to a central value
+of a discrete set of numbers: specifically, the <strong>sum of the
+values divided by the number of values</strong>.</p>
+<figure>
+<img
+src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bd2f5fb530fc192e4db7a315777f5bbb5d462c90"
+alt="mean_formula" />
+<figcaption aria-hidden="true">mean_formula</figcaption>
+</figure>
+<h3 id="median">Median</h3>
+<p>The median is the value <strong>separating the higher half of a data
+sample, a population, or a probability distribution, from the lower
+half</strong>. In simple terms, it may be thought of as the “middle”
+value of a data set.</p>
+<h3 id="descriptive-statistics-in-python">Descriptive statistics in
+Python</h3>
+<p><a href="http://www.numpy.org/">Numpy</a> is a python library widely
+used for statistical analysis.</p>
+<h4 id="installation">Installation</h4>
+<pre><code>pip3 install numpy</code></pre>
+<h4 id="utilization">Utilization</h4>
+<pre><code>import numpy</code></pre>
+<h2 id="exploratory-data-analysis">3_ Exploratory data analysis</h2>
+<p>The step includes visualization and analysis of data.</p>
+<p>Raw data may possess improper distributions of data which may lead to
+issues moving forward.</p>
+<p>Again, during applications we must also know the distribution of
+data, for instance, the fact whether the data is linear or spirally
+distributed.</p>
+<p><a
+href="https://towardsdatascience.com/data-preprocessing-and-interpreting-results-the-heart-of-machine-learning-part-1-eda-49ce99e36655">Guide
+to EDA in Python</a></p>
+<h5 id="libraries-in-python">Libraries in Python</h5>
+<p><a href="https://matplotlib.org/">Matplotlib</a></p>
+<p>Library used to plot graphs in Python</p>
+<p><strong>Installation</strong>:</p>
+<pre><code>pip3 install matplotlib</code></pre>
+<p><strong>Utilization</strong>:</p>
+<pre><code>import matplotlib.pyplot as plt</code></pre>
+<p><a href="https://pandas.pydata.org/">Pandas</a></p>
+<p>Library used to large datasets in python</p>
+<p><strong>Installation</strong>:</p>
+<pre><code>pip3 install pandas</code></pre>
+<p><strong>Utilization</strong>:</p>
+<pre><code>import pandas as pd</code></pre>
+<p><a href="https://seaborn.pydata.org/">Seaborn</a></p>
+<p>Yet another Graph Plotting Library in Python.</p>
+<p><strong>Installation</strong>:</p>
+<pre><code>pip3 install seaborn</code></pre>
+<p><strong>Utilization</strong>:</p>
+<pre><code>import seaborn as sns</code></pre>
+<h4 id="pca">PCA</h4>
+<p>PCA stands for principle component analysis.</p>
+<p>We often require to shape of the data distribution as we have seen
+previously. We need to plot the data for the same.</p>
+<p>Data can be Multidimensional, that is, a dataset can have multiple
+features.</p>
+<p>We can plot only two dimensional data, so, for multidimensional data,
+we project the multidimensional distribution in two dimensions,
+preserving the principle components of the distribution, in order to get
+an idea of the actual distribution through the 2D plot.</p>
+<p>It is used for dimensionality reduction also. Often it is seen that
+several features do not significantly contribute any important insight
+to the data distribution. Such features creates complexity and increase
+dimensionality of the data. Such features are not considered which
+results in decrease of the dimensionality of the data.</p>
+<p><a
+href="https://medium.com/towards-artificial-intelligence/demystifying-principal-component-analysis-9f13f6f681e6">Mathematical
+Explanation</a></p>
+<p><a
+href="https://towardsdatascience.com/data-preprocessing-and-interpreting-results-the-heart-of-machine-learning-part-2-pca-feature-92f8f6ec8c8">Application
+in Python</a></p>
+<h2 id="histograms">4_ Histograms</h2>
+<p>Histograms are representation of distribution of numerical data. The
+procedure consists of binnng the numeric values using range divisions
+i.e, the entire range in which the data varies is split into several
+fixed intervals. Count or frequency of occurences of the numbers in the
+range of the bins are represented.</p>
+<p><a href="https://en.wikipedia.org/wiki/Histogram">Histograms</a></p>
+<figure>
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Example_histogram.png/220px-Example_histogram.png"
+alt="plot" />
+<figcaption aria-hidden="true">plot</figcaption>
+</figure>
+<p>In python,
+<strong>Pandas</strong>,<strong>Matplotlib</strong>,<strong>Seaborn</strong>
+can be used to create Histograms.</p>
+<h2 id="percentiles-outliers">5_ Percentiles &amp; outliers</h2>
+<h3 id="percentiles">Percentiles</h3>
+<p>Percentiles are numberical measures in statistics, which represents
+how much or what percentage of data falls below a given number or
+instance in a numerical data distribution.</p>
+<p>For instance, if we say 70 percentile, it represents, 70% of the data
+in the ditribution are below the given numerical value.</p>
+<p><a
+href="https://en.wikipedia.org/wiki/Percentile">Percentiles</a></p>
+<h3 id="outliers">Outliers</h3>
+<p>Outliers are data points(numerical) which have significant
+differences with other data points. They differ from majority of points
+in the distribution. Such points may cause the central measures of
+distribution, like mean, and median. So, they need to be detected and
+removed.</p>
+<p><a
+href="https://www.itl.nist.gov/div898/handbook/prc/section1/prc16.htm">Outliers</a></p>
+<p><strong>Box Plots</strong> can be used detect Outliers in the data.
+They can be created using <strong>Seaborn</strong> library</p>
+<figure>
+<img src="https://miro.medium.com/max/612/1*105IeKBRGtyPyMy3-WQ8hw.png"
+alt="Image_Box_Plot" />
+<figcaption aria-hidden="true">Image_Box_Plot</figcaption>
+</figure>
+<h2 id="probability-theory">6_ Probability theory</h2>
+<p><strong>Probability</strong> is the likelihood of an event in a
+Random experiment. For instance, if a coin is tossed, the chance of
+getting a head is 50% so, probability is 0.5.</p>
+<p><strong>Sample Space</strong>: It is the set of all possible outcomes
+of a Random Experiment. <strong>Favourable Outcomes</strong>: The set of
+outcomes we are looking for in a Random Experiment</p>
+<p><strong>Probability = (Number of Favourable Outcomes) / (Sample
+Space)</strong></p>
+<p><strong>Probability theory</strong> is a branch of mathematics that
+is associated with the concept of probability.</p>
+<p><a
+href="https://towardsdatascience.com/basic-probability-theory-and-statistics-3105ab637213">Basics
+of Probability</a></p>
+<h2 id="bayes-theorem">7_ Bayes theorem</h2>
+<h3 id="conditional-probability">Conditional Probability:</h3>
+<p>It is the probability of one event occurring, given that another
+event has already occurred. So, it gives a sense of relationship between
+two events and the probabilities of the occurences of those events.</p>
+<p>It is given by:</p>
+<p><strong>P( A | B )</strong> : Probability of occurence of A, after B
+occured.</p>
+<p>The formula is given by:</p>
+<figure>
+<img
+src="https://wikimedia.org/api/rest_v1/media/math/render/svg/74cbddb93db29a62d522cd6ab266531ae295a0fb"
+alt="formula" />
+<figcaption aria-hidden="true">formula</figcaption>
+</figure>
+<p>So, P(A|B) is equal to Probablity of occurence of A and B, divided by
+Probability of occurence of B.</p>
+<p><a href="https://en.wikipedia.org/wiki/Conditional_probability">Guide
+to Conditional Probability</a></p>
+<h3 id="bayes-theorem-1">Bayes Theorem</h3>
+<p>Bayes theorem provides a way to calculate conditional probability.
+Bayes theorem is widely used in machine learning most in Bayesian
+Classifiers.</p>
+<p>According to Bayes theorem the probability of A, given that B has
+already occurred is given by Probability of A multiplied by the
+probability of B given A has already occurred divided by the probability
+of B.</p>
+<p><strong>P(A|B) = P(A).P(B|A) / P(B)</strong></p>
+<p><a
+href="https://machinelearningmastery.com/bayes-theorem-for-machine-learning/">Guide
+to Bayes Theorem</a></p>
+<h2 id="random-variables">8_ Random variables</h2>
+<p>Random variable are the numeric outcome of an experiment or random
+events. They are normally a set of values.</p>
+<p>There are two main types of Random Variables:</p>
+<p><strong>Discrete Random Variables</strong>: Such variables take only
+a finite number of distinct values</p>
+<p><strong>Continous Random Variables</strong>: Such variables can take
+an infinite number of possible values.</p>
+<h2 id="cumul-dist-fn-cdf">9_ Cumul Dist Fn (CDF)</h2>
+<p>In probability theory and statistics, the cumulative distribution
+function (CDF) of a real-valued random variable <strong>X</strong>, or
+just distribution function of <strong>X</strong>, evaluated at
+<strong>x</strong>, is the probability that <strong>X</strong> will take
+a value less than or equal to <strong>x</strong>.</p>
+<p>The cumulative distribution function of a real-valued random variable
+X is the function given by:</p>
+<figure>
+<img
+src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f81c05aba576a12b4e05ee3f4cba709dd16139c7"
+alt="CDF" />
+<figcaption aria-hidden="true">CDF</figcaption>
+</figure>
+<p>Resource:</p>
+<p><a
+href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">Wikipedia</a></p>
+<h2 id="continuous-distributions">10_ Continuous distributions</h2>
+<p>A continuous distribution describes the probabilities of the possible
+values of a continuous random variable. A continuous random variable is
+a random variable with a set of possible values (known as the range)
+that is infinite and uncountable.</p>
+<h2 id="skewness">11_ Skewness</h2>
+<p>Skewness is the measure of assymetry in the data distribution or a
+random variable distribution about its mean.</p>
+<p>Skewness can be positive, negative or zero.</p>
+<figure>
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Negative_and_positive_skew_diagrams_%28English%29.svg/446px-Negative_and_positive_skew_diagrams_%28English%29.svg.png"
+alt="skewed image" />
+<figcaption aria-hidden="true">skewed image</figcaption>
+</figure>
+<p><strong>Negative skew</strong>: Distribution Concentrated in the
+right, left tail is longer.</p>
+<p><strong>Positive skew</strong>: Distribution Concentrated in the
+left, right tail is longer.</p>
+<p>Variation of central tendency measures are shown below.</p>
+<figure>
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Relationship_between_mean_and_median_under_different_skewness.png/434px-Relationship_between_mean_and_median_under_different_skewness.png"
+alt="cet" />
+<figcaption aria-hidden="true">cet</figcaption>
+</figure>
+<p>Data Distribution are often Skewed which may cause trouble during
+processing the data. <strong>Skewed Distribution can be converted to
+Symmetric Distribution, taking Log of the distribution</strong>.</p>
+<h5 id="skew-distribution">Skew Distribution</h5>
+<figure>
+<img src="https://miro.medium.com/max/379/1*PLSczKIQRc8ZtlvHED-6mQ.png"
+alt="Skew" />
+<figcaption aria-hidden="true">Skew</figcaption>
+</figure>
+<h5 id="log-of-the-skew-distribution.">Log of the Skew
+Distribution.</h5>
+<figure>
+<img src="https://miro.medium.com/max/376/1*4GFayBYKIiqAcyI69wIFzA.png"
+alt="log" />
+<figcaption aria-hidden="true">log</figcaption>
+</figure>
+<p><a href="https://en.wikipedia.org/wiki/Skewness">Guide to
+Skewness</a></p>
+<h2 id="anova">12_ ANOVA</h2>
+<p>ANOVA stands for <strong>analysis of variance</strong>.</p>
+<p>It is used to compare among groups of data distributions.</p>
+<p>Often we are provided with huge data. They are too huge to work with.
+The total data is called the <strong>Population</strong>.</p>
+<p>In order to work with them, we pick random smaller groups of data.
+They are called <strong>Samples</strong>.</p>
+<p>ANOVA is used to compare the variance among these groups or
+samples.</p>
+<p>Variance of group is given by:</p>
+<figure>
+<img src="https://miro.medium.com/max/446/1*yzAMFVIEFysMKwuT0YHrZw.png"
+alt="var" />
+<figcaption aria-hidden="true">var</figcaption>
+</figure>
+<p>The differences in the collected samples are observed using the
+differences between the means of the groups. We often use the
+<strong>t-test</strong> to compare the means and also to check if the
+samples belong to the same population,</p>
+<p>Now, t-test can only be possible among two groups. But, often we get
+more groups or samples.</p>
+<p>If we try to use t-test for more than two groups we have to perform
+t-tests multiple times, once for each pair. This is where ANOVA is
+used.</p>
+<p>ANOVA has two components:</p>
+<p><strong>1.Variation within each group</strong></p>
+<p><strong>2.Variation between groups</strong></p>
+<p>It works on a ratio called the <strong>F-Ratio</strong></p>
+<p>It is given by:</p>
+<figure>
+<img src="https://miro.medium.com/max/491/1*I5dSwtUICySQ5xvKmq6M8A.png"
+alt="F-ratio" />
+<figcaption aria-hidden="true">F-ratio</figcaption>
+</figure>
+<p>F ratio shows how much of the total variation comes from the
+variation between groups and how much comes from the variation within
+groups. If much of the variation comes from the variation between
+groups, it is more likely that the mean of groups are different.
+However, if most of the variation comes from the variation within
+groups, then we can conclude the elements in a group are different
+rather than entire groups. The larger the F ratio, the more likely that
+the groups have different means.</p>
+<p>Resources:</p>
+<p><a
+href="https://statistics.laerd.com/statistical-guides/one-way-anova-statistical-guide.php">Defnition</a></p>
+<p><a
+href="https://towardsdatascience.com/anova-analysis-of-variance-explained-b48fee6380af">GUIDE
+1</a></p>
+<p><a
+href="https://medium.com/@StepUpAnalytics/anova-one-way-vs-two-way-6b3ff87d3a94">Details</a></p>
+<h2 id="prob-den-fn-pdf">13_ Prob Den Fn (PDF)</h2>
+<p>It stands for probability density function.</p>
+<p><strong>In probability theory, a probability density function (PDF),
+or density of a continuous random variable, is a function whose value at
+any given sample (or point) in the sample space (the set of possible
+values taken by the random variable) can be interpreted as providing a
+relative likelihood that the value of the random variable would equal
+that sample.</strong></p>
+<p>The probability density function (PDF) P(x) of a continuous
+distribution is defined as the derivative of the (cumulative)
+distribution function D(x).</p>
+<p>It is given by the integral of the function over a given range.</p>
+<figure>
+<img
+src="https://wikimedia.org/api/rest_v1/media/math/render/svg/45fd7691b5fbd323f64834d8e5b8d4f54c73a6f8"
+alt="PDF" />
+<figcaption aria-hidden="true">PDF</figcaption>
+</figure>
+<h2 id="central-limit-theorem">14_ Central Limit theorem</h2>
+<h2 id="monte-carlo-method">15_ Monte Carlo method</h2>
+<h2 id="hypothesis-testing">16_ Hypothesis Testing</h2>
+<h3 id="types-of-curves">Types of curves</h3>
+<p>We need to know about two distribution curves first.</p>
+<p>Distribution curves reflect the probabilty of finding an instance or
+a sample of a population at a certain value of the distribution.</p>
+<p><strong>Normal Distribution</strong></p>
+<figure>
+<img src="https://sciences.usca.edu/biology/zelmer/305/norm/stanorm.jpg"
+alt="normal distribution" />
+<figcaption aria-hidden="true">normal distribution</figcaption>
+</figure>
+<p>The normal distribution represents how the data is distributed. In
+this case, most of the data samples in the distribution are scattered at
+and around the mean of the distribution. A few instances are scattered
+or present at the long tail ends of the distribution.</p>
+<p>Few points about Normal Distributions are:</p>
+<ol type="1">
+<li><p>The curve is always Bell-shaped. This is because most of the data
+is found around the mean, so the proababilty of finding a sample at the
+mean or central value is more.</p></li>
+<li><p>The curve is symmetric</p></li>
+<li><p>The area under the curve is always 1. This is because all the
+points of the distribution must be present under the curve</p></li>
+<li><p>For Normal Distribution, Mean and Median lie on the same line in
+the distribution.</p></li>
+</ol>
+<p><strong>Standard Normal Distribution</strong></p>
+<p>This type of distribution are normal distributions which following
+conditions.</p>
+<ol type="1">
+<li><p>Mean of the distribution is 0</p></li>
+<li><p>The Standard Deviation of the distribution is equal to
+1.</p></li>
+</ol>
+<p>The idea of Hypothesis Testing works completely on the data
+distributions.</p>
+<h3 id="hypothesis-testing-1">Hypothesis Testing</h3>
+<p>Hypothesis testing is a statistical method that is used in making
+statistical decisions using experimental data. Hypothesis Testing is
+basically an assumption that we make about the population parameter.</p>
+<p>For example, say, we take the hypothesis that boys in a class are
+taller than girls.</p>
+<p>The above statement is just an assumption on the population of the
+class.</p>
+<p><strong>Hypothesis</strong> is just an assumptive proposal or
+statement made on the basis of observations made on a set of information
+or data.</p>
+<p>We initially propose two mutually exclusive statements based on the
+population of the sample data.</p>
+<p>The initial one is called <strong>NULL HYPOTHESIS</strong>. It is
+denoted by H0.</p>
+<p>The second one is called <strong>ALTERNATE HYPOTHESIS</strong>. It is
+denoted by H1 or Ha. It is used as a contrary to Null Hypothesis.</p>
+<p>Based on the instances of the population we accept or reject the NULL
+Hypothesis and correspondingly we reject or accept the ALTERNATE
+Hypothesis.</p>
+<h4 id="level-of-significance">Level of Significance</h4>
+<p>It is the degree which we consider to decide whether to accept or
+reject the NULL hypothesis. When we consider a hypothesis on a
+population, it is not the case that 100% or all instances of the
+population abides the assumption, so we decide a <strong>level of
+significance as a cutoff degree, i.e, if our level of significance is
+5%, and (100-5)% = 95% of the data abides by the assumption, we accept
+the Hypothesis.</strong></p>
+<p><strong>It is said with 95% confidence, the hypothesis is
+accepted</strong></p>
+<figure>
+<img src="https://i.stack.imgur.com/d8iHd.png" alt="curve" />
+<figcaption aria-hidden="true">curve</figcaption>
+</figure>
+<p>The non-reject region is called <strong>acceptance region or beta
+region</strong>. The rejection regions are called <strong>critical or
+alpha regions</strong>. <strong>alpha</strong> denotes the <strong>level
+of significance</strong>.</p>
+<p>If level of significance is 5%. the two alpha regions have (2.5+2.5)%
+of the population and the beta region has the 95%.</p>
+<p>The acceptance and rejection gives rise to two kinds of errors:</p>
+<p><strong>Type-I Error:</strong> NULL Hypothesis is true, but wrongly
+Rejected.</p>
+<p><strong>Type-II Error:</strong> NULL Hypothesis if false but is
+wrongly accepted.</p>
+<figure>
+<img
+src="https://microbenotes.com/wp-content/uploads/2020/07/Graphical-representation-of-type-1-and-type-2-errors.jpg"
+alt="hypothesis" />
+<figcaption aria-hidden="true">hypothesis</figcaption>
+</figure>
+<h3 id="tests-for-hypothesis">Tests for Hypothesis</h3>
+<p><strong>One Tailed Test</strong>:</p>
+<figure>
+<img
+src="https://prwatech.in/blog/wp-content/uploads/2019/07/onetailtest.png"
+alt="One-tailed" />
+<figcaption aria-hidden="true">One-tailed</figcaption>
+</figure>
+<p>This is a test for Hypothesis, where the rejection region is only one
+side of the sampling distribution. The rejection region may be in right
+tail end or in the left tail end.</p>
+<p>The idea is if we say our level of significance is 5% and we consider
+a hypothesis “Hieght of Boys in a class is &lt;=6 ft”. We consider the
+hypothesis true if atmost 5% of our population are more than 6 feet. So,
+this will be one-tailed as the test condition only restricts one tail
+end, the end with hieght &gt; 6ft.</p>
+<figure>
+<img
+src="https://i0.wp.com/www.real-statistics.com/wp-content/uploads/2012/11/two-tailed-significance-testing.png"
+alt="Two Tailed" />
+<figcaption aria-hidden="true">Two Tailed</figcaption>
+</figure>
+<p>In this case, the rejection region extends at both tail ends of the
+distribution.</p>
+<p>The idea is if we say our level of significance is 5% and we consider
+a hypothesis “Hieght of Boys in a class is !=6 ft”.</p>
+<p>Here, we can accept the NULL hyposthesis iff atmost 5% of the
+population is less than or greater than 6 feet. So, it is evident that
+the crirtical region will be at both tail ends and the region is 5% / 2
+= 2.5% at both ends of the distribution.</p>
+<h2 id="p-value">17_ p-Value</h2>
+<p>Before we jump into P-values we need to look at another important
+topic in the context: Z-test.</p>
+<h3 id="z-test">Z-test</h3>
+<p>We need to know two terms: <strong>Population and
+Sample.</strong></p>
+<p><strong>Population</strong> describes the entire available data
+distributed. So, it refers to all records provided in the dataset.</p>
+<p><strong>Sample</strong> is said to be a group of data points randomly
+picked from a population or a given distribution. The size of the sample
+can be any number of data points, given by <strong>sample
+size.</strong></p>
+<p><strong>Z-test</strong> is simply used to determine if a given sample
+distribution belongs to a given population.</p>
+<p>Now,for Z-test we have to use <strong>Standard Normal Form</strong>
+for the standardized comparison measures.</p>
+<figure>
+<img src="https://miro.medium.com/max/700/1*VYCN5b-Zubr4rrc9k37SAg.png"
+alt="std1" />
+<figcaption aria-hidden="true">std1</figcaption>
+</figure>
+<p>As we already have seen, standard normal form is a normal form with
+mean=0 and standard deviation=1.</p>
+<p>The <strong>Standard Deviation</strong> is a measure of how much
+differently the points are distributed around the mean.</p>
+<figure>
+<img src="https://miro.medium.com/max/640/1*kzFQaZ08dTjlPq1zrcJXgg.png"
+alt="std2" />
+<figcaption aria-hidden="true">std2</figcaption>
+</figure>
+<p>It states that approximately 68% , 95% and 99.7% of the data lies
+within 1, 2 and 3 standard deviations of a normal distribution
+respectively.</p>
+<p>Now, to convert the normal distribution to standard normal
+distribution we need a standard score called Z-Score. It is given
+by:</p>
+<figure>
+<img src="https://miro.medium.com/max/125/1*X--kDNyurDEo2zKbSDDf-w.png"
+alt="Z-score" />
+<figcaption aria-hidden="true">Z-score</figcaption>
+</figure>
+<p>x = value that we want to standardize</p>
+<p>µ = mean of the distribution of x</p>
+<p>σ = standard deviation of the distribution of x</p>
+<p>We need to know another concept <strong>Central Limit
+Theorem</strong>.</p>
+<h5 id="central-limit-theorem-1">Central Limit Theorem</h5>
+<p><em>The theorem states that the mean of the sampling distribution of
+the sample means is equal to the population mean irrespective if the
+distribution of population where sample size is greater than
+30.</em></p>
+<p>And</p>
+<p><em>The sampling distribution of sampling mean will also follow the
+normal distribution.</em></p>
+<p>So, it states, if we pick several samples from a distribution with
+the size above 30, and pick the static sample means and use the sample
+means to create a distribution, the mean of the newly created sampling
+distribution is equal to the original population mean.</p>
+<p>According to the theorem, if we draw samples of size N, from a
+population with population mean μ and population standard deviation σ,
+the condition stands:</p>
+<figure>
+<img src="https://miro.medium.com/max/121/0*VPW964abYGyevE3h.png"
+alt="std3" />
+<figcaption aria-hidden="true">std3</figcaption>
+</figure>
+<p>i.e, mean of the distribution of sample means is equal to the sample
+means.</p>
+<p>The standard deviation of the sample means is give by:</p>
+<figure>
+<img src="https://miro.medium.com/max/220/0*EMx4C_A9Efsd6Ef6.png"
+alt="std4" />
+<figcaption aria-hidden="true">std4</figcaption>
+</figure>
+<p>The above term is also called standard error.</p>
+<p>We use the theory discussed above for Z-test. If the sample mean lies
+close to the population mean, we say that the sample belongs to the
+population and if it lies at a distance from the population mean, we say
+the sample is taken from a different population.</p>
+<p>To do this we use a formula and check if the z statistic is greater
+than or less than 1.96 (considering two tailed test, level of
+significance = 5%)</p>
+<figure>
+<img src="https://miro.medium.com/max/424/0*C9XaCIUWoJaBSMeZ.gif"
+alt="los" />
+<figcaption aria-hidden="true">los</figcaption>
+</figure>
+<figure>
+<img src="https://miro.medium.com/max/137/1*DRiPmBtjK4wmidq9Ha440Q.png"
+alt="std5" />
+<figcaption aria-hidden="true">std5</figcaption>
+</figure>
+<p>The above formula gives Z-static</p>
+<p>z = z statistic</p>
+<p>X̄ = sample mean</p>
+<p>μ = population mean</p>
+<p>σ = population standard deviation</p>
+<p>n = sample size</p>
+<p>Now, as the Z-score is used to standardize the distribution, it gives
+us an idea how the data is distributed overall.</p>
+<h3 id="p-values">P-values</h3>
+<p>It is used to check if the results are statistically significant
+based on the significance level.</p>
+<p>Say, we perform an experiment and collect observations or data. Now,
+we make a hypothesis (NULL hypothesis) primary, and a second hypothesis,
+contradictory to the first one called the alternative hypothesis.</p>
+<p>Then we decide a level of significance which serve as a threshold for
+our null hypothesis. The P value actually gives the probability of the
+statement. Say, the p-value of our alternative hypothesis is 0.02, it
+means the probability of alternate hypothesis happenning is 2%.</p>
+<p>Now, the level of significance into play to decide if we can allow 2%
+or p-value of 0.02. It can be said as a level of endurance of the null
+hypothesis. If our level of significance is 5% using a two tailed test,
+we can allow 2.5% on both ends of the distribution, we accept the NULL
+hypothesis, as level of significance &gt; p-value of alternate
+hypothesis.</p>
+<p>But if the p-value is greater than level of significance, we tell
+that the result is <strong>statistically significant, and we reject NULL
+hypothesis.</strong> .</p>
+<p>Resources:</p>
+<ol type="1">
+<li><p>https://medium.com/analytics-vidhya/everything-you-should-know-about-p-value-from-scratch-for-data-science-f3c0bfa3c4cc</p></li>
+<li><p>https://towardsdatascience.com/p-values-explained-by-data-scientist-f40a746cfc8</p></li>
+</ol>
+<p>3.https://medium.com/analytics-vidhya/z-test-demystified-f745c57c324c</p>
+<h2 id="chi2-test">18_ Chi2 test</h2>
+<p>Chi2 test is extensively used in data science and machine learning
+problems for feature selection.</p>
+<p>A chi-square test is used in statistics to test the independence of
+two events. So, it is used to check for independence of features used.
+Often dependent features are used which do not convey a lot of
+information but adds dimensionality to a feature space.</p>
+<p>It is one of the most common ways to examine relationships between
+two or more categorical variables.</p>
+<p>It involves calculating a number, called the chi-square statistic -
+χ2. Which follows a chi-square distribution.</p>
+<p>It is given as the summation of the difference of the expected values
+and observed value divided by the observed value.</p>
+<figure>
+<img src="https://miro.medium.com/max/266/1*S8rfFkmLhDbOz4RGNwuz6g.png"
+alt="Chi2" />
+<figcaption aria-hidden="true">Chi2</figcaption>
+</figure>
+<p>Resources:</p>
+<p><a
+href="investopedia.com/terms/c/chi-square-statistic.asp">Definitions</a></p>
+<p><a
+href="https://towardsdatascience.com/chi-square-test-for-feature-selection-in-machine-learning-206b1f0b8223">Guide
+1</a></p>
+<p><a
+href="https://medium.com/swlh/what-is-chi-square-test-how-does-it-work-3b7f22c03b01">Guide
+2</a></p>
+<p><a
+href="https://medium.com/@kuldeepnpatel/chi-square-test-of-independence-bafd14028250">Example
+of Operation</a></p>
+<h2 id="estimation">19_ Estimation</h2>
+<h2 id="confid-int-ci">20_ Confid Int (CI)</h2>
+<h2 id="mle">21_ MLE</h2>
+<h2 id="kernel-density-estimate">22_ Kernel Density estimate</h2>
+<p>In statistics, kernel density estimation (KDE) is a non-parametric
+way to estimate the probability density function of a random variable.
+Kernel density estimation is a fundamental data smoothing problem where
+inferences about the population are made, based on a finite data
+sample.</p>
+<p>Kernel Density estimate can be regarded as another way to represent
+the probability distribution.</p>
+<figure>
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kernel_density.svg/250px-Kernel_density.svg.png"
+alt="KDE1" />
+<figcaption aria-hidden="true">KDE1</figcaption>
+</figure>
+<p>It consists of choosing a kernel function. There are mostly three
+used.</p>
+<ol type="1">
+<li><p>Gaussian</p></li>
+<li><p>Box</p></li>
+<li><p>Tri</p></li>
+</ol>
+<p>The kernel function depicts the probability of finding a data point.
+So, it is highest at the centre and decreases as we move away from the
+point.</p>
+<p>We assign a kernel function over all the data points and finally
+calculate the density of the functions, to get the density estimate of
+the distibuted data points. It practically adds up the Kernel function
+values at a particular point on the axis. It is as shown below.</p>
+<figure>
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Comparison_of_1D_histogram_and_KDE.png/500px-Comparison_of_1D_histogram_and_KDE.png"
+alt="KDE 2" />
+<figcaption aria-hidden="true">KDE 2</figcaption>
+</figure>
+<p>Now, the kernel function is given by:</p>
+<figure>
+<img
+src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f3b09505158fb06033aabf9b0116c8c07a68bf31"
+alt="kde3" />
+<figcaption aria-hidden="true">kde3</figcaption>
+</figure>
+<p>where K is the kernel — a non-negative function — and h &gt; 0 is a
+smoothing parameter called the bandwidth.</p>
+<p>The ‘h’ or the bandwidth is the parameter, on which the curve
+varies.</p>
+<figure>
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Comparison_of_1D_bandwidth_selectors.png/220px-Comparison_of_1D_bandwidth_selectors.png"
+alt="kde4" />
+<figcaption aria-hidden="true">kde4</figcaption>
+</figure>
+<p>Kernel density estimate (KDE) with different bandwidths of a random
+sample of 100 points from a standard normal distribution. Grey: true
+density (standard normal). Red: KDE with h=0.05. Black: KDE with
+h=0.337. Green: KDE with h=2.</p>
+<p>Resources:</p>
+<p><a href="https://www.youtube.com/watch?v=x5zLaWT5KPs">Basics</a></p>
+<p><a
+href="https://jakevdp.github.io/PythonDataScienceHandbook/05.13-kernel-density-estimation.html">Advanced</a></p>
+<h2 id="regression">23_ Regression</h2>
+<p>Regression tasks deal with predicting the value of a
+<strong>dependent variable</strong> from a set of <strong>independent
+variables.</strong></p>
+<p>Say, we want to predict the price of a car. So, it becomes a
+dependent variable say Y, and the features like engine capacity, top
+speed, class, and company become the independent variables, which helps
+to frame the equation to obtain the price.</p>
+<p>If there is one feature say x. If the dependent variable y is
+linearly dependent on x, then it can be given by
+<strong>y=mx+c</strong>, where the m is the coefficient of the
+independent in the equation, c is the intercept or bias.</p>
+<p>The image shows the types of regression</p>
+<figure>
+<img src="https://miro.medium.com/max/2001/1*dSFn-uIYDhDfdaG5GXlB3A.png"
+alt="types" />
+<figcaption aria-hidden="true">types</figcaption>
+</figure>
+<p><a
+href="https://towardsdatascience.com/a-deep-dive-into-the-concept-of-regression-fb912d427a2e">Guide
+to Regression</a></p>
+<h2 id="covariance">24_ Covariance</h2>
+<h3 id="variance">Variance</h3>
+<p>The variance is a measure of how dispersed or spread out the set is.
+If it is said that the variance is zero, it means all the elements in
+the dataset are same. If the variance is low, it means the data are
+slightly dissimilar. If the variance is very high, it means the data in
+the dataset are largely dissimilar.</p>
+<p>Mathematically, it is a measure of how far each value in the data set
+is from the mean.</p>
+<p>Variance (sigma^2) is given by summation of the square of distances
+of each point from the mean, divided by the number of points</p>
+<figure>
+<img src="https://cdn.sciencebuddies.org/Files/474/9/DefVarEqn.jpg"
+alt="formula var" />
+<figcaption aria-hidden="true">formula var</figcaption>
+</figure>
+<h3 id="covariance-1">Covariance</h3>
+<p>Covariance gives us an idea about the degree of association between
+two considered random variables. Now, we know random variables create
+distributions. Distribution are a set of values or data points which the
+variable takes and we can easily represent as vectors in the vector
+space.</p>
+<p>For vectors covariance is defined as the dot product of two vectors.
+The value of covariance can vary from positive infinity to negative
+infinity. If the two distributions or vectors grow in the same direction
+the covariance is positive and vice versa. The Sign gives the direction
+of variation and the Magnitude gives the amount of variation.</p>
+<p>Covariance is given by:</p>
+<figure>
+<img
+src="https://cdn.corporatefinanceinstitute.com/assets/covariance1.png"
+alt="cov_form" />
+<figcaption aria-hidden="true">cov_form</figcaption>
+</figure>
+<p>where Xi and Yi denotes the i-th point of the two distributions and
+X-bar and Y-bar represent the mean values of both the distributions, and
+n represents the number of values or data points in the
+distribution.</p>
+<h2 id="correlation">25_ Correlation</h2>
+<p>Covariance measures the total relation of the variables namely both
+direction and magnitude. Correlation is a scaled measure of covariance.
+It is dimensionless and independent of scale. It just shows the strength
+of variation for both the variables.</p>
+<p>Mathematically, if we represent the distribution using vectors,
+correlation is said to be the cosine angle between the vectors. The
+value of correlation varies from +1 to -1. +1 is said to be a strong
+positive correlation and -1 is said to be a strong negative correlation.
+0 implies no correlation, or the two variables are independent of each
+other.</p>
+<p>Correlation is given by:</p>
+<figure>
+<img
+src="https://cdn.corporatefinanceinstitute.com/assets/covariance3.png"
+alt="corr" />
+<figcaption aria-hidden="true">corr</figcaption>
+</figure>
+<p>Where:</p>
+<p>ρ(X,Y) – the correlation between the variables X and Y</p>
+<p>Cov(X,Y) – the covariance between the variables X and Y</p>
+<p>σX – the standard deviation of the X-variable</p>
+<p>σY – the standard deviation of the Y-variable</p>
+<p>Standard deviation is given by square roo of variance.</p>
+<h2 id="pearson-coeff">26_ Pearson coeff</h2>
+<h2 id="causation">27_ Causation</h2>
+<h2 id="least2-fit">28_ Least2-fit</h2>
+<h2 id="euclidian-distance">29_ Euclidian Distance</h2>
+<p><strong>Eucladian Distance is the most used and standard measure for
+the distance between two points.</strong></p>
+<p>It is given as the square root of sum of squares of the difference
+between coordinates of two points.</p>
+<p><strong>The Euclidean distance between two points in Euclidean space
+is a number, the length of a line segment between the two points. It can
+be calculated from the Cartesian coordinates of the points using the
+Pythagorean theorem, and is occasionally called the Pythagorean
+distance.</strong></p>
+<p><strong>In the Euclidean plane, let point p have Cartesian
+coordinates (p_{1},p_{2}) and let point q have coordinates
+(q_{1},q_{2}). Then the distance between p and q is given
+by:</strong></p>
+<figure>
+<img
+src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9c0157084fd89f5f3d462efeedc47d3d7aa0b773"
+alt="eucladian" />
+<figcaption aria-hidden="true">eucladian</figcaption>
+</figure>

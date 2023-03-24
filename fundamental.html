@@ -1,0 +1,327 @@
+<h1 id="fundamentals">1_ Fundamentals</h1>
+<h2 id="matrices-algebra-fundamentals">1_ Matrices &amp; Algebra
+fundamentals</h2>
+<h3 id="about">About</h3>
+<p>In mathematics, a matrix is a <strong>rectangular array of numbers,
+symbols, or expressions, arranged in rows and columns</strong>. A matrix
+could be reduced as a submatrix of a matrix by deleting any collection
+of rows and/or columns.</p>
+<figure>
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Matrix.svg"
+alt="matrix-image" />
+<figcaption aria-hidden="true">matrix-image</figcaption>
+</figure>
+<h3 id="operations">Operations</h3>
+<p>There are a number of basic operations that can be applied to modify
+matrices:</p>
+<ul>
+<li><a
+href="https://en.wikipedia.org/wiki/Matrix_addition">Addition</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scalar_multiplication">Scalar
+Multiplication</a></li>
+<li><a
+href="https://en.wikipedia.org/wiki/Transpose">Transposition</a></li>
+<li><a
+href="https://en.wikipedia.org/wiki/Matrix_multiplication">Multiplication</a></li>
+</ul>
+<h3 id="book-recommendation">Book Recommendation</h3>
+<p>Linear Algebra and Its Applications, 4th Edition Edition: 4th
+Author(s): Gilbert Strang Publisher: Brooks Cole Year: 2006 Pages:
+487</p>
+<h2 id="hash-function-binary-tree-on">2_ Hash function, binary tree,
+O(n)</h2>
+<h3 id="hash-function">Hash function</h3>
+<h4 id="definition">Definition</h4>
+<p>A hash function is <strong>any function that can be used to map data
+of arbitrary size to data of fixed size</strong>. One use is a data
+structure called a hash table, widely used in computer software for
+rapid data lookup. Hash functions accelerate table or database lookup by
+detecting duplicated records in a large file.</p>
+<figure>
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/5/58/Hash_table_4_1_1_0_0_1_0_LL.svg"
+alt="hash-image" />
+<figcaption aria-hidden="true">hash-image</figcaption>
+</figure>
+<h3 id="binary-tree">Binary tree</h3>
+<h4 id="definition-1">Definition</h4>
+<p>In computer science, a binary tree is <strong>a tree data structure
+in which each node has at most two children</strong>, which are referred
+to as the left child and the right child.</p>
+<figure>
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Binary_tree.svg"
+alt="binary-tree-image" />
+<figcaption aria-hidden="true">binary-tree-image</figcaption>
+</figure>
+<h3 id="on">O(n)</h3>
+<h4 id="definition-2">Definition</h4>
+<p>In computer science, big O notation is used to <strong>classify
+algorithms according to how their running time or space requirements
+grow as the input size grows</strong>. In analytic number theory, big O
+notation is often used to <strong>express a bound on the difference
+between an arithmetical function and a better understood
+approximation</strong>.</p>
+<h2 id="relational-algebra-db-basics">3_ Relational algebra, DB
+basics</h2>
+<h3 id="definition-3">Definition</h3>
+<p>Relational algebra is a family of algebras with a
+<strong>well-founded semantics used for modelling the data stored in
+relational databases</strong>, and defining queries on it.</p>
+<p>The main application of relational algebra is providing a theoretical
+foundation for <strong>relational databases</strong>, particularly query
+languages for such databases, chief among which is SQL.</p>
+<h3 id="natural-join">Natural join</h3>
+<h4 id="about-1">About</h4>
+<p>In SQL language, a natural junction between two tables will be done
+if :</p>
+<ul>
+<li>At least one column has the same name in both tables</li>
+<li>Theses two columns have the same data type
+<ul>
+<li>CHAR (character)</li>
+<li>INT (integer)</li>
+<li>FLOAT (floating point numeric data)</li>
+<li>VARCHAR (long character chain)</li>
+</ul></li>
+</ul>
+<h4 id="mysql-request">mySQL request</h4>
+<pre><code>    SELECT &lt;COLUMNS&gt;
+    FROM &lt;TABLE_1&gt;
+    NATURAL JOIN &lt;TABLE_2&gt;
+
+    SELECT &lt;COLUMNS&gt;
+    FROM &lt;TABLE_1&gt;, &lt;TABLE_2&gt;
+    WHERE TABLE_1.ID = TABLE_2.ID</code></pre>
+<h2 id="inner-outer-cross-theta-join">4_ Inner, Outer, Cross,
+theta-join</h2>
+<h3 id="inner-join">Inner join</h3>
+<p>The INNER JOIN keyword selects records that have matching values in
+both tables.</p>
+<h4 id="request">Request</h4>
+<pre><code>  SELECT column_name(s)
+  FROM table1
+  INNER JOIN table2 ON table1.column_name = table2.column_name;</code></pre>
+<figure>
+<img src="https://www.w3schools.com/sql/img_innerjoin.gif"
+alt="inner-join-image" />
+<figcaption aria-hidden="true">inner-join-image</figcaption>
+</figure>
+<h3 id="outer-join">Outer join</h3>
+<p>The FULL OUTER JOIN keyword return all records when there is a match
+in either left (table1) or right (table2) table records.</p>
+<h4 id="request-1">Request</h4>
+<pre><code>  SELECT column_name(s)
+  FROM table1
+  FULL OUTER JOIN table2 ON table1.column_name = table2.column_name; </code></pre>
+<figure>
+<img src="https://www.w3schools.com/sql/img_fulljoin.gif"
+alt="outer-join-image" />
+<figcaption aria-hidden="true">outer-join-image</figcaption>
+</figure>
+<h3 id="left-join">Left join</h3>
+<p>The LEFT JOIN keyword returns all records from the left table
+(table1), and the matched records from the right table (table2). The
+result is NULL from the right side, if there is no match.</p>
+<h4 id="request-2">Request</h4>
+<pre><code>  SELECT column_name(s)
+  FROM table1
+  LEFT JOIN table2 ON table1.column_name = table2.column_name;</code></pre>
+<figure>
+<img src="https://www.w3schools.com/sql/img_leftjoin.gif"
+alt="left-join-image" />
+<figcaption aria-hidden="true">left-join-image</figcaption>
+</figure>
+<h3 id="right-join">Right join</h3>
+<p>The RIGHT JOIN keyword returns all records from the right table
+(table2), and the matched records from the left table (table1). The
+result is NULL from the left side, when there is no match. ####
+Request</p>
+<pre><code>  SELECT column_name(s)
+  FROM table1
+  RIGHT JOIN table2 ON table1.column_name = table2.column_name;</code></pre>
+<figure>
+<img src="https://www.w3schools.com/sql/img_rightjoin.gif"
+alt="left-join-image" />
+<figcaption aria-hidden="true">left-join-image</figcaption>
+</figure>
+<h2 id="cap-theorem">5_ CAP theorem</h2>
+<p>It is impossible for a distributed data store to simultaneously
+provide more than two out of the following three guarantees:</p>
+<ul>
+<li>Every read receives the most recent write or an error.</li>
+<li>Every request receives a (non-error) response – without guarantee
+that it contains the most recent write.</li>
+<li>The system continues to operate despite an arbitrary number of
+messages being dropped (or delayed) by the network between nodes.</li>
+</ul>
+<p>In other words, the CAP Theorem states that in the presence of a
+network partition, one has to choose between consistency and
+availability. Note that consistency as defined in the CAP Theorem is
+quite different from the consistency guaranteed in ACID database
+transactions.</p>
+<h2 id="tabular-data">6_ Tabular data</h2>
+<p>Tabular data are <strong>opposed to relational</strong> data, like
+SQL database.</p>
+<p>In tabular data, <strong>everything is arranged in columns and
+rows</strong>. Every row have the same number of column (except for
+missing value, which could be substituted by “N/A”.</p>
+<p>The <strong>first line</strong> of tabular data is most of the time a
+<strong>header</strong>, describing the content of each column.</p>
+<p>The most used format of tabular data in data science is
+<strong>CSV</strong>_. Every column is surrounded by a character (a
+tabulation, a coma ..), delimiting this column from its two
+neighbours.</p>
+<h2 id="entropy">7_ Entropy</h2>
+<p>Entropy is a <strong>measure of uncertainty</strong>. High entropy
+means the data has high variance and thus contains a lot of information
+and/or noise.</p>
+<p>For instance, <strong>a constant function where f(x) = 4 for all x
+has no entropy and is easily predictable</strong>, has little
+information, has no noise and can be succinctly represented . Similarly,
+f(x) = ~4 has some entropy while f(x) = random number is very high
+entropy due to noise.</p>
+<h2 id="data-frames-series">8_ Data frames &amp; series</h2>
+<p>A data frame is used for storing data tables. It is a list of vectors
+of equal length.</p>
+<p>A series is a series of data points ordered.</p>
+<h2 id="sharding">9_ Sharding</h2>
+<p><em>Sharding</em> is <strong>horizontal(row wise) database
+partitioning</strong> as opposed to <strong>vertical(column wise)
+partitioning</strong> which is <em>Normalization</em></p>
+<p>Why use Sharding?</p>
+<ol type="1">
+<li><p>Database systems with large data sets or high throughput
+applications can challenge the capacity of a single server.</p></li>
+<li><p>Two methods to address the growth : Vertical Scaling and
+Horizontal Scaling</p></li>
+<li><p>Vertical Scaling</p>
+<ul>
+<li>Involves increasing the capacity of a single server</li>
+<li>But due to technological and economical restrictions, a single
+machine may not be sufficient for the given workload.</li>
+</ul></li>
+<li><p>Horizontal Scaling</p>
+<ul>
+<li>Involves dividing the dataset and load over multiple servers, adding
+additional servers to increase capacity as required</li>
+<li>While the overall speed or capacity of a single machine may not be
+high, each machine handles a subset of the overall workload, potentially
+providing better efficiency than a single high-speed high-capacity
+server.</li>
+<li>Idea is to use concepts of Distributed systems to achieve scale</li>
+<li>But it comes with same tradeoffs of increased complexity that comes
+hand in hand with distributed systems.</li>
+<li>Many Database systems provide Horizontal scaling via Sharding the
+datasets.</li>
+</ul></li>
+</ol>
+<h2 id="olap">10_ OLAP</h2>
+<p>Online analytical processing, or OLAP, is an approach to answering
+multi-dimensional analytical (MDA) queries swiftly in computing.</p>
+<p>OLAP is part of the <strong>broader category of business
+intelligence</strong>, which also encompasses relational database,
+report writing and data mining. Typical applications of OLAP include
+_<strong>business reporting for sales, marketing, management reporting,
+business process management (BPM), budgeting and forecasting, financial
+reporting and similar areas, with new applications coming up, such as
+agriculture</strong>.</p>
+<p>The term OLAP was created as a slight modification of the traditional
+database term online transaction processing (OLTP).</p>
+<h2 id="multidimensional-data-model">11_ Multidimensional Data
+model</h2>
+<h2 id="etl">12_ ETL</h2>
+<ul>
+<li>Extract
+<ul>
+<li>extracting the data from the multiple heterogenous source
+system(s)</li>
+<li>data validation to confirm whether the data pulled has the
+correct/expected values in a given domain</li>
+</ul></li>
+<li>Transform
+<ul>
+<li>extracted data is fed into a pipeline which applies multiple
+functions on top of data</li>
+<li>these functions intend to convert the data into the format which is
+accepted by the end system</li>
+<li>involves cleaning the data to remove noise, anamolies and redudant
+data</li>
+</ul></li>
+<li>Load
+<ul>
+<li>loads the transformed data into the end target</li>
+</ul></li>
+</ul>
+<h2 id="reporting-vs-bi-vs-analytics">13_ Reporting vs BI vs
+Analytics</h2>
+<h2 id="json-and-xml">14_ JSON and XML</h2>
+<h3 id="json">JSON</h3>
+<p>JSON is a language-independent data format. Example describing a
+person:</p>
+<pre><code>{
+  &quot;firstName&quot;: &quot;John&quot;,
+  &quot;lastName&quot;: &quot;Smith&quot;,
+  &quot;isAlive&quot;: true,
+  &quot;age&quot;: 25,
+  &quot;address&quot;: {
+    &quot;streetAddress&quot;: &quot;21 2nd Street&quot;,
+    &quot;city&quot;: &quot;New York&quot;,
+    &quot;state&quot;: &quot;NY&quot;,
+    &quot;postalCode&quot;: &quot;10021-3100&quot;
+  },
+  &quot;phoneNumbers&quot;: [
+    {
+      &quot;type&quot;: &quot;home&quot;,
+      &quot;number&quot;: &quot;212 555-1234&quot;
+    },
+    {
+      &quot;type&quot;: &quot;office&quot;,
+      &quot;number&quot;: &quot;646 555-4567&quot;
+    },
+    {
+      &quot;type&quot;: &quot;mobile&quot;,
+      &quot;number&quot;: &quot;123 456-7890&quot;
+    }
+  ],
+  &quot;children&quot;: [],
+  &quot;spouse&quot;: null
+}</code></pre>
+<h2 id="xml">XML</h2>
+<p>Extensible Markup Language (XML) is a markup language that defines a
+set of rules for encoding documents in a format that is both
+human-readable and machine-readable.</p>
+<p><CATALOG> <PLANT> <COMMON>Bloodroot</COMMON> <BOTANICAL>Sanguinaria
+canadensis</BOTANICAL> <ZONE>4</ZONE> <LIGHT>Mostly Shady</LIGHT>
+<PRICE>$2.44</PRICE> <AVAILABILITY>031599</AVAILABILITY> </PLANT>
+<PLANT> <COMMON>Columbine</COMMON> <BOTANICAL>Aquilegia
+canadensis</BOTANICAL> <ZONE>3</ZONE> <LIGHT>Mostly Shady</LIGHT>
+<PRICE>$9.37</PRICE> <AVAILABILITY>030699</AVAILABILITY> </PLANT>
+<PLANT> <COMMON>Marsh Marigold</COMMON> <BOTANICAL>Caltha
+palustris</BOTANICAL> <ZONE>4</ZONE> <LIGHT>Mostly Sunny</LIGHT>
+<PRICE>$6.81</PRICE> <AVAILABILITY>051799</AVAILABILITY> </PLANT>
+</CATALOG></p>
+<h2 id="nosql">15_ NoSQL</h2>
+<p>noSQL is oppsed to relationnal databases (stand for __N__ot __O__nly
+<strong>SQL</strong>). Data are not structured and there’s no notion of
+keys between tables.</p>
+<p>Any kind of data can be stored in a noSQL database (JSON, CSV, …)
+whithout thinking about a complex relationnal scheme.</p>
+<p><strong>Commonly used noSQL stacks</strong>: Cassandra, MongoDB,
+Redis, Oracle noSQL …</p>
+<h2 id="regex">16_ Regex</h2>
+<h3 id="about-2">About</h3>
+<p><strong>Reg</strong> ular <strong>ex</strong> pressions
+(<strong>regex</strong>) are commonly used in informatics.</p>
+<p>It can be used in a wide range of possibilities : * Text replacing *
+Extract information in a text (email, phone number, etc) * List files
+with the .txt extension ..</p>
+<p>http://regexr.com/ is a good website for experimenting on Regex.</p>
+<h3 id="utilisation">Utilisation</h3>
+<p>To use them in <a
+href="https://docs.python.org/3/library/re.html">Python</a>, just
+import:</p>
+<pre><code>import re</code></pre>
+<h2 id="vendor-landscape">17_ Vendor landscape</h2>
+<h2 id="env-setup">18_ Env Setup</h2>
