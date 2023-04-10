@@ -357,6 +357,11 @@ tr_df_21 = df_21[(df_21['Country'] == 'Turkey') &
   tr_df_21 = df_21[(df_21['Country'] == 'Turkey') &
                                     df_21['DevType'].str.contains('Data scientist or machine learning specialist')]
 
+  #When analyzing the programming languages and collaboration tools used by data scientists in Turkey,
+  #we need complete and accurate data in order to make meaningful conclusions.
+  #Therefore, we dropped rows with missing values in the 'LanguageHaveWorkedWith' and 'NEWCollabToolsHaveWorkedWith' columns.
+  #This ensures that the analysis is based on complete and accurate data, and that the resulting insights are reliable.
+
   subset = ['LanguageHaveWorkedWith', 'NEWCollabToolsHaveWorkedWith']
   tr_df_22 = tr_df_22.dropna(subset=subset)
   tr_df_21 = tr_df_21.dropna(subset=subset)
@@ -414,6 +419,8 @@ tr_df_21 = df_21[(df_21['Country'] == 'Turkey') &
               	<h2>How does company size affect the salary of Turkish developers in 2022?</h2>
               	<p> Before proceeding with the analysis, we will consider Turkish developers instead of data scientists due to the limited availability of data. The survey results indicate that the company size with the highest mean salary is 500-999 employees. However, the standard deviation for this category is also the highest among all the categories. This indicates that there is a higher degree of variability in salaries within this category, which may not be desirable for some individuals.</p>
               	<img src="Salary.png" alt="Mean Salary by Company Size">
+
+                <img src="descriptive.png" alt="Mean Salary by Company Size">
                 <style>
                   #code-section-7 {
                     display: none;
@@ -422,9 +429,6 @@ tr_df_21 = df_21[(df_21['Country'] == 'Turkey') &
                 <button onclick="toggleCode('code-section-7')">Show/Hide Code</button>
                 <pre id="code-section-7">
 <code>
-  # Reading the csv file into a DataFrame
-  df_2022 = pd.read_csv("C:/Udacity/Blogspot/2022/survey_results_public.csv")
-
   # Filtering the data for only Turkish developers who are employed full-time and using TRY (Turkish Lira) as their currency
   turkey_programming_2022 = df_2022[(df_2022['Country'] == 'Turkey') &
                                     (df_2022['MainBranch'] == 'I am a developer by profession') &
@@ -435,6 +439,7 @@ tr_df_21 = df_21[(df_21['Country'] == 'Turkey') &
   turkey_programming_2022 = turkey_programming_2022[turkey_programming_2022['OrgSize']
                                                     != 'Just me - I am a freelancer, sole proprietor, etc.']
 
+  # Removing the rows with missing values in the 'CompTotal' column since we cannot calculate the salary without this information.
   # Dropping the rows with missing values in 'CompTotal' column
   turkey_programming_2022 = turkey_programming_2022.dropna(subset=['CompTotal'])
 
@@ -465,66 +470,45 @@ tr_df_21 = df_21[(df_21['Country'] == 'Turkey') &
   # Calculate the descriptive statistics for the salary data
   salary_data = []
   salary_data_2 = []
+  mean_list = []
+  median_list = []
+  std_list = []
+
   for size in org_size_categories:
-      salary_data.append(turkey_programming_2022[turkey_programming_2022['OrgSize'] == size]['ConvertedCompYearly'])
-      salary_data_2.append(turkey_programming_2022[turkey_programming_2022['OrgSize'] == size]['CompTotal'])
-
+      data = turkey_programming_2022[turkey_programming_2022['OrgSize'] == size]['ConvertedCompYearly']
+      data_2 = turkey_programming_2022[turkey_programming_2022['OrgSize'] == size]['CompTotal']
+      salary_data.append(data)
+      salary_data_2.append(data_2)
+      mean_list.append(round(data.mean(), 2))
+      median_list.append(round(data.median()))
+      std_list.append(round(data.std(), 2))
       # Increase the size of the plot
-      plt.figure(figsize=(10,6))
+    plt.figure(figsize=(10,6))
 
-      plt.rcParams['xtick.labelsize'] = 12
+    plt.rcParams['xtick.labelsize'] = 12
 
-      # Creating a box plot to visualize the distribution of the salary data for each category of organization size
-      sns.boxplot(x='OrgSize', y='ConvertedCompYearly', data=turkey_programming_2022, order=org_size_categories)
-      plt.xlabel('Organization Size')
-      plt.ylabel('Salary (TRY)')
-      plt.title('Distribution of Salary by Organization Size')
-      plt.xticks(rotation=45) # Rotate x-axis labels for better readability
-      plt.show()
-</code>
-                                </pre>
-                                <script>
-                                function toggleCode(id) {
-                                    var codeSection = document.getElementById(id);
-                                    if (codeSection.style.display === "none") {
-                                        codeSection.style.display = "block";
-                                    } else {
-                                        codeSection.style.display = "none";
-                                    }
-                                }
-                                </script>
-                <img src="descriptive.png" alt="Mean Salary by Company Size">
-                <style>
-                  #code-section-8 {
-                    display: none;
-                  }
-                </style>
-                <button onclick="toggleCode('code-section-8')">Show/Hide Code</button>
-                <pre id="code-section-8">
-<code>
-  # Create a dataframe from the provided data
-  df = pd.DataFrame({
-      'Organization Size': ['2 to 9 employees', '10 to 19 employees', '20 to 99 employees',
-                            '100 to 499 employees', '500 to 999 employees', '1,000 to 4,999 employees',
-                            '5,000 to 9,999 employees', '10,000 or more employees'],
-      'Mean Salary': [15180.92, 17637.45, 18520.56, 24769.08, 27124.19, 23809.12, 16919.07, 18990.95],
-      'Median Salary': [11280, 15036, 13908, 18792, 20664, 20670, 13524, 16764],
-      'Standard Deviation': [12573.04, 9656.75, 13541.3, 16127.99, 19797.73, 18792.49, 9384.47, 6438.63],
-      'Minimum Salary': [8000, 7500, 7800, 7500, 10000, 8500, 9500, 7500]
-  })
+    # Creating a box plot to visualize the distribution of the salary data for each category of organization size
+    sns.boxplot(x='OrgSize', y='ConvertedCompYearly', data=turkey_programming_2022, order=org_size_categories)
+    plt.xlabel('Organization Size')
+    plt.ylabel('Salary (TRY)')
+    plt.title('Distribution of Salary by Organization Size')
+    plt.xticks(rotation=45) # Rotate x-axis labels for better readability
+    plt.show()
+    # Create a DataFrame with the mean, median, and standard deviation for each organization size category
+    df = pd.DataFrame({'Organization Size': org_size_categories, 'Mean Salary': mean_list, 'Median Salary': median_list, 'Std Deviation': std_list})
 
-  # Print the dataframe
-  print(df)
+    # Print the dataframe
+    print(df)
 
-  # Find the organization size with the highest mean salary
-  max_mean_salary = df['Mean Salary'].max()
-  max_mean_salary_size = df.loc[df['Mean Salary'] == max_mean_salary, 'Organization Size'].iloc[0]
-  print('Organization size with the highest mean salary:', max_mean_salary_size)
+    # Find the organization size with the highest mean salary
+    max_mean_salary = df['Mean Salary'].max()
+    max_mean_salary_size = df.loc[df['Mean Salary'] == max_mean_salary, 'Organization Size'].iloc[0]
+    print('Organization size with the highest mean salary:', max_mean_salary_size)
 
-  # Find the organization size with the lowest standard deviation
-  min_std_dev = df['Standard Deviation'].min()
-  min_std_dev_size = df.loc[df['Standard Deviation'] == min_std_dev, 'Organization Size'].iloc[0]
-  print('Organization size with the lowest standard deviation:', min_std_dev_size)
+    # Find the organization size with the lowest standard deviation
+    min_std_dev = df['Std Deviation'].min()
+    min_std_dev_size = df.loc[df['Std Deviation'] == min_std_dev, 'Organization Size'].iloc[0]
+    print('Organization size with the lowest standard deviation:', min_std_dev_size)
 </code>
                                 </pre>
                                 <script>
@@ -539,7 +523,8 @@ tr_df_21 = df_21[(df_21['Country'] == 'Turkey') &
                                 </script>
               	<h2>What is the ideal company size for Turkish developers in terms of salary?</h2>
               	<p>Upon closer examination, we can see that the organization size category with the second-highest mean salary (100 to 499 employees) has a coefficient of variation of 0.65, which is lower than some of the other categories with higher means. This indicates that there may be less variation in salaries within this category, making it a more attractive option for those seeking a fair and consistent salary. Therefore, the best company size for job seekers seeking good salary may be in the range of 100-499 employees.</p>
-              	<img src="salaryfinal.png" alt="Coefficient of Variation by Company Size">
+                <img src="coef.png" alt="Coefficient of Variation by Company Size Chart">
+              	<img src="salaryfinal.png" alt="Coefficient of Variation by Company Size Results">
                 <style>
                   #code-section-9 {
                     display: none;
@@ -548,9 +533,6 @@ tr_df_21 = df_21[(df_21['Country'] == 'Turkey') &
                 <button onclick="toggleCode('code-section-9')">Show/Hide Code</button>
                 <pre id="code-section-9">
 <code>
-  import pandas as pd
-  import statistics
-
   # Create a pandas DataFrame with the data
   data = {'Organization Size': ['2 to 9 employees', '10 to 19 employees', '20 to 99 employees', '100 to 499 employees', '500 to 999 employees', '1,000 to 4,999 employees', '5,000 to 9,999 employees', '10,000 or more employees'],
           'Mean Salary': [15181, 17637, 18521, 24769, 27124, 23809, 16919, 18991]}
@@ -563,6 +545,50 @@ tr_df_21 = df_21[(df_21['Country'] == 'Turkey') &
       stdev = [12573.04, 9656.75, 13541.3, 16127.99, 19797.73, 18792.49, 9384.47, 6438.63][i]
       cv = stdev / mean
       print(f'Organization Size: {org_size}\nMean: {mean}\nCoefficient of Variation: {cv:.2f}\n')
+      import pandas as pd
+      import matplotlib.pyplot as plt
+
+      # Create a pandas DataFrame with the data
+      data = {'Organization Size': ['2 to 9 employees', '10 to 19 employees', '20 to 99 employees', '100 to 499 employees', '500 to 999 employees', '1,000 to 4,999 employees', '5,000 to 9,999 employees', '10,000 or more employees'],
+              'Mean Salary': [15181, 17637, 18521, 24769, 27124, 23809, 16919, 18991],
+              'Coefficient of Variation': [12573.04/15181, 9656.75/17637, 13541.3/18521, 16127.99/24769, 19797.73/27124, 18792.49/23809, 9384.47/16919, 6438.63/18991]}
+      df = pd.DataFrame(data)
+
+      # Create a grouped bar chart showing the mean and coefficient of variation for each organization size category
+      fig, ax1 = plt.subplots(figsize=(15, 6))
+
+      bar_width = 0.35
+      r1 = range(len(df))
+      r2 = [x + bar_width for x in r1]
+
+      # Plot the mean salary on the primary y-axis
+      ax1.bar(r1, df['Mean Salary'], color='blue', width=bar_width, edgecolor='white', label='Mean Salary')
+      ax1.set_xlabel('Organization Size', fontsize=14)
+      ax1.set_ylabel('Salary (in Turkish Lira)', fontsize=14)
+      ax1.set_xticks([r + bar_width / 2 for r in range(len(df))])
+      ax1.set_xticklabels(df['Organization Size'], rotation=90, fontsize=12)
+
+      # Create a secondary y-axis for the coefficient of variation
+      ax2 = ax1.twinx()
+      ax2.bar(r2, df['Coefficient of Variation'], color='red', width=bar_width, edgecolor='white', label='Coefficient of Variation')
+      ax2.set_ylabel('Coefficient of Variation', fontsize=14)
+
+      # Set chart title
+      plt.title('Mean Salary and Coefficient of Variation by Organization Size', fontsize=16)
+
+      # Place both legends inside the chart and at the right side
+      ax1.legend(loc='upper left', bbox_to_anchor=(0.85, 1), fontsize=12)
+      ax2.legend(loc='upper left', bbox_to_anchor=(0.774, 0.93), fontsize=12)
+
+      plt.show()
+      # Calculate the coefficient of variation for each category
+for i in range(len(df)):
+    org_size = df.loc[i, 'Organization Size']
+    mean = df.loc[i, 'Mean Salary']
+    stdev = [12573.04, 9656.75, 13541.3, 16127.99, 19797.73, 18792.49, 9384.47, 6438.63][i]
+    cv = stdev / mean
+    print(f'Organization Size: {org_size}\nMean: {mean}\nCoefficient of Variation: {cv:.2f}\n')
+
 </code>
                                 </pre>
                                 <script>
