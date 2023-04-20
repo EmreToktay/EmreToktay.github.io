@@ -88,7 +88,7 @@
                 </body>
                 <p>In this project, we have developed a dog breed classifier using Convolutional Neural Networks (CNN) that can accurately identify a dog's breed from its image. This classifier can be useful for potential pet owners looking to learn more about the breed of a dog they wish to adopt or for those who simply want to understand the breed-specific characteristics of their furry friends.
               </p>
-              <h1>Overview</h1>
+              <h1><b>Overview</b></h1>
           <p>The dog breed classifier project aims to accurately identify dog breeds from images using Convolutional Neural Networks (CNNs). The classifier is capable of predicting the breed of a dog with high accuracy and can also differentiate between human and dog images. If a human image is provided, the model suggests the most resembling dog breed.</p>
           <p>The project involves several steps, including: </p>
           <p> <b>1.  Data preparation </b>: Collection and preprocessing of a large dataset containing images of various dog breeds, along with human face images. The dataset is split into training, validation, and test sets. </p>
@@ -103,7 +103,7 @@
 
           <p> <b> 6. Application </b>: Implementation of the dog breed classifier as a user-friendly application that accepts input images and returns the predicted dog breed or the most resembling dog breed for human images.   </p>
           <p>The following code implements a dog breed classifier algorithm that can classify a given image into one of the 133 different dog breeds. The algorithm consists of several steps that we will describe below.</p>
-          <h1>Import Datasets
+          <h1><b>Import Datasets</b>
           </h1>
           <p>We start by importing the necessary libraries and datasets. The algorithm uses two datasets: </p>
 
@@ -119,14 +119,14 @@
           <img src="dogface.png">
 
           <p> The input data is loaded and preprocessed using various Python libraries such as sklearn, Keras, NumPy, and OpenCV. The code snippets provided demonstrate the process of loading the datasets, shuffling the human face images, detecting faces in the images, and calculating the percentage of detected faces in both sets.</p>
-          <h1>Detect Humans
+          <h1><b>Detect Humans</b>
           </h1>
           <p>The first step in the algorithm is to check if the input image contains a human face. To do this, we use the cv2.CascadeClassifier class and the detectMultiScale method to detect human faces in the image. If a human face is detected, we continue to the next step. Otherwise, we return an error message.
           </p>
-          <h1>Detect Dogs
+          <h1><b>Detect Dogs</b>
           </h1>
           <p>The second step in the algorithm is to check if the input image contains a dog. To do this, we use a pre-trained ResNet-50 model from the torchvision library. The model is trained on the ImageNet dataset, which includes a large number of dog images. We use the pre-trained model to predict the most likely dog breed for the input image. If a dog is detected, we continue to the next step. Otherwise, we return an error message.</p>
-          <h1>Create a CNN to Classify Dog Breeds (from Scratch)
+          <h1><b>Create a CNN to Classify Dog Breeds (from Scratch)</b>
           </h1>
           <p>The third step in the algorithm is to create a Convolutional Neural Network (CNN) from scratch to classify dog breeds. We use the Keras library in Python to create the model. The model consists of several convolutional layers followed by max pooling layers and fully connected layers. The architecture is as follows:</p>
           <p>  1. Convolutional layer with 32 filters of size 3x3, using a stride of 1, same padding, and ReLU activation.</p>
@@ -148,26 +148,26 @@
           <p>After defining the model architecture, we train the model on the dog breed dataset. To evaluate the model, we calculate the test accuracy using the following code:</p>
           <p><b>First Test Results</b>: <img src="testresult.png"> </p>
           <p>In the subsequent sections of the article, we will delve into the improvements made to the model, providing a thorough explanation of the rationale behind each modification and discussing the resulting impact on the model's performance. Keep in mind that the initial test accuracy was 14.9522%. By implementing these enhancements, we aim to achieve a higher accuracy, thus making the model more effective at classifying dog breeds.</p>
-          <h1>Use a CNN to Classify Dog Breeds (using Transfer Learning)
+          <h1><b>Use a CNN to Classify Dog Breeds (using Transfer Learning)</b>
           </h1>
           <p>"The fourth step in the algorithm is to use transfer learning with a pre-trained CNN to classify dog breeds. We employ the VGG-16 model from the torchvision library, which is pre-trained on the ImageNet dataset. We extract the bottleneck features from the VGG-16 model and replace the last fully connected layer with a new one that outputs 133 classes, one for each dog breed. By fine-tuning the model on the dog breed dataset, we aim to achieve better performance. The test accuracy obtained after implementing transfer learning with the VGG-16 model is 41.5072%. To further enhance the model, we will explore the use of other pre-trained models and their bottleneck features, as well as discuss the model architecture in more detail.</p>
           <p><b>Second Test Results</b>: <img src="testresult2.png"> </p>
-          <h1>Create a CNN to Classify Dog Breeds with Transfer Learning
+          <h1><b>Create a CNN to Classify Dog Breeds with Transfer Learning</b>
           </h1>
           <p>In the fifth step of the algorithm, we implement a CNN to classify dog breeds using transfer learning. We utilize the VGG-16 model, similar to what we did in step 4. However, this time we freeze all the convolutional layers and only train the last fully connected layer. By doing this, we can train the model more efficiently and with fewer computational resources.</p>
           <p>After training the model, we evaluate the test accuracy using the following code:</p>
           <p><b>Third Test Results</b>: <img src="testresult3.png"> </p>
           <p>The test accuracy achieved with the ResNet-50 model is 81.2201%.</p>
-          <h1>Write your Algorithm
+          <h1><b>Write your Algorithm</b>
           </h1>
           <p>The sixth step in the algorithm is to write the main algorithm that combines all the previous steps. The algorithm takes an input image, first checks if it contains a human face, then checks if it contains a dog, and finally classifies the dog breed using the best performing CNN model from steps 3 to 5.</p>
           <img src="final.png">
-          <h1>Test Your Algorithm
+          <h1><b>Test Your Algorithm</b>
           </h1>
           <p>The last step in the algorithm is to test the accuracy of the classifier on a set of test images.</p>
           <img src="labrador.png">
           <img src="brittany.png">
-          <h1>Improvements
+          <h1><b>Improvements</b>
           </h1>
           <p>As for possible improvements, there are a few areas of the project that could be further developed. For instance, fine-tuning and data augmentation could be explored to potentially improve the accuracy of the model. Additionally, while the project is focused on predicting dog breeds, it could be beneficial to expand the scope to include mixed breed dogs as well. Mixed breed dogs can be more difficult to identify, but it could be helpful for owners and dogs to know their breed composition.</p>
 
