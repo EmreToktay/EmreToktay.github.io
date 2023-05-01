@@ -116,7 +116,7 @@
 
           <p> <b>3. Dog detection using ResNet50</b>: The code uses the pre-trained ResNet50 model to detect dogs in the images. The dog_detector function takes an image path as input and returns True if the model predicts the image to be a dog, and False otherwise. It then calculates the percentage of dogs detected in human and dog images.</p>
 
-          <p> <b>4. CNN model from scratch</b>:The code defines a CNN model from scratch, compiles it, and trains it using the training set. The model is then evaluated on the test set to obtain the test accuracy.</p>
+          <p> <b>4. Convolutional Neural Networks model </b>:The code defines a CNN model , compiles it, and trains it using the training set. The model is then evaluated on the test set to obtain the test accuracy.</p>
 
           <p> <b>5. Transfer learning with VGG16</b>: The code loads the bottleneck features obtained from the VGG16 model and creates a new model by adding a global average pooling layer followed by a dense layer with 133 output nodes (corresponding to the dog breeds). The model is compiled, trained, and evaluated on the test set to obtain the test accuracy.</p>
 
@@ -124,31 +124,31 @@
 
           <p> <b> 7. Dog breed prediction </b>: The code defines a dog_breed function that takes an image path as input and returns the top three predicted dog breeds along with their probabilities. The dog_breed_detector function displays the input image and provides dog breed predictions for both human and dog images.</p>
 
-          <p>The code demonstrates the process of building a dog breed classifier using deep learning techniques, including face detection, transfer learning with pre-trained models (ResNet50 and VGG16), and creating a CNN from scratch. The final part of the code predicts the dog breed for a given image, whether it contains a dog or a human face.</p>
+          <p>The code demonstrates the process of building a dog breed classifier using deep learning techniques, including face detection, transfer learning with pre-trained models (ResNet50 and VGG16), and creating a CNN. The final part of the code predicts the dog breed for a given image, whether it contains a dog or a human face.</p>
 
           <h1><b>Strategy for solving the problem</b>
           </h1>
-          <p>In this project, our goal is to build a model that can accurately classify dog breeds based on images. To tackle this problem, we employ three different strategies: creating a CNN from scratch, using transfer learning with VGG16, and using transfer learning with ResNet50.</p>
-          <p> <b>1.  Convolutional Neural Network (CNN) from scratch </b>: In this approach, we design a custom CNN architecture tailored to our specific problem. We create convolutional and pooling layers to extract features from the images, followed by fully connected layers to make predictions. Although this approach allows for more control over the architecture, it requires a significant amount of data and computational resources to achieve satisfactory results, as the model needs to learn everything from scratch. </p>
+          <p>In this project, our goal is to build a model that can accurately classify dog breeds based on images. To tackle this problem, we employ three different strategies: creating a CNN, using transfer learning with VGG16, and using transfer learning with ResNet50.</p>
+          <p> <b>1.  Convolutional Neural Network (CNN)  </b>: In this approach, we design a custom CNN architecture tailored to our specific problem. We create convolutional and pooling layers to extract features from the images, followed by fully connected layers to make predictions. Although this approach allows for more control over the architecture, it requires a significant amount of data and computational resources to achieve satisfactory results, as the model needs to learn everything . </p>
 
-          <p> <b>2. Transfer Learning with VGG16</b>:  Instead of building a CNN from scratch, we can leverage pre-trained models like VGG16 that have already learned general features from a large dataset (e.g., ImageNet). We replace the original fully connected layers with new ones, specifically designed for our dog breed classification task. By freezing the weights of the convolutional layers, we can fine-tune the model using less computational resources and time compared to training the whole network. The VGG16 model is known for its simplicity and strong performance on image classification tasks.</p>
+          <p> <b>2. Transfer Learning with VGG16</b>:  Instead of building a CNN , we can leverage pre-trained models like VGG16 that have already learned general features from a large dataset (e.g., ImageNet). We replace the original fully connected layers with new ones, specifically designed for our dog breed classification task. By freezing the weights of the convolutional layers, we can fine-tune the model using less computational resources and time compared to training the whole network. The VGG16 model is known for its simplicity and strong performance on image classification tasks.</p>
 
           <p> <b>3. Transfer Learning with ResNet50</b>: Similar to the VGG16 approach, we use another pre-trained model, ResNet50, for transfer learning. ResNet50 is a more complex and deeper architecture, which leverages residual connections to facilitate the training of deeper networks. It is known for its excellent performance on a wide range of image classification tasks. We follow the same process as with VGG16, replacing the original fully connected layers and training only the new layers for our dog breed classification problem.</p>
-          <p> By comparing the performance, training time, and the number of parameters for each strategy, we can choose the most suitable approach for our problem. Transfer learning techniques, like VGG16 and ResNet50, often lead to better results and require less training time than building a CNN from scratch. However, it's essential to consider the trade-offs between computational resources, training time, and model complexity when selecting the best strategy for solving the problem.</p>
+          <p> By comparing the performance, training time, and the number of parameters for each strategy, we can choose the most suitable approach for our problem. Transfer learning techniques, like VGG16 and ResNet50, often lead to better results and require less training time than building a CNN. However, it's essential to consider the trade-offs between computational resources, training time, and model complexity when selecting the best strategy for solving the problem.</p>
 
           <h1><b>Metrics With Justification</b>
           </h1>
-          <p>n this project, we use accuracy as the primary metric to evaluate and compare the performance of our models. Accuracy is defined as the proportion of correctly classified images out of the total number of images in the dataset. It is a simple and intuitive metric that is widely used in classification problems. The formula for accuracy is:</p>
+          <p>In this project, we use accuracy as the primary metric to evaluate and compare the performance of our models. Accuracy is defined as the proportion of correctly classified images out of the total number of images in the dataset. It is a simple and intuitive metric that is widely used in classification problems. The formula for accuracy is:</p>
           <p> <b>Accuracy = (Number of correct predictions) / (Total number of predictions)</b></p>
           <p>Justification for using accuracy as the metric:</p>
           <p> <b>1. Balanced Dataset </b>: In our dataset, we have 133 different dog breeds, and the images are relatively evenly distributed among these breeds. This balance allows us to use accuracy as a reliable metric, as it is less likely to be biased towards a particular class.</p>
 
-          <p> <b>2. Easy Interpretability</b>: ccuracy is a straightforward metric to understand and interpret, making it easy to communicate the performance of the model to non-technical stakeholders..</p>
+          <p> <b>2. Easy Interpretability</b>: Accuracy is a straightforward metric to understand and interpret, making it easy to communicate the performance of the model to non-technical stakeholders..</p>
 
           <p> <b>3. Comparability</b>: As accuracy is a commonly used metric in classification tasks, it allows us to compare the performance of our model with other models or benchmarks in the domain.</p>
 
           <p> <b>4. Suitable for Multiclass Problems</b>:  Accuracy is a suitable metric for multiclass classification problems like dog breed classification, as it provides a single value that summarizes the overall performance of the model across all classes.</p>
-          <p> By comparing the performance, training time, and the number of parameters for each strategy, we can choose the most suitable approach for our problem. Transfer learning techniques, like VGG16 and ResNet50, often lead to better results and require less training time than building a CNN from scratch. However, it's essential to consider the trade-offs between computational resources, training time, and model complexity when selecting the best strategy for solving the problem.</p>
+          <p> By comparing the performance, training time, and the number of parameters for each strategy, we can choose the most suitable approach for our problem. Transfer learning techniques, like VGG16 and ResNet50, often lead to better results and require less training time than building a CNN. However, it's essential to consider the trade-offs between computational resources, training time, and model complexity when selecting the best strategy for solving the problem.</p>
           <p>It is important to note that accuracy may not always be the best metric for every classification problem. For imbalanced datasets, other metrics like precision, recall, F1-score, or the area under the receiver operating characteristic (ROC) curve might be more appropriate. However, given the nature of our problem and the balanced dataset, accuracy serves as a suitable metric for evaluating the performance of our dog breed classification models.</p>
           <h1><b>Import Datasets</b>
           </h1>
@@ -207,12 +207,12 @@
             <img src="Resnet.png">
             <p style="font-size: 18px; font-weight: bold; margin-top: 10px; color: blue;"> ResNet50 Model Architecture </p>
           </div>
-          <h1><b>Create a CNN to Classify Dog Breeds (from Scratch)</b>
+          <h1><b>Create a Convolutional Neural Networks to Classify Dog Breeds</b>
           </h1>
-          <p>The third step in the algorithm is to create a <a href="https://keras.io/guides/sequential_model/">Convolutional Neural Network (CNN)</a> from scratch to classify dog breeds. We use the Keras library in Python to create the model. The model consists of several convolutional layers followed by max pooling layers and fully connected layers. For display i used GitHub Gist and <a href=https://dgschwend.github.io/netscope/quickstart.html>David Gschwend Netscope CNN Analyzer</a>. Please check this link: <a href="https://dgschwend.github.io/netscope/#/gist/6f2aab72546a563893c187cfb37620e4">Detailed CNN Diagram (CNN)</a> and architecture is as follows:</p>
+          <p>The third step in the algorithm is to create a <a href="https://keras.io/guides/sequential_model/">Convolutional Neural Network (CNN)</a> to classify dog breeds. We use the Keras library in Python to create the model. The model consists of several convolutional layers followed by max pooling layers and fully connected layers. For display i used GitHub Gist and <a href=https://dgschwend.github.io/netscope/quickstart.html>David Gschwend Netscope CNN Analyzer</a>. Please check this link: <a href="https://dgschwend.github.io/netscope/#/gist/6f2aab72546a563893c187cfb37620e4">Detailed Convolutional Neural Networks Diagram (CNN)</a> and architecture is as follows:</p>
           <div style="text-align: center;">
             <img src="CNN.png">
-            <p style="font-size: 18px; font-weight: bold; margin-top: 10px; color: blue;"> <a href="https://dgschwend.github.io/netscope/#/gist/6f2aab72546a563893c187cfb37620e4">Detailed CNN Diagram (CNN)</a></p>
+            <p style="font-size: 18px; font-weight: bold; margin-top: 10px; color: blue;"> <a href="https://dgschwend.github.io/netscope/#/gist/6f2aab72546a563893c187cfb37620e4">Detailed Convolutional Neural Networks Diagram (CNN)</a></p>
           </div>
           <p>  1. Convolutional layer with 32 filters of size 3x3, using a stride of 1, same padding, and ReLU activation.</p>
           <p>  2. Max pooling layer with a 2x2 window and stride of 2.</p>
@@ -228,14 +228,14 @@
           <p>  12. Batch normalization layer to normalize the features.</p>
           <p>  13. Fully connected layer with 133 units (number of dog breeds) and softmax activation.</p>
           <img src="strach.png" id="image5" style="display:none;">
-          <button onclick="toggleImage('image5')">Show/Hide Scratch Code</button>
+          <button onclick="toggleImage('image5')">Show/Hide CNN Code</button>
           <img src="scratchresults.png" id="image8" style="display:none;">
-          <button onclick="toggleImage('image8')">Show/Hide Scratch Results</button>
+          <button onclick="toggleImage('image8')">Show/Hide CNN Results</button>
 
           <p>After defining the model architecture, we train the model on the dog breed dataset. To evaluate the model, we calculate the test accuracy using the following code:</p>
           <p><b>First Test Results</b>: <img src="testresult.png"> </p>
           <p>In the subsequent sections of the article, we will delve into the improvements made to the model, providing a thorough explanation of the rationale behind each modification and discussing the resulting impact on the model's performance. Keep in mind that the initial test accuracy was 25.2392%. By implementing these enhancements, we aim to achieve a higher accuracy, thus making the model more effective at classifying dog breeds.</p>
-          <h1><b>Use a CNN to Classify Dog Breeds (using Transfer Learning)</b>
+          <h1><b>Use a Convolutional Neural Networks to Classify Dog Breeds (using Transfer Learning)</b>
           </h1>
           <p>The fourth step in the algorithm is to use <a href="https://cs231n.github.io/transfer-learning/">transfer learning</a> with a pre-trained CNN to classify dog breeds. We employ the <a href="https://neurohive.io/en/popular-networks/vgg16/">VGG-16 model</a>  from the torchvision library, which is pre-trained on the ImageNet dataset. We extract the bottleneck features from the VGG-16 model and replace the last fully connected layer with a new one that outputs 133 classes, one for each dog breed. By fine-tuning the model on the dog breed dataset, we aim to achieve better performance. The test accuracy obtained after implementing transfer learning with the VGG-16 model is 41.0278%. To further enhance the model, we will explore the use of other pre-trained models and their bottleneck features, as well as discuss the model architecture in more detail.</p>
           <div style="text-align: center;">
@@ -270,7 +270,7 @@
           <body>
 
           <h2><b>Comparison Table</b></h2>
-          <p>This comparison table presents the performance of three different models: a custom CNN built from scratch, and two transfer learning models using VGG16 and ResNet50. The table highlights the number of parameters, epoch count, training time, and accuracy for each model. It is evident that the transfer learning models, particularly ResNet50, achieve significantly higher accuracy compared to the custom CNN, while requiring fewer parameters and less training time. This demonstrates the effectiveness of transfer learning in achieving better results with a more efficient use of computational resources.</p>
+          <p>This comparison table presents the performance of three different models: a custom CNN built, and two transfer learning models using VGG16 and ResNet50. The table highlights the number of parameters, epoch count, training time, and accuracy for each model. It is evident that the transfer learning models, particularly ResNet50, achieve significantly higher accuracy compared to the custom CNN, while requiring fewer parameters and less training time. This demonstrates the effectiveness of transfer learning in achieving better results with a more efficient use of computational resources.</p>
           <table>
             <tr>
               <th>Model</th>
@@ -280,7 +280,7 @@
               <th>Accuracy</th>
             </tr>
             <tr>
-              <th>CNN from scratch</th>
+              <th>Convolutional Neural Networks</th>
               <td>1013701</td>
               <td>15</td>
               <td>974.45</td>
