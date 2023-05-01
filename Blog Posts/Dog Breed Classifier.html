@@ -136,7 +136,7 @@
           <p> <b>3. Transfer Learning with ResNet50</b>: Similar to the VGG16 approach, we use another pre-trained model, ResNet50, for transfer learning. ResNet50 is a more complex and deeper architecture, which leverages residual connections to facilitate the training of deeper networks. It is known for its excellent performance on a wide range of image classification tasks. We follow the same process as with VGG16, replacing the original fully connected layers and training only the new layers for our dog breed classification problem.</p>
           <p> By comparing the performance, training time, and the number of parameters for each strategy, we can choose the most suitable approach for our problem. Transfer learning techniques, like VGG16 and ResNet50, often lead to better results and require less training time than building a CNN from scratch. However, it's essential to consider the trade-offs between computational resources, training time, and model complexity when selecting the best strategy for solving the problem.</p>
 
-          <h1><b>Strategy for solving the problem</b>
+          <h1><b>Metrics With Justification</b>
           </h1>
           <p>n this project, we use accuracy as the primary metric to evaluate and compare the performance of our models. Accuracy is defined as the proportion of correctly classified images out of the total number of images in the dataset. It is a simple and intuitive metric that is widely used in classification problems. The formula for accuracy is:</p>
           <p> <b>Accuracy = (Number of correct predictions) / (Total number of predictions)</b></p>
@@ -205,10 +205,15 @@
           <p>The second step in the algorithm is to check if the input image contains a dog. To do this, we use a pre-trained <a href="https://keras.io/api/applications/resnet/#resnet50-function">ResNet-50</a> model from the torchvision library. The model is trained on the ImageNet dataset, which includes a large number of dog images. We use the pre-trained model to predict the most likely dog breed for the input image. If a dog is detected, we continue to the next step. Otherwise, we return an error message.</p>
           <div style="text-align: center;">
             <img src="Resnet.png">
+            <p style="font-size: 18px; font-weight: bold; margin-top: 10px; color: blue;"> ResNet50 Model Architecture </p>
           </div>
           <h1><b>Create a CNN to Classify Dog Breeds (from Scratch)</b>
           </h1>
           <p>The third step in the algorithm is to create a <a href="https://keras.io/guides/sequential_model/">Convolutional Neural Network (CNN)</a> from scratch to classify dog breeds. We use the Keras library in Python to create the model. The model consists of several convolutional layers followed by max pooling layers and fully connected layers. For display i used GitHub Gist and <a href=https://dgschwend.github.io/netscope/quickstart.html>David Gschwend Netscope CNN Analyzer</a>. Please check this link: <a href="https://dgschwend.github.io/netscope/#/gist/6f2aab72546a563893c187cfb37620e4">Detailed CNN Diagram (CNN)</a> and architecture is as follows:</p>
+          <div style="text-align: center;">
+            <img src="CNN.png">
+            <p style="font-size: 18px; font-weight: bold; margin-top: 10px; color: blue;"> <a href="https://dgschwend.github.io/netscope/#/gist/6f2aab72546a563893c187cfb37620e4">Detailed CNN Diagram (CNN)</a></p>
+          </div>
           <p>  1. Convolutional layer with 32 filters of size 3x3, using a stride of 1, same padding, and ReLU activation.</p>
           <p>  2. Max pooling layer with a 2x2 window and stride of 2.</p>
           <p>  3. Convolutional layer with 64 filters of size 3x3, using a stride of 1, same padding, and ReLU activation.</p>
@@ -221,20 +226,18 @@
           <p>  10. Max pooling layer with a 2x2 window and stride of 2.</p>
           <p>  11. Global average pooling layer to reduce the spatial dimensions.</p>
           <p>  12. Batch normalization layer to normalize the features.</p>
-          <p>  13. Fully connected layer with 512 units and ReLU activation.</p>
-          <p>  14. Fully connected layer with 133 units (number of dog breeds) and softmax activation.</p>
+          <p>  13. Fully connected layer with 133 units (number of dog breeds) and softmax activation.</p>
           <img src="strach.png" id="image5" style="display:none;">
-          <button onclick="toggleImage('image5')">Show/Hide Scratch</button>
-          <div style="text-align: center;">
-            <img src="scratchresults.png">
-            <p style="font-size: 18px; font-weight: bold; margin-top: 10px; color: blue;"> Scratch Results </p>
-          </div>
+          <button onclick="toggleImage('image5')">Show/Hide Scratch Code</button>
+          <img src="scratchresults.png" id="image8" style="display:none;">
+          <button onclick="toggleImage('image8')">Show/Hide Scratch Results</button>
+
           <p>After defining the model architecture, we train the model on the dog breed dataset. To evaluate the model, we calculate the test accuracy using the following code:</p>
           <p><b>First Test Results</b>: <img src="testresult.png"> </p>
-          <p>In the subsequent sections of the article, we will delve into the improvements made to the model, providing a thorough explanation of the rationale behind each modification and discussing the resulting impact on the model's performance. Keep in mind that the initial test accuracy was 14.9522%. By implementing these enhancements, we aim to achieve a higher accuracy, thus making the model more effective at classifying dog breeds.</p>
+          <p>In the subsequent sections of the article, we will delve into the improvements made to the model, providing a thorough explanation of the rationale behind each modification and discussing the resulting impact on the model's performance. Keep in mind that the initial test accuracy was 25.2392%. By implementing these enhancements, we aim to achieve a higher accuracy, thus making the model more effective at classifying dog breeds.</p>
           <h1><b>Use a CNN to Classify Dog Breeds (using Transfer Learning)</b>
           </h1>
-          <p>The fourth step in the algorithm is to use <a href="https://cs231n.github.io/transfer-learning/">transfer learning</a> with a pre-trained CNN to classify dog breeds. We employ the <a href="https://neurohive.io/en/popular-networks/vgg16/">VGG-16 model</a>  from the torchvision library, which is pre-trained on the ImageNet dataset. We extract the bottleneck features from the VGG-16 model and replace the last fully connected layer with a new one that outputs 133 classes, one for each dog breed. By fine-tuning the model on the dog breed dataset, we aim to achieve better performance. The test accuracy obtained after implementing transfer learning with the VGG-16 model is 41.5072%. To further enhance the model, we will explore the use of other pre-trained models and their bottleneck features, as well as discuss the model architecture in more detail.</p>
+          <p>The fourth step in the algorithm is to use <a href="https://cs231n.github.io/transfer-learning/">transfer learning</a> with a pre-trained CNN to classify dog breeds. We employ the <a href="https://neurohive.io/en/popular-networks/vgg16/">VGG-16 model</a>  from the torchvision library, which is pre-trained on the ImageNet dataset. We extract the bottleneck features from the VGG-16 model and replace the last fully connected layer with a new one that outputs 133 classes, one for each dog breed. By fine-tuning the model on the dog breed dataset, we aim to achieve better performance. The test accuracy obtained after implementing transfer learning with the VGG-16 model is 41.0278%. To further enhance the model, we will explore the use of other pre-trained models and their bottleneck features, as well as discuss the model architecture in more detail.</p>
           <div style="text-align: center;">
             <img src="vgg16.png">
             <p style="font-size: 18px; font-weight: bold; margin-top: 10px; color: blue;"> VGG16 </p>
@@ -245,8 +248,72 @@
           <p>In the fifth step of the algorithm, we implement a CNN to classify dog breeds using transfer learning. We utilize the VGG-16 model, similar to what we did in step 4. However, this time we freeze all the convolutional layers and only train the last fully connected layer. By doing this, we can train the model more efficiently and with fewer computational resources.</p>
           <p>After training the model, we evaluate the test accuracy using the following code:</p>
           <p><b>Third Test Results</b>: <img src="testresult3.png"> </p>
-          <p>The test accuracy achieved with the ResNet-50 model is 81.2201%.</p>
-          <h1><b>Write your Algorithm</b>
+          <p>The test accuracy achieved with the ResNet-50 model is 80.9809%.</p>
+          <head>
+          <style>
+          table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+
+          table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+          }
+
+          th {
+            background-color: #f2f2f2;
+          }
+          </style>
+          </head>
+          <body>
+
+          <h2><b>Comparison Table</b></h2>
+          <p>This comparison table presents the performance of three different models: a custom CNN built from scratch, and two transfer learning models using VGG16 and ResNet50. The table highlights the number of parameters, epoch count, training time, and accuracy for each model. It is evident that the transfer learning models, particularly ResNet50, achieve significantly higher accuracy compared to the custom CNN, while requiring fewer parameters and less training time. This demonstrates the effectiveness of transfer learning in achieving better results with a more efficient use of computational resources.</p>
+          <table>
+            <tr>
+              <th>Model</th>
+              <th>Number of Parameters</th>
+              <th>Epoch Count</th>
+              <th>Training Time(s)</th>
+              <th>Accuracy</th>
+            </tr>
+            <tr>
+              <th>CNN from scratch</th>
+              <td>1013701</td>
+              <td>15</td>
+              <td>974.45</td>
+              <td>25.2392%</td>
+            </tr>
+            <tr>
+              <th>Transfer Learning (VGG16)</th>
+              <td>68229</td>
+              <td>20</td>
+              <td>33.66</td>
+              <td>41.0287%</td>
+            </tr>
+            <tr>
+              <th>Transfer Learning (ResNet50)</th>
+              <td>272517</td>
+              <td>20</td>
+              <td>30.46</td>
+              <td>80.9809%</td>
+            </tr>
+          </table>
+
+          </body>
+          <p>    </p>
+          <p>In the case of the custom CNN built from scratch at this project, increasing the number of epochs to 20 resulted in overfitting (Accuracy rate was around %14). Overfitting occurs when a model learns the training data too well, capturing noise and patterns that are not relevant to the problem at hand. This leads to poor generalization and lower accuracy on unseen data. On the other hand, underfitting happens when a model fails to capture the underlying patterns of the data, resulting in suboptimal performance on both the training and test datasets.
+          <p>    </p>
+          <div style="text-align: center;">
+            <img src="overfitting.png">
+            <p style="font-size: 18px; font-weight: bold; margin-top: 10px; color: blue;"> ML | Underfitting and Overfitting </p>
+          </div>
+
+          <p> Balancing the model's complexity and training process is crucial to avoid overfitting and underfitting. Techniques such as early stopping, regularization, and dropout can be employed to mitigate overfitting, while increasing model capacity and using more training data can help address underfitting. In our comparison, the transfer learning models, especially ResNet50, demonstrated a well-balanced performance, achieving high accuracy without overfitting, showcasing the benefits of leveraging pre-trained networks in improving generalization capabilities.</p>
+          <p>    </p>
+          <h1><b>Write your Algorithm</b></p>
           </h1>
           <p>The sixth step in the algorithm is to write the main algorithm that combines all the previous steps. The algorithm takes an input image, first checks if it contains a human face, then checks if it contains a dog, and finally classifies the dog breed using the best performing CNN model from steps 3 to 5.</p>
           <img src="final.png">
