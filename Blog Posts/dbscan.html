@@ -228,7 +228,7 @@
 
                     <section id="giriş" class="level1">
                     <h1>1. Giriş 👋</h1>
-                    <p>Son altı ayda yaklaşık 9000 kredi kartı kullanıcısının kullanım davranışını içeren bir veri seti kullanılacaktır. Müşteri davranışına göre kredi kartı müşterilerini birkaç gruba ayırmak, etkili ve verimli bir kredi kartı pazarlama stratejisi elde etmek için gereklidir.</p>
+                    <p>Bu çalışmada son altı ayda yaklaşık 9000 kredi kartı kullanıcısının kullanım davranışını içeren bir veri seti kullanılacaktır. Müşteri davranışına birkaç gruba ayırmak, etkili ve verimli bir kredi kartı pazarlama stratejisi elde etmek için gereklidir.</p>
                     <p>Bu not defterinin amacı şunlardır:</p>
                     <p>  - Veri görselleştirme teknikleri kullanarak veri setini keşfetmek. </p>
                     <p>  - Modelleri kullanmadan önce veri önişleme yapmak. </p>
@@ -275,6 +275,7 @@
                     </section>
                     <section id="veri-setinin-ilk-incelemesi" class="level1">
                     <h1 class="custom-header-primary">2. Veri Setinin İlk İncelemesi 🧾</h1>
+                    <p>  İlk olarak elimizde bulunan veri setini biraz tanıyalım; </p>
                     <div class="cell" data-execution_count="3">
                     <details>
                     <summary>Code</summary>
@@ -430,8 +431,9 @@
                     </div>
                     </div>
                     </div>
-                    <p>Başlıklarla ilgili biraz detay; - <strong>BALANCE</strong>: Kredi kartınızın size olan toplam borcu</p>
+                    <p>Başlıklarla ilgili biraz detay; </p>
                     <ul>
+                    <li><p><strong>BALANCE</strong>: Kredi kartınızın size olan toplam borcu</p></li>
                     <li><p><strong>BALANCE_FREQUENCY</strong>: Bakiyenin ne sıklıkla güncellendiği, 0 ile 1 arasında puan (1 = sıkça güncellenir, 0 = sıkça güncellenmez)</p></li>
                     <li><p><strong>PURCHASES</strong>: Hesaptan yapılan alışveriş miktarı</p></li>
                     <li><p><strong>ONEOFF_PURCHASES</strong>: Tek seferde yapılan en yüksek alışveriş miktarı</p></li>
@@ -449,6 +451,7 @@
                     <li><p><strong>PRC_FULL_PAYMENT</strong>: Kullanıcı tarafından yapılan tam ödemenin yüzdesi</p></li>
                     <li><p><strong>TENURE</strong>: Kullanıcının kredi kartı hizmet süresi</p></li>
                     </ul>
+                    <p>  Veri tiplerini inceleyelim; </p>
                     <div class="cell" data-execution_count="4">
                     <details>
                     <summary>Code</summary>
@@ -684,8 +687,8 @@
                     </div>
                     </div>
                     <ul>
-                    <li><p>Yukarıdaki tabloda her özelliğin yüzdelik değerlerine dayanarak, CASH_ADVANCE_TRX, PURCHASES_TRX ve TENURE özelliklerinin sürekli olmayabileceği sonucu çıkabilir. Ancak bu hipotezi kanıtlamak için kontrol edilmelidirler.</p></li>
-                    <li><p>Her özelliğin sayısına bakıldığında, CREDIT_LIMIT ve MINIMUM_PAYMENTS sütunlarında bazı eksik değerler bulunmaktadır.</p></li>
+                    <li><p>Yukarıdaki tabloda her özelliğin yüzdelik değerlerine dayanarak, <strong>CASH_ADVANCE_TRX, PURCHASES_TRX ve TENURE</strong> özelliklerinin sürekli olmayabileceği sonucu çıkabilir. Ancak bu hipotezi kanıtlamak için kontrol edilmelidirler.</p></li>
+                    <li><p>Her özelliğin sayısına bakıldığında, <strong>CREDIT_LIMIT ve MINIMUM_PAYMENTS</strong> sütunlarında bazı eksik değerler bulunmaktadır.</p></li>
                     <li><p>Yüzdeliklere bakıldığında, bazı özelliklerin dağılımları ağır bir şekilde skewness görülmekte ve daha ayrıntılı analiz gereklidir.</p></li>
                     <li><p>Sonuç olarak, grafikleri görselleştirmek ve analiz etmek, veriyi daha derinlemesine anlamada yardımcı olabilir.</p></li>
                     </ul>
@@ -721,7 +724,7 @@
                     dtype: float64</code></pre>
                     </div>
                     </div>
-                    <p>Minimum_payments ve Credit_Limits kısımlarında boş veriler bulunmakta analizin devamı için bunlarla ilgileniyoruz;</p>
+                    <p><strong>Minimum_payments ve Credit_Limits</strong> kısımlarında boş veriler bulunmakta analizin devamı için bunlarla ilgileniyoruz;</p>
                     <div class="cell" data-execution_count="7">
                     <details>
                     <summary>Code</summary>
@@ -767,7 +770,7 @@
                     </section>
                     <section id="keşifsel-veri-analizi-eda" class="level1">
                     <h1 class="custom-header-primary">4. Keşifsel Veri Analizi (EDA) 🔍</h1>
-                    <p>Datayı görselleştirmek için Sweetviz kütüphanesini kullandım, Sweetvizle ilgili; Python için bir veri görselleştirme kütüphanesidir. Eksploratif veri analizi (Exploratory Data Analysis - EDA) amacıyla tasarlanmıştır. Bir veya iki veri çerçevesini (DataFrame) hızla görselleştirerek detaylı ve görsel olarak çekici raporlar üretir.</p>
+                    <p>Datayı görselleştirmek için <strong>Sweetviz</strong> kütüphanesini kullandım, Sweetvizle ilgili; Python için bir veri görselleştirme kütüphanesidir. <strong>Eksploratif veri analizi (Exploratory Data Analysis - EDA)</strong> amacıyla tasarlanmıştır. Bir veya iki veri çerçevesini (DataFrame) hızla görselleştirerek detaylı ve görsel olarak çekici raporlar üretir.</p>
                     <div class="cell" data-execution_count="10">
                     <details>
                     <summary>Code</summary>
@@ -10977,11 +10980,11 @@
                     </div>
                     </div>
                     <ul>
-                    <li>PURCHASES_FREQUENCY dışında, başlıkların hiçbirinde dengeli bir dağılımd görülmemektedir. Ayrıca, PURCHASES_FREQUENCY bile normal bir dağılıma sahip değildir!</li>
-                    <li>Önceki bölümde belirtildiği gibi, bazı özellikldeer ağır bir şekildskewness(çarpık) mevcutır. Sonuç olarakoutlierları (, aykırı değerle)ri bulmak için daha ayrıntılı bir inceleme yapılması gerekmektedir. Ayrıca, alışılagelmiş kümeleme algoritmaları yeterince verimli olmayabilir.</li>
+                    <li><strong>PURCHASES_FREQUENCY</strong> dışında, başlıkların hiçbirinde dengeli bir dağılım görülmemektedir. Ayrıca, <strong>PURCHASES_FREQUENCY</strong> bile normal bir dağılıma sahip değildir!</li>
+                    <li>Önceki bölümde belirtildiği gibi, bazı başlıklarda ağır bir şekilde <strong>skewness(çarpıklık)</strong> mevcutır. Sonuç olarak <strong>outlierları (aykırı değerleri)</strong>, bulmak için daha ayrıntılı bir inceleme yapılması gerekmektedir. Ayrıca, alışılagelmiş kümeleme algoritmaları yeterince verimli olmayabilir.</li>
                     </ul>
-                    <p>Verinin Ölçeklendirilmesi Veri ölçeklendirmesi, makine öğrenimi algoritmalarının daha etkili çalışmasını sağlamak için genellikle kullanılır. Özellikle, birçok algoritma, özellikler arasındaki farklı ölçekler nedeniyle yanıltıcı sonuçlar üretebilir. Bu nedenle, tüm özellikleri benzer bir ölçeğe getirmek önemlidir.</p>
-                    <p>Kullandığımız ölçeklendirme yöntemi StandardScalerdır. StandardScaler, her özelliği, ortalaması 0 ve standart sapması 1 olacak şekilde ölçeklendirir. Bu, z-skor normalleştirmesi olarak da bilinir.</p>
+                    <p><strong>Veri ölçeklendirmesi</strong>, makine öğrenimi algoritmalarının daha etkili çalışmasını sağlamak için genellikle kullanılır. Özellikle, birçok algoritma, özellikler arasındaki farklı ölçekler nedeniyle yanıltıcı sonuçlar üretebilir. Bu nedenle, tüm özellikleri benzer bir ölçeğe getirmek önemlidir.</p>
+                    <p>Kullandığımız ölçeklendirme yöntemi <strong>StandardScalerdır</strong>. <strong>StandardScaler</strong>, her özelliği, ortalaması 0 ve standart sapması 1 olacak şekilde ölçeklendirir. Bu, z-skor normalleştirmesi olarak da bilinir.</p>
                     <div class="cell" data-execution_count="11">
                     <details>
                     <summary>Code</summary>
@@ -10990,8 +10993,8 @@
                     </details>
                     </div>
                     <p>Bu kod ile verimiz başarılı bir şekilde ölçeklendirilmiş oldu ve model eğitimi veya diğer analizler için hazır hale getirildi.</p>
-                    <p>Hopkins İstatistiği</p>
-                    <p>Kümeleme analizine başlamadan önce veri setinin kümelemeye uygun olup olmadığını kontrol etmek önemlidir. Bu amaçla, veri setinin rastgele dağılıp dağılmadığını kontrol etmek için Hopkins İstatistiği kullanılır.</p>
+                    <p><strong>Hopkins İstatistiği</strong></p>
+                    <p>Kümeleme analizine başlamadan önce veri setinin kümelemeye uygun olup olmadığını kontrol etmek önemlidir. Bu amaçla, veri setinin rastgele dağılıp dağılmadığını kontrol etmek için <strong>Hopkins İstatistiği</strong> kullanılır.</p>
                     <p>Hopkins İstatistiği, bir veri setinin kümelemeye ne kadar uygun olduğunu ölçen bir testtir. Değerin 0.5’e yakın olması, verinin rastgele bir dağılıma sahip olduğunu ve bu nedenle kümelemeye uygun olmadığını gösterir. Öte yandan, değer 0.7’den büyükse, veri kümesi muhtemelen kümelemeye uygundur.</p>
                     <div class="cell" data-execution_count="12">
                     <details>
@@ -11078,7 +11081,8 @@
                     <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>outlier_percentage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     <div class="cell-output cell-output-display" data-execution_count="14">
-                    <pre><code>{'BALANCE': 7.77,
+                    <pre><code>
+                     {'BALANCE': 7.77,
                      'BALANCE_FREQUENCY': 16.68,
                      'PURCHASES': 9.03,
                      'ONEOFF_PURCHASES': 11.32,
@@ -11097,7 +11101,7 @@
                      'TENURE': 15.26}</code></pre>
                     </div>
                     </div>
-                    <p>Bu sonuçlara göre, bazı özelliklerde (örneğin BALANCE_FREQUENCY, PRC_FULL_PAYMENT ve TENURE) aykırı değerlerin yüzdesi oldukça yüksektir. Bu özelliklerin veri seti üzerindeki etkilerini ve bu aykırı değerlerin nasıl işleneceğini değerlendirmemiz gerekmektedir. Diğer yandan, bazı özelliklerde (PURCHASES_FREQUENCY ve PURCHASES_INSTALLMENTS_FREQUENCY) aykırı değer bulunmamaktadır.</p>
+                    <p>Bu sonuçlara göre, bazı özelliklerde; örneğin <strong>BALANCE_FREQUENCY, PRC_FULL_PAYMENT ve TENURE</strong> aykırı değerlerin yüzdesi oldukça yüksektir. Bu özelliklerin veri seti üzerindeki etkilerini ve bu aykırı değerlerin nasıl işleneceğini değerlendirmemiz gerekmektedir. Diğer yandan, bazı özelliklerde; <strong>PURCHASES_FREQUENCY ve PURCHASES_INSTALLMENTS_FREQUENCY</strong> aykırı değer bulunmamaktadır.</p>
                     <p>Aykırı değerler, analizlerimiz ve modellemelerimiz üzerinde olumsuz etkilere sahip olabileceğinden, bu değerlerle ilgili stratejiler geliştirmemiz önemlidir. Bu stratejiler, aykırı değerlerin silinmesi, dönüştürülmesi veya başka bir yöntemle işlenmesi şeklinde olabilir.</p>
                     <p>Aykırı değerlerle ilgili her zaman işlem yapılması zorunluluk değildir bazı durumlarda yanıltıcı bile olabilir. Yine de ilerleyen analizlerde aykırı değerler üstünde işlem yapılmış bir veri seti oluşturdum, bu sayede farklı sonuçları inceleme fırsatım oldu.</p>
                     <div class="cell" data-execution_count="15">
@@ -11168,14 +11172,14 @@
                     </details>
                     </div>
                     <p>Bu veri ön işleme fonksiyonu, bazı belirli sütunları kategorik aralıklara ayırmak için oluşturulmuştur. Bu sütunlar için önceden tanımlanmış sınırlar kullanılarak, bu sınırlara dayalı olarak yeni özellikler türetilmiştir. İlgili özelliklerin sayısal değerleri korunurken, bu değerlere karşılık gelen kategorik aralıkları belirleyen yeni sütunlar oluşturulmuştur.</p>
-                    <p>Özellik Sınırları:</p>
+                    <p><strong>Özellik Sınırları:</strong></p>
                     <p>Belirli sütunlar için değer aralıklarını temsil eden sınırlar belirlenmiştir. Örneğin, ‘BALANCE’ sütunu için sınırlar: 0, 500, 1000, 3000, 5000, 10000 olarak tanımlanmıştır. Bu sınırlar, belirli bir özellikteki değerlerin hangi aralıkta olduğunu belirlemek için kullanılır. Sınırların Uygulanması:</p>
                     <p>Her bir sütun için assign_range adında bir yardımcı fonksiyon kullanılmıştır. Bu fonksiyon, belirli bir sütunun değerlerini alarak bu değerleri tanımlanan sınırlara göre kategorik bir sütuna dönüştürür. Örneğin, ‘BALANCE’ sütunu için 750 değerine sahip bir gözlem, ‘BALANCE_RANGE’ sütununda 2 değerine sahip olacaktır. Çünkü bu değer 500 ile 1000 arasında yer almaktadır. Gereksiz Sütunların Kaldırılması:</p>
                     <p>Kategorik aralıklara dönüştürülen sütunların orijinal sayısal sütunları gereksiz hale gelmiştir. Bu nedenle, bu sütunlar veri setinden kaldırılmıştır. Sonuç olarak, bu fonksiyon, belirli sütunları kategorik aralıklara dönüştürmek için kullanılır ve bu dönüşümün ardından orijinal sayısal sütunları veri setinden kaldırır.</p>
                     </section>
                     <section id="kümeleme-modelleri" class="level1">
                     <h1 class="custom-header-primary">5. Kümeleme Modelleri ⚙</h1>
-                    <p>İncelemede 3 farklı kümeleme yöntemini farklı metodolojilerle deneyip en ideal olanı bulmaya çalışcaz. Kümeleme modelleri için K-Means, DBSCAN ve OPTICS yöntemlerini kullanacağım. K-means için işlenmemiş dataset, aykırı veriler için işlem yapılmış dataseti, PCA ve UMAP uygulanmış datasetlerini kullanacağım. DBSCAN ve OPTICS doğası gereği aykırı değerlerden çok fazla etkilenmediği için normal, PCA ve UMAP data setleri kullanılarak sonuçlar alınacaktır.</p>
+                    <p>İncelemede 3 farklı kümeleme yöntemini farklı metodolojilerle deneyip en ideal olanı bulmaya çalışcaz. Kümeleme modelleri için <strong>K-Means, DBSCAN ve OPTICS</strong> yöntemlerini kullanacağım. K-means için işlenmemiş dataset, aykırı veriler için işlem yapılmış dataseti, PCA ve UMAP uygulanmış datasetlerini kullanacağım. DBSCAN ve OPTICS doğası gereği aykırı değerlerden çok fazla etkilenmediği için normal,<strong> PCA ve UMAP </strong>data setleri kullanılarak sonuçlar alınacaktır.</p>
                     <div class="cell" data-execution_count="17">
                     <details>
                     <summary>Code</summary>
@@ -11200,21 +11204,21 @@
                     </details>
                     </div>
                     <p>Bu kod, farklı kümeleme algoritmalarının sonuçlarını ve performans metriklerini saklamak üzere bir yapı inşa ediyor. Özellikle, <em>KMeans</em>, <em>DBSCAN</em> ve <em>OPTICS</em> kümeleme algoritmalarının sonuçlarını değerlendiriyoruz. Ayrıca, bu algoritmaları normal, <em>UMAP</em> indirgenmiş, <em>PCA</em> indirgenmiş ve aykırı değer içermeyen veri setleri üzerinde de test edeceğiz. Analiz için yaptığım yol haritasının şemasını bu kodda görebilirsiniz. Kısaca bahsetmek gerekirse.</p>
-                    <p><em>KMeans:</em> Veriyi belirli bir “k” sayısı olacak şekilde kümeye ayırmak için bir algoritmadır.</p>
-                    <p><em>DBSCAN:</em> Yoğunluk tabanlı bir kümeleme algoritmasıdır ve küme sayısını önceden belirtmeye gerek duymaz.</p>
-                    <p><em>OPTICS:</em> Yoğunluk tabanlı bir kümeleme algoritması olan DBSCAN’in genelleştirilmiş bir versiyonudur.</p>
-                    <p><em>UMAP:</em> Veriyi daha az boyutlu bir uzaya indirgemek için kullanılan bir boyut indirgeme yöntemidir.</p>
-                    <p><em>PCA:</em> Principal Component Analysis’in kısaltmasıdır ve veriyi az sayıda özellikle temsil etmek için kullanılır.</p>
-                    <p><em>Silhouette Coefficient:</em> Bir kümenin içsel uyumu ve kümeler arasındaki ayrımı ölçen bir metrik.</p>
-                    <p><em>Calinski-Harabasz Index:</em> Küme dağılımının kalitesini ölçen bir skor.</p>
-                    <p><em>Davies-Bouldin Index:</em> Küme içi benzerlikleri ile kümeler arası benzerliklerin oranını ölçer. Düşük değerler daha iyi kümelemeyi gösterir.</p>
+                    <p><em<strong>>KMeans:</strong></em> Veriyi belirli bir “k” sayısı olacak şekilde kümeye ayırmak için bir algoritmadır.</p>
+                    <p><em><strong>DBSCAN:</strong></em> Yoğunluk tabanlı bir kümeleme algoritmasıdır ve küme sayısını önceden belirtmeye gerek duymaz.</p>
+                    <p><em><strong>OPTICS:</strong></em> Yoğunluk tabanlı bir kümeleme algoritması olan DBSCAN’in genelleştirilmiş bir versiyonudur.</p>
+                    <p><em><strong>UMAP:</strong></em> Veriyi daha az boyutlu bir uzaya indirgemek için kullanılan bir boyut indirgeme yöntemidir.</p>
+                    <p><em><strong>PCA:</strong></em> Principal Component Analysis’in kısaltmasıdır ve veriyi az sayıda özellikle temsil etmek için kullanılır.</p>
+                    <p><em><strong>Silhouette Coefficient:</strong></em> Bir kümenin içsel uyumu ve kümeler arasındaki ayrımı ölçen bir metrik.</p>
+                    <p><em><strong>Calinski-Harabasz Index:</strong></em> Küme dağılımının kalitesini ölçen bir skor.</p>
+                    <p><em><strong>Davies-Bouldin Index:</strong></em> Küme içi benzerlikleri ile kümeler arası benzerliklerin oranını ölçer. Düşük değerler daha iyi kümelemeyi gösterir.</p>
                     <section id="k-means" class="level2">
                     <h2 class="anchored" data-anchor-id="k-means" class="custom-header-secondary">5.1 K-Means</h2>
                     <p>K-Means, veriyi belirlenen ‘k’ sayıda kümeye bölmek için kullanılan bir kümeleme algoritmasıdır. Algoritma, her bir küme merkezini rastgele başlatarak çalışır ve ardından bu merkezleri, kümelerdeki veri noktalarının ortalaması olacak şekilde iteratif olarak günceller. Bu süreç, belirlenen bir kriteri (örneğin, merkezlerin hareket etmediği bir durumu) karşılayana kadar devam eder. K-Means sürecini destekleyici olarak dirsek yöntemi ve Silhouette skoru kullanıldı;</p>
                     <p><b>Dirsek Yöntemi (Elbow Method)</b> K-means algoritması için en zor kararların başında, verinin kaç kümeye ayrılması gerektiğini belirlemek gelir. Dirsek yöntemi, bu kararı vermek için kullanılan yaygın bir tekniktir. Bu yöntem, farklı k değerleri için toplam iç kareler toplamının (WCSS) hesaplanmasını içerir. K değerinin artmasıyla WCSS azalır. Ancak belirli bir k değerinden sonra, bu azalma miktarı önemsiz hale gelir. Bu “dirsek” olarak adlandırılan nokta, optimal k değerini belirlememize yardımcı olur.</p>
                     <p><b>Silhouette Skoru</b> Silhouette skoru, kümelerin ne kadar iyi tanımlandığını ölçer. Bu skor, -1 ile 1 arasında değerler alır. 1’e yakın bir değer, noktaların kendi kümelerinde benzer ve diğer kümelerden farklı olduğunu gösterirken, -1’e yakın bir değer bu noktaların yanlış kümelenmiş olduğunu gösterir. 0 değeri, kümelerin birbirinden ne kadar ayrıldığı konusunda belirsizlik olduğunu gösterir.</p>
                     <section id="k-means-normal" class="level3">
-                    <h3 class="anchored" data-anchor-id="k-means-normal">5.1.1 K-Means Normal</h3>
+                    <h3 class="anchored" data-anchor-id="k-means-normal"><strong>5.1.1 K-Means Normal</strong></h3>
                     <div class="cell" data-execution_count="18">
                     <details>
                     <summary>Code</summary>
@@ -11252,7 +11256,8 @@
                     <p><img src="final_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
                     </div>
                     </div>
-                    <p><b>Grafiğin Değerlendirilmesi</b> Grafiği değerlendirirken şunlara dikkat edilmelidir:</p>
+                    <p><b>Grafiğin Değerlendirilmesi</b></p>
+                    <p>Grafiği değerlendirirken şunlara dikkat edilmelidir:</p>
                     <p><b>Dirsek Noktası</b>: WCSS grafiğini (mavi çizgi) incelerken, WCSS’nin önemli ölçüde azalmadığı k değerini arayın. Bu nokta, optimal k değerini belirlememiz için bir ipucu olarak kullanılabilir.</p>
                     <p><b>Silhouette Skoru</b>: Silhouette skoru grafiğini (turuncu çizgi) incelerken, en yüksek skorlu k değerini arayın. Yüksek bir silhouette skoru, iyi tanımlanmış kümeler olduğunu gösterir.</p>
                     <p>Bu iki ölçümü birlikte kullanarak, veri kümesi için en uygun k değerini belirleyebilirsiniz.</p>
@@ -11367,7 +11372,7 @@
                     <p>Bu sonuçların genel değerlendirmesini analizin en sonunda paylaşacağım.</p>
                     </section>
                     <section id="k-means-aykırı-veri-düzeltilmiş" class="level3">
-                    <h3 class="anchored" data-anchor-id="k-means-aykırı-veri-düzeltilmiş" class="custom-header-secondary">5.1.2 K-Means Aykırı Veri Düzeltilmiş</h3>
+                    <h3 class="anchored" data-anchor-id="k-means-aykırı-veri-düzeltilmiş" class="custom-header-secondary"><strong>5.1.2 K-Means Aykırı Veri Düzeltilmiş</strong></h3>
                     <div class="cell" data-execution_count="21">
                     <details>
                     <summary>Code</summary>
@@ -11503,9 +11508,9 @@
                     </div>
                     </section>
                     <section id="k-means-umap" class="level3">
-                    <h3 class="anchored" data-anchor-id="k-means-umap" class="custom-header-secondary">5.1.3 K-Means UMAP</h3>
+                    <h3 class="anchored" data-anchor-id="k-means-umap" class="custom-header-secondary"><strong>5.1.3 K-Means UMAP</strong></h3>
                     <section id="umap-uniform-manifold-approximation-and-projection" class="level4">
-                    <h4 class="anchored" data-anchor-id="umap-uniform-manifold-approximation-and-projection">UMAP (Uniform Manifold Approximation and Projection)</h4>
+                    <h4 class="anchored" data-anchor-id="umap-uniform-manifold-approximation-and-projection"><strong>UMAP (Uniform Manifold Approximation and Projection)</strong></h4>
                     <p>UMAP, yüksek boyutlu veri setlerini düşük boyutlu bir uzaya görselleştirmek için kullanılan modern bir boyut indirgeme tekniğidir. Özellikle büyük veri setleri için hızlı ve ölçeklenebilir olmasıyla bilinir.</p>
                     <p><strong>Yerel ve Global Yapının Korunması:</strong> UMAP, verinin hem yerel hem de global yapılarını korumayı amaçlar. Bu, özellikle karmaşık veri yapıları için faydalıdır.</p>
                     <p><strong>Genel Uygulamalar:</strong> UMAP sadece görselleştirme için değil, aynı zamanda genel boyut indirgeme uygulamaları için de kullanılabilir.</p>
@@ -11655,9 +11660,9 @@
                     </section>
                     </section>
                     <section id="k-means-pca" class="level3">
-                    <h3 class="anchored" data-anchor-id="k-means-pca" class="custom-header-secondary">5.1.4 K-Means PCA</h3>
+                    <h3 class="anchored" data-anchor-id="k-means-pca" class="custom-header-secondary"><strong>5.1.4 K-Means PCA</strong></h3>
                     <section id="pca-principal-component-analysis" class="level4">
-                    <h4 class="anchored" data-anchor-id="pca-principal-component-analysis">PCA (Principal Component Analysis)</h4>
+                    <h4 class="anchored" data-anchor-id="pca-principal-component-analysis"><strong>PCA (Principal Component Analysis)</strong></h4>
                     <p>PCA, çok değişkenli veri setlerinde değişkenler arasındaki varyansı maksimize ederek boyut indirgeme yapmak için kullanılan istatistiksel bir yöntemdir. Temel bileşenler, verinin ana yapısını yakalamak için ortogonal bir şekilde seçilir.</p>
                     <p><strong>Varyansın Maksimizasyonu:</strong> PCA, veri setindeki maksimum varyansı yakalamak için ana bileşenleri seçer.</p>
                     <p><strong>Düşük Boyutlu Gösterim:</strong> Veri setini daha az sayıda özellikle temsil ederek, görselleştirme ve modelleme için kullanışlı bir hale getirir.</p>
@@ -11798,7 +11803,7 @@
                     <section id="dbscan" class="level2">
                     <h2 class="anchored" data-anchor-id="dbscan" class="custom-header-secondary">5.2 DBSCAN</h2>
                     <section id="dbscan-density-based-spatial-clustering-of-applications-with-noise" class="level4">
-                    <h4 class="anchored" data-anchor-id="dbscan-density-based-spatial-clustering-of-applications-with-noise">DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</h4>
+                    <h4 class="anchored" data-anchor-id="dbscan-density-based-spatial-clustering-of-applications-with-noise"><strong>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</strong></h4>
                     <p>DBSCAN, yoğunluk tabanlı bir kümeleme algoritmasıdır. Veri noktalarının yoğun bölgelerini tanımlar ve bu bölgelerdeki noktaları aynı kümeye atar. Yoğun olmayan bölgelerdeki noktalar ise gürültü olarak sınıflandırılır.</p>
                     <p><strong>Çalışma Prensibi:</strong> - Her veri noktası etrafında belirli bir yarıçapa (<code>eps</code>) sahip bir çevre tanımlanır. Eğer bu çevre içinde <code>min_samples</code> sayısından fazla veri noktası bulunuyorsa, bu nokta yoğun bir bölgenin parçası olarak kabul edilir. - Yoğun bölgeler birleştirilerek geniş kümeler oluşturulur. - Yoğun bölgelerin dışında kalan ve belirli bir çevresi içinde yeterince komşusu olmayan noktalar gürültü olarak etiketlenir.</p>
                     <p><strong>Avantajları:</strong> - Kümelerin şekilleri hakkında varsayımda bulunmaz. Dolayısıyla, kümeler dairesel olmak zorunda değildir. - Otomatik olarak gürültüyü ayırt edebilir. - Kümelerin sayısını önceden belirtmek zorunda değilsiniz.</p>
@@ -11806,7 +11811,7 @@
                     <p>DBSCAN, özellikle gürültülü veri setleri ve karmaşık yapıya sahip kümeler için uygun bir seçenektir.</p>
                     </section>
                     <section id="dbscan-normal" class="level3">
-                    <h3 class="anchored" data-anchor-id="dbscan-normal" class="custom-header-secondary">5.2.1 DBSCAN Normal</h3>
+                    <h3 class="anchored" data-anchor-id="dbscan-normal" class="custom-header-secondary"><strong>5.2.1 DBSCAN Normal</strong></h3>
                     <div class="cell" data-execution_count="33">
                     <details>
                     <summary>Code</summary>
@@ -11888,7 +11893,7 @@
                     </div>
                     </section>
                     <section id="dbscan-umap" class="level3">
-                    <h3 class="anchored" data-anchor-id="dbscan-umap" class="custom-header-secondary">5.2.2 DBSCAN UMAP</h3>
+                    <h3 class="anchored" data-anchor-id="dbscan-umap" class="custom-header-secondary"><strong>5.2.2 DBSCAN UMAP</strong></h3>
                     <div class="cell" data-execution_count="36">
                     <details>
                     <summary>Code</summary>
@@ -11973,7 +11978,7 @@
                     </div>
                     </section>
                     <section id="dbscan-pca" class="level3">
-                    <h3 class="anchored" data-anchor-id="dbscan-pca" class="custom-header-secondary">5.2.3 DBSCAN PCA</h3>
+                    <h3 class="anchored" data-anchor-id="dbscan-pca" class="custom-header-secondary"><strong>5.2.3 DBSCAN PCA</strong></h3>
                     <div class="cell" data-execution_count="39">
                     <details>
                     <summary>Code</summary>
@@ -12058,7 +12063,7 @@
                     <section id="optics" class="level2">
                     <h2 class="anchored" data-anchor-id="optics" class="custom-header-secondary">5.3 OPTICS</h2>
                     <section id="optics-ordering-points-to-identify-the-clustering-structure" class="level4">
-                    <h4 class="anchored" data-anchor-id="optics-ordering-points-to-identify-the-clustering-structure">OPTICS (Ordering Points To Identify the Clustering Structure)</h4>
+                    <h4 class="anchored" data-anchor-id="optics-ordering-points-to-identify-the-clustering-structure"><strong>OPTICS (Ordering Points To Identify the Clustering Structure)</strong></h4>
                     <p>OPTICS, yoğunluk tabanlı bir kümeleme algoritmasıdır ve DBSCAN’ın bir genelleştirmesi olarak düşünülebilir. Ancak, tek bir <code>eps</code> değeri yerine veri setindeki farklı yoğunluklardaki yapıları tanımlayabilmesiyle bilinir.</p>
                     <p><strong>Çalışma Prensibi:</strong> - Her veri noktası için ulaşılabilirlik mesafesi hesaplanır. Bu, bir noktanın belirli bir yoğunlukta diğer bir noktaya ne kadar yakın olduğunu belirler. - Bu mesafelere dayanarak bir ulaşılabilirlik grafiği oluşturulur. - Grafik üzerinde vadiler, yoğunluk tabanlı kümeleri gösterir.</p>
                     <p><strong>Avantajları:</strong> - Farklı yoğunluklardaki kümeleri tespit edebilir. - <code>eps</code> parametresinin sabit bir değerini seçmek zorunda kalmazsınız. - Otomatik olarak gürültüyü ayırt edebilir.</p>
@@ -12066,7 +12071,7 @@
                     <p>OPTICS, yoğunluğu değişen bölgelerin bulunduğu veri setleri için oldukça kullanışlıdır. Farklı yoğunluklardaki kümeler arasında geçişleri tespit etmede başarılıdır.</p>
                     </section>
                     <section id="optics-normal" class="level3">
-                    <h3 class="anchored" data-anchor-id="optics-normal" class="custom-header-secondary">5.3.1 OPTICS Normal</h3>
+                    <h3 class="anchored" data-anchor-id="optics-normal" class="custom-header-secondary"><strong>5.3.1 OPTICS Normal</strong></h3>
                     <div class="cell" data-execution_count="42">
                     <details>
                     <summary>Code</summary>
@@ -12115,7 +12120,7 @@
                     </div>
                     </section>
                     <section id="optics-umap" class="level3">
-                    <h3 class="anchored" data-anchor-id="optics-umap" class="custom-header-secondary">5.3.2 OPTICS UMAP</h3>
+                    <h3 class="anchored" data-anchor-id="optics-umap" class="custom-header-secondary"><strong>5.3.2 OPTICS UMAP</strong></h3>
                     <div class="cell" data-execution_count="44">
                     <details>
                     <summary>Code</summary>
@@ -12164,7 +12169,7 @@
                     </div>
                     </section>
                     <section id="optics-pca" class="level3">
-                    <h3 class="anchored" data-anchor-id="optics-pca" class="custom-header-secondary">5.3.3 OPTICS PCA</h3>
+                    <h3 class="anchored" data-anchor-id="optics-pca" class="custom-header-secondary"><strong>5.3.3 OPTICS PCA</strong></h3>
                     <div class="cell" data-execution_count="46">
                     <details>
                     <summary>Code</summary>
@@ -12926,7 +12931,7 @@
       </main>
       <footer class="site-footer">
         <div class="wrapper">
-          <h2 class="footer-heading">Mehmet Emre Toktay</h2>
+          <div class="special-header">Mehmet Emre Toktay</div>
           <div class="footer-col-wrapper">
             <div class="footer-col footer-col-1">
               <ul class="contact-list">
