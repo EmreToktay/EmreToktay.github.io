@@ -63,72 +63,21 @@
                     <p class="post-meta">
                         <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">01/08/2023 • Mehmet Emre Toktay</span></span>
                     </p>
-                </header>
-                <h2><b>Hedef Tabanlı Duygu Analizi Uygulaması</b></h2>
-        <p><h1><b>Giriş</b></h1></p>
-        <p>Duygu analizi(Sentimental Analysis), NLP disiplini altında incelenen ve kendine oldukça geniş
-        yer bulan bir çalışma alanıdır. Duygu analizinin bir ihtiyaç olarak ortaya çıkmasının
-        tarihçesi sosyal medya ile paraleldir. Sosyal medya kullanımı yaygınlaştıkça,
-        insanların söylediklerindeki duyguları tespit etmek de bir ihtiyaç olarak çıkmıştır. Bir
-        çoğumuz için karar verme aşamasında; “diğer insanlar bu konuda ne düşünüyor?”
-        sorusu çok önemli bir kriteri oluşturmaktadır. İnternetin yaygınlaşması sayesinde,
-        bu sorunun cevabı hepimiz için daha kolay erişilebilir hale gelmiştir. </p>
-        Genel duygu analizinin eksik olmasına sebep olan iki konu vardır; bir metinde yalnızca bir duygu olduğu
-        varsayımını kabul etmesi ve duygu analizi yaparken ne konuda dile getirilmiş bir
-        görüş olduğu bilgisinin alınamamasıdır. Bu eksikleri ortaya koyacak analiz için
-        literatürde yapılan tanımlamalara “Hedef Tabanlı Duygu Analizi” (Aspect Based
-        Sentiment Analysis) adı verilmektedir. Burada çözülmeye çalışılan problem, metnin
-        içindeki bütün görüşlerin, hedef almış oldukları özellikler ile çıkarılabilmesidir.</p>
-        
-        <p>Örneklerle anlatacak olursak;
-        <p><b>Hedef/Yön Belirleme</b>: Bu, bahsedilen metin içerisinde hedef belirler, örneğin "pil ömrü", "kamera", "servis" veya "müşteri hizmetleri".</p>
-        <p><b>Duygu Tespiti</b>: Her belirlenen hedef için, duygu (olumlu, olumsuz veya tarafsız) belirlenir.</p>
-        <p><b>Örnek olarak</b>: "Bu telefonun kamera kalitesi mükemmel ancak pil ömrü hayal kırıklığına uğratıyor." 
-        Burada iki yön bulunmaktadır: "kamera kalitesi" ve "pil ömrü", sırasıyla olumlu ve olumsuz duygulara sahip.</p>
-        
-
-        <p><h1><b>Teknik Uygulama</b></h1></p>
-        <p>ABSA'nın uygulanması Doğal Dil İşleme (NLP) tekniklerini ve makine öğrenme modellerini içerir. Ana adımlar şunları içerir:</p>
-        
-        <p> <b>Veri Ön İşleme</b>: Metin temizlenir, tokenleştirilir ve model eğitimi için uygun bir formata dönüştürülür.</p>
-        <p> <b>Yön Çıkarımı</b>: Metinden yönleri çıkarmak için bağımlılık ayrıştırması veya konu modelleme gibi teknikler kullanılabilir.</p>
-        <p> <b>Duygu Sınıflandırma</b>: Her çıkarılan yön için duygu, LSTM, BERT veya SVM gibi geleneksel algoritmalar kullanılarak sınıflandırılır.</p>
-        
-        <p><h1><b>Bazı Uygulamalar ve Kullanım Durumları</b></h1></p>
-        <p>-En çok ve en az beğenilen özellikleri belirlemek için ürün incelemelerini analiz etme.</p>
-        <p>-Farklı hizmetler ve olanaklar hakkında misafir duygularını ölçme.</p>
-        <p>-Bir politika veya kanunun farklı bileşenleri hakkında halkın duygusunu anlama.</p>
-        
-        <p><h1><b>Zorluklar ve Sınırlamalar</b></h1></p>
-        <p><b>Belirsizlik</b>: Metinler bazen belirsiz olabilir, bu da duyguyu belirlemenin zor olabileceği anlamına gelir.</p>
-        <p><b>İğneleyici Mizah</b>: Mevcut modeller, iğneleyici mizahı anlamakta zorlanabilir, bu da yanlış duygu tahminlerine yol açabilir.</p>
-        
-        <p><h1><b>Sonuç</b></h1></p>
-        <p>Yön Temelli Duygu Analizi, geniş bir duygu özeti ile detaylı metin analizi arasında köprü kurar. Bir metindeki belirli yönler üzerine odaklanarak, 
-        işletmeler ve araştırmacılar daha zengin bilgiler elde edebilir ve daha bilinçli kararlar alabilirler.</p>
-        <p>Bu uygulama müşteri deneyimi için geri dönüşler toplayan, internet ve sosyal medya üzerinden yorumları inceleyen her firmanın işini hızlandırıp daha 
-        geniş yelpazelede incelemesini sağlayabilecek bir potansiyele sahip.</p>
-        <p>Ayrıca LSS ve CX başlıklarının kritik bir noktası olan müşterinin sesi için yardımcı olabilecek bir program olabilir. Olası örnekler verecek olursak web scrapingle firmaya ait yazılmış internet ortamında her yorumu alıp, hedef tabanlı duygu analizine tabi tutulup içgörü alınabilir.
-        Başka kullanılabilecek alanı ise Türk kullanıcıların sadece yorumları görünebilsin diye googleplay üstünden 1 yıldız verip yorum kısmında beğendiklerini belirtmeleri bilinen bir haber. Buna benzer yanıltıcı puan/yorum ilişkisini belirlemek ve görüntülüyebilmek için kullanılabilir.</p>
-        <p>Alt tarafta bulunan gradio uygulaması yorumlarda hedef tabanlı duygu analizi çıkarmak için hazırlanmıştır.
-         Makine öğrenimi ve eğitmek amaçlı kullanılan veri seti restorant yorumları içermektedir. Kendi modelim üstünde çalışırken bu uygulamada hazır model 
-         kullanılmıştır. Basit bir örnek olması için sevgili emektarımı zorlayacak makine öğrenimi süreçlerinden geçmediğinden f1 score %60-70 arasındadır. 
-         Eğer denemek amaçlı yazdığınız örneklerde Türkçe eş anlamlılar, iğneleme yaklaşımı olursa size cevap veremeyebilir. Bir kaç örnek olarak:</p>
-        <p><em>-Yemekler güzeldi.</em></p>
-        <p><em>-Servisi beğenmedim.</em></p>
-        <p><em>-Ambiyans fena değildi.</em></p> 
-        <p><em>-Restorantı çok beğenmedim. Yemekler çok yavaş geldi ama manzara çok güzeldi.</em></p>
-        <p><em>-Servis çok kötüydü. Çalışanlar çok kabaydı.</em></p>
-        <p><em>-Uzun süre gitmek istiyordum, ilk defa gitme fırsatım oldu. Öncelikle yorumların gerçekliği payı var. 
-        Gerçekten temiz ve titiz çalışan bir işletme. Yemekler çok lezzetliydi. Fiyatların çok pahalı olması beni biraz mutsuz etti, düzenli olarak gidilemez.</em></p>
-        
-        <iframe
-        	src="https://memretoktay-htda.hf.space"
-        	frameborder="0"
-        	width="850"
-        	height="450"
-        ></iframe>
-
+                    <style>
+                      .full-width-iframe {
+                          width: 100%;     /* Tam ekran genişliği */
+                          height: 750px;   /* İstediğiniz yükseklik değeri */
+                          border: none;    /* Çerçevenin kaldırılması */
+                          display: block;  /* Block olarak gösterimi */
+                          margin-left: 0; /* Sol başlangıcının sıfırlanması */
+                      }
+                  </style>
+                  
+                  <iframe 
+                      class="full-width-iframe"
+                      src="https://clustering-dashboard.onrender.com/"
+                  ></iframe>
+                  
 
                              
         </div>
