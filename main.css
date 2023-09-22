@@ -24,6 +24,14 @@ img {
     vertical-align: middle
 }
 
+.full-width-iframe {
+    width: 1050px;
+    height: 850px;
+    border: none;
+    position: relative; /* Set the position property to relative */
+    left: -120px; /* Adjust the value as needed to shift the element to the left */
+}
+
 figure>img {
     display: block
 }
