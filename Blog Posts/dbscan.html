@@ -155,11 +155,11 @@
                         <div class="special-header">İçindekiler</div>
 
                       <ul>
-                      <li><a href="#giriş" id="toc-giriş" class="nav-link active" data-scroll-target="#giriş">1. Giriş 👋</a></li>
-                      <li><a href="#veri-setinin-ilk-incelemesi" id="toc-veri-setinin-ilk-incelemesi" class="nav-link" data-scroll-target="#veri-setinin-ilk-incelemesi">2. Veri Setinin İlk İncelemesi 🧾</a></li>
-                      <li><a href="#ön-işleme" id="toc-ön-işleme" class="nav-link" data-scroll-target="#ön-işleme">3. Ön İşleme 👨‍💻</a></li>
-                      <li><a href="#keşifsel-veri-analizi-eda" id="toc-keşifsel-veri-analizi-eda" class="nav-link" data-scroll-target="#keşifsel-veri-analizi-eda">4. Keşifsel Veri Analizi (EDA) 🔍</a></li>
-                      <li><a href="#kümeleme-modelleri" id="toc-kümeleme-modelleri" class="nav-link" data-scroll-target="#kümeleme-modelleri">5. Kümeleme Modelleri ⚙</a>
+                      <li><a href="#giriş" id="toc-giriş" class="nav-link active" data-scroll-target="#giriş">1. Giriş </a></li>
+                      <li><a href="#veri-setinin-ilk-incelemesi" id="toc-veri-setinin-ilk-incelemesi" class="nav-link" data-scroll-target="#veri-setinin-ilk-incelemesi">2. Veri Setinin İlk İncelemesi </a></li>
+                      <li><a href="#ön-işleme" id="toc-ön-işleme" class="nav-link" data-scroll-target="#ön-işleme">3. Ön İşleme </a></li>
+                      <li><a href="#keşifsel-veri-analizi-eda" id="toc-keşifsel-veri-analizi-eda" class="nav-link" data-scroll-target="#keşifsel-veri-analizi-eda">4. Keşifsel Veri Analizi (EDA) </a></li>
+                      <li><a href="#kümeleme-modelleri" id="toc-kümeleme-modelleri" class="nav-link" data-scroll-target="#kümeleme-modelleri">5. Kümeleme Modelleri </a>
                       <ul class="collapse">
                       <li><a href="#k-means" id="toc-k-means" class="nav-link" data-scroll-target="#k-means">5.1 K-Means</a>
                       <ul class="collapse">
@@ -181,7 +181,7 @@
                       <li><a href="#optics-pca" id="toc-optics-pca" class="nav-link" data-scroll-target="#optics-pca">5.3.3 OPTICS PCA</a></li>
                       </ul></li>
                       </ul></li>
-                      <li><a href="#sonuçlar" id="toc-sonuçlar" class="nav-link" data-scroll-target="#sonuçlar">6. Sonuçlar 💡</a>
+                      <li><a href="#sonuçlar" id="toc-sonuçlar" class="nav-link" data-scroll-target="#sonuçlar">6. Sonuçlar </a>
                       <ul class="collapse">
                       <li><a href="#kmeans-1" id="toc-kmeans-1" class="nav-link" data-scroll-target="#kmeans-1">KMeans</a>
                       <ul class="collapse">
@@ -227,7 +227,7 @@
                     </header>
 
                     <section id="giriş" class="level1">
-                    <h1>1. Giriş 👋</h1>
+                    <h1>1. Giriş</h1>
                     <p>Bu çalışmada son altı ayda yaklaşık 9000 kredi kartı kullanıcısının kullanım davranışını içeren bir veri seti kullanılacaktır. Müşteri davranışına birkaç gruba ayırmak, etkili ve verimli bir kredi kartı pazarlama stratejisi elde etmek için gereklidir.</p>
                     <p>Bu not defterinin amacı şunlardır:</p>
                     <p>  - Veri görselleştirme teknikleri kullanarak veri setini keşfetmek. </p>
@@ -254,16 +254,6 @@
                     <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.cm <span class="im">as</span> cm</span>
                     <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> DBSCAN</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
-                    <div class="cell-output cell-output-stderr">
-                    <pre><code>C:\Users\Memre\miniconda3\Lib\site-packages\umap\distances.py:1063: NumbaDeprecationWarning: The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
-                      @numba.jit()
-                    C:\Users\Memre\miniconda3\Lib\site-packages\umap\distances.py:1071: NumbaDeprecationWarning: The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
-                      @numba.jit()
-                    C:\Users\Memre\miniconda3\Lib\site-packages\umap\distances.py:1086: NumbaDeprecationWarning: The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
-                      @numba.jit()
-                    C:\Users\Memre\miniconda3\Lib\site-packages\umap\umap_.py:660: NumbaDeprecationWarning: The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
-                      @numba.jit()</code></pre>
-                    </div>
                     </div>
                     <div class="cell" data-execution_count="2">
                     <details>
@@ -274,7 +264,7 @@
                     </div>
                     </section>
                     <section id="veri-setinin-ilk-incelemesi" class="level1">
-                    <h1 class="custom-header-primary">2. Veri Setinin İlk İncelemesi 🧾</h1>
+                    <h1 class="custom-header-primary">2. Veri Setinin İlk İncelemesi</h1>
                     <p>  İlk olarak elimizde bulunan veri setini biraz tanıyalım; </p>
                     <div class="cell" data-execution_count="3">
                     <details>
@@ -431,19 +421,20 @@
                     </div>
                     </div>
                     </div>
+                    <p>     </p>
                     <p>Başlıklarla ilgili biraz detay; </p>
                     <ul>
-                    <li><p><strong>BALANCE</strong>: Kredi kartınızın size olan toplam borcu</p></li>
+                    <li><p><strong>BALANCE</strong>: Kredi kartınızın kullanılabilir kısmı</p></li>
                     <li><p><strong>BALANCE_FREQUENCY</strong>: Bakiyenin ne sıklıkla güncellendiği, 0 ile 1 arasında puan (1 = sıkça güncellenir, 0 = sıkça güncellenmez)</p></li>
                     <li><p><strong>PURCHASES</strong>: Hesaptan yapılan alışveriş miktarı</p></li>
                     <li><p><strong>ONEOFF_PURCHASES</strong>: Tek seferde yapılan en yüksek alışveriş miktarı</p></li>
                     <li><p><strong>INSTALLMENTS_PURCHASES</strong>: Taksitle yapılan alışveriş miktarı</p></li>
-                    <li><p><strong>CASH_ADVANCE</strong>: Kullanıcının önden aldığı nakit</p></li>
+                    <li><p><strong>CASH_ADVANCE</strong>: Nakit Avans</p></li>
                     <li><p><strong>PURCHASES_FREQUENCY</strong>: Alışverişlerin ne sıklıkla yapıldığı, 0 ile 1 arasında puan (1 = sıkça alışveriş yapılır, 0 = sıkça alışveriş yapılmaz)</p></li>
                     <li><p><strong>ONEOFF_PURCHASES_FREQUENCY</strong>: Tek seferdeki alışverişlerin ne sıklıkla yapıldığı (1 = sıkça alışveriş yapılır, 0 = sıkça alışveriş yapılmaz)</p></li>
                     <li><p><strong>PURCHASES_INSTALLMENTS_FREQUENCY</strong>: Taksitli alışverişlerin ne sıklıkla yapıldığı (1 = sıkça yapılır, 0 = sıkça yapılmaz)</p></li>
-                    <li><p><strong>CASH_ADVANCE_FREQUENCY</strong>: Önceden alınan nakdin ne sıklıkla ödendiği</p></li>
-                    <li><p><strong>CASH_ADVANCE_TRX</strong>: “Nakit İleride” ile yapılan işlem sayısı</p></li>
+                    <li><p><strong>CASH_ADVANCE_FREQUENCY</strong>: Önceden alınan naktin ne sıklıkla ödendiği</p></li>
+                    <li><p><strong>CASH_ADVANCE_TRX</strong>: “Nakit Avans” ile yapılan işlem sayısı</p></li>
                     <li><p><strong>PURCHASES_TRX</strong>: Yapılan alışveriş işlemlerinin sayısı</p></li>
                     <li><p><strong>CREDIT_LIMIT</strong>: Kullanıcının kredi kartı limiti</p></li>
                     <li><p><strong>PAYMENTS</strong>: Kullanıcı tarafından yapılan ödeme miktarı</p></li>
@@ -458,7 +449,8 @@
                     <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     <div class="cell-output cell-output-stdout">
-                    <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+                    <pre><code>
+                    &lt;class 'pandas.core.frame.DataFrame'&gt;
                     RangeIndex: 8950 entries, 0 to 8949
                     Data columns (total 19 columns):
                      #   Column                            Non-Null Count  Dtype
@@ -687,6 +679,7 @@
                     </div>
                     </div>
                     <ul>
+                    <p>     </p>
                     <li><p>Yukarıdaki tabloda her özelliğin yüzdelik değerlerine dayanarak, <strong>CASH_ADVANCE_TRX, PURCHASES_TRX ve TENURE</strong> özelliklerinin sürekli olmayabileceği sonucu çıkabilir. Ancak bu hipotezi kanıtlamak için kontrol edilmelidirler.</p></li>
                     <li><p>Her özelliğin sayısına bakıldığında, <strong>CREDIT_LIMIT ve MINIMUM_PAYMENTS</strong> sütunlarında bazı eksik değerler bulunmaktadır.</p></li>
                     <li><p>Yüzdeliklere bakıldığında, bazı özelliklerin dağılımları ağır bir şekilde skewness görülmekte ve daha ayrıntılı analiz gereklidir.</p></li>
@@ -694,7 +687,7 @@
                     </ul>
                     </section>
                     <section id="ön-işleme" class="level1">
-                    <h1 class="custom-header-primary">3. Ön İşleme 👨‍💻</h1>
+                    <h1 class="custom-header-primary">3. Ön İşleme </h1>
                     <p>Data setinde ki null değerlerin incelenmesi ve oranı:</p>
                     <div class="cell" data-execution_count="6">
                     <details>
@@ -702,7 +695,8 @@
                     <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.isna().mean()<span class="op">*</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     <div class="cell-output cell-output-display" data-execution_count="6">
-                    <pre><code>CUST_ID                             0.000000
+                    <pre><code>
+                    CUST_ID                             0.000000
                     BALANCE                             0.000000
                     BALANCE_FREQUENCY                   0.000000
                     PURCHASES                           0.000000
@@ -738,7 +732,8 @@
                     <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.isna().mean()<span class="op">*</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     <div class="cell-output cell-output-display" data-execution_count="8">
-                    <pre><code>CUST_ID                             0.0
+                    <pre><code>
+                    CUST_ID                             0.0
                     BALANCE                             0.0
                     BALANCE_FREQUENCY                   0.0
                     PURCHASES                           0.0
@@ -10980,6 +10975,7 @@
                     </div>
                     </div>
                     <ul>
+                    <p>   </p>
                     <li><strong>PURCHASES_FREQUENCY</strong> dışında, başlıkların hiçbirinde dengeli bir dağılım görülmemektedir. Ayrıca, <strong>PURCHASES_FREQUENCY</strong> bile normal bir dağılıma sahip değildir!</li>
                     <li>Önceki bölümde belirtildiği gibi, bazı başlıklarda ağır bir şekilde <strong>skewness(çarpıklık)</strong> mevcutır. Sonuç olarak <strong>outlierları (aykırı değerleri)</strong>, bulmak için daha ayrıntılı bir inceleme yapılması gerekmektedir. Ayrıca, alışılagelmiş kümeleme algoritmaları yeterince verimli olmayabilir.</li>
                     </ul>
@@ -11178,7 +11174,7 @@
                     <p>Kategorik aralıklara dönüştürülen sütunların orijinal sayısal sütunları gereksiz hale gelmiştir. Bu nedenle, bu sütunlar veri setinden kaldırılmıştır. Sonuç olarak, bu fonksiyon, belirli sütunları kategorik aralıklara dönüştürmek için kullanılır ve bu dönüşümün ardından orijinal sayısal sütunları veri setinden kaldırır.</p>
                     </section>
                     <section id="kümeleme-modelleri" class="level1">
-                    <h1 class="custom-header-primary">5. Kümeleme Modelleri ⚙</h1>
+                    <h1 class="custom-header-primary">5. Kümeleme Modelleri </h1>
                     <p>İncelemede 3 farklı kümeleme yöntemini farklı metodolojilerle deneyip en ideal olanı bulmaya çalışcaz. Kümeleme modelleri için <strong>K-Means, DBSCAN ve OPTICS</strong> yöntemlerini kullanacağım. K-means için işlenmemiş dataset, aykırı veriler için işlem yapılmış dataseti, PCA ve UMAP uygulanmış datasetlerini kullanacağım. DBSCAN ve OPTICS doğası gereği aykırı değerlerden çok fazla etkilenmediği için normal,<strong> PCA ve UMAP </strong>data setleri kullanılarak sonuçlar alınacaktır.</p>
                     <div class="cell" data-execution_count="17">
                     <details>
@@ -11204,7 +11200,7 @@
                     </details>
                     </div>
                     <p>Bu kod, farklı kümeleme algoritmalarının sonuçlarını ve performans metriklerini saklamak üzere bir yapı inşa ediyor. Özellikle, <em>KMeans</em>, <em>DBSCAN</em> ve <em>OPTICS</em> kümeleme algoritmalarının sonuçlarını değerlendiriyoruz. Ayrıca, bu algoritmaları normal, <em>UMAP</em> indirgenmiş, <em>PCA</em> indirgenmiş ve aykırı değer içermeyen veri setleri üzerinde de test edeceğiz. Analiz için yaptığım yol haritasının şemasını bu kodda görebilirsiniz. Kısaca bahsetmek gerekirse.</p>
-                    <p><em<strong>>KMeans:</strong></em> Veriyi belirli bir “k” sayısı olacak şekilde kümeye ayırmak için bir algoritmadır.</p>
+                    <p><em<strong>KMeans:</strong></em> Veriyi belirli bir “k” sayısı olacak şekilde kümeye ayırmak için bir algoritmadır.</p>
                     <p><em><strong>DBSCAN:</strong></em> Yoğunluk tabanlı bir kümeleme algoritmasıdır ve küme sayısını önceden belirtmeye gerek duymaz.</p>
                     <p><em><strong>OPTICS:</strong></em> Yoğunluk tabanlı bir kümeleme algoritması olan DBSCAN’in genelleştirilmiş bir versiyonudur.</p>
                     <p><em><strong>UMAP:</strong></em> Veriyi daha az boyutlu bir uzaya indirgemek için kullanılan bir boyut indirgeme yöntemidir.</p>
@@ -11355,13 +11351,11 @@
                     <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>metric<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>value<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     <div class="cell-output cell-output-stderr">
-                    <pre><code>C:\Users\Memre\miniconda3\Lib\site-packages\sklearn\cluster\_kmeans.py:1412: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
-                      super()._check_params_vs_input(X, default_n_init=10)</code></pre>
                     </div>
                     <div class="cell-output cell-output-stdout">
-                    <pre><code>Silhouette Coefficient: 0.25
-                    Calinski-Harabasz Index: 1604.40
-                    Davies-Bouldin Index: 1.60</code></pre>
+                    <pre><code>Silhouette Coefficient: 0.25,
+Calinski-Harabasz Index: 1604.40,
+Davies-Bouldin Index: 1.60</code></pre>
                     </div>
                     </div>
                     <p>Sonuçların Değerlendirilmesi Kod çalıştırıldığında elde edilen sonuçların anlamını ve nasıl değerlendirileceğini aşağıda bulabilirsiniz:</p>
@@ -11502,8 +11496,8 @@
                     </details>
                     <div class="cell-output cell-output-stdout">
                     <pre><code>Silhouette Coefficient: 0.32
-                    Calinski-Harabasz Index: 4345.55
-                    Davies-Bouldin Index: 1.42</code></pre>
+Calinski-Harabasz Index: 4345.55
+Davies-Bouldin Index: 1.42</code></pre>
                     </div>
                     </div>
                     </section>
@@ -11532,8 +11526,6 @@
                     <span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     <div class="cell-output cell-output-stderr">
-                    <pre><code>C:\Users\Memre\AppData\Local\Temp\ipykernel_4852\2669742629.py:8: UserWarning: No data for colormapping provided via 'c'. Parameters 'cmap' will be ignored
-                      plt.scatter(df_umap['UMAP 1'], df_umap['UMAP 2'], cmap='Spectral', s=5)</code></pre>
                     </div>
                     <div class="cell-output cell-output-display">
                     <p><img src="final_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
@@ -11653,8 +11645,8 @@
                     </details>
                     <div class="cell-output cell-output-stdout">
                     <pre><code>Silhouette Coefficient: 0.42
-                    Calinski-Harabasz Index: 8208.00
-                    Davies-Bouldin Index: 0.95</code></pre>
+Calinski-Harabasz Index: 8208.00
+Davies-Bouldin Index: 0.95</code></pre>
                     </div>
                     </div>
                     </section>
@@ -11683,7 +11675,7 @@
                     </details>
                     <div class="cell-output cell-output-stdout">
                     <pre><code>(8950, 2)
-                    Explained Variance (first two components): 47.59%</code></pre>
+Explained Variance (first two components): 47.59%</code></pre>
                     </div>
                     </div>
                     <div class="cell" data-execution_count="30">
@@ -11793,8 +11785,8 @@
                     </details>
                     <div class="cell-output cell-output-stdout">
                     <pre><code>Silhouette Coefficient: 0.45
-                    Calinski-Harabasz Index: 5337.49
-                    Davies-Bouldin Index: 0.81</code></pre>
+Calinski-Harabasz Index: 5337.49
+Davies-Bouldin Index: 0.81</code></pre>
                     </div>
                     </div>
                     </section>
@@ -11887,8 +11879,8 @@
                     </details>
                     <div class="cell-output cell-output-stdout">
                     <pre><code>Silhouette Coefficient: 0.52
-                    Calinski-Harabasz Index: 939.76
-                    Davies-Bouldin Index: 1.97</code></pre>
+Calinski-Harabasz Index: 939.76
+Davies-Bouldin Index: 1.97</code></pre>
                     </div>
                     </div>
                     </section>
@@ -11972,8 +11964,8 @@
                     </details>
                     <div class="cell-output cell-output-stdout">
                     <pre><code>Silhouette Coefficient: 0.25
-                    Calinski-Harabasz Index: 232.31
-                    Davies-Bouldin Index: 0.63</code></pre>
+Calinski-Harabasz Index: 232.31
+Davies-Bouldin Index: 0.63</code></pre>
                     </div>
                     </div>
                     </section>
@@ -12054,8 +12046,8 @@
                     </details>
                     <div class="cell-output cell-output-stdout">
                     <pre><code>Silhouette Coefficient: 0.80
-                    Calinski-Harabasz Index: 1347.22
-                    Davies-Bouldin Index: 0.78</code></pre>
+Calinski-Harabasz Index: 1347.22
+Davies-Bouldin Index: 0.78</code></pre>
                     </div>
                     </div>
                     </section>
@@ -12114,8 +12106,8 @@
                     </details>
                     <div class="cell-output cell-output-stdout">
                     <pre><code>Silhouette Coefficient: -0.45
-                    Calinski-Harabasz Index: 11.93
-                    Davies-Bouldin Index: 1.33</code></pre>
+Calinski-Harabasz Index: 11.93
+Davies-Bouldin Index: 1.33</code></pre>
                     </div>
                     </div>
                     </section>
@@ -12163,8 +12155,8 @@
                     </details>
                     <div class="cell-output cell-output-stdout">
                     <pre><code>Silhouette Coefficient: 0.24
-                    Calinski-Harabasz Index: 10.24
-                    Davies-Bouldin Index: 1.43</code></pre>
+Calinski-Harabasz Index: 10.24
+Davies-Bouldin Index: 1.43</code></pre>
                     </div>
                     </div>
                     </section>
@@ -12212,15 +12204,15 @@
                     </details>
                     <div class="cell-output cell-output-stdout">
                     <pre><code>Silhouette Coefficient: -0.18
-                    Calinski-Harabasz Index: 10.06
-                    Davies-Bouldin Index: 1.68</code></pre>
+Calinski-Harabasz Index: 10.06
+Davies-Bouldin Index: 1.68</code></pre>
                     </div>
                     </div>
                     </section>
                     </section>
                     </section>
                     <section id="sonuçlar" class="level1">
-                    <h1 class="custom-header-primary">6. Sonuçlar 💡</h1>
+                    <h1 class="custom-header-primary">6. Sonuçlar </h1>
                     <div class="cell" data-execution_count="48">
                     <details>
                     <summary>Code</summary>
@@ -12682,6 +12674,7 @@
                     <li><p>Bu grupta genç bireyler veya öğrencilerin yoğun olma ihtimali yüksek, bu grup, kartlarını günlük küçük harcamalar için kullanan bireyleri temsil ediyor olabilir. Bu yüzden sık alışveriş yapmalarına ve genellikle küçük tutarlar harcamalarına cevap olabilir.</p></li>
                     </ul>
                     <p>Ancak bu yorumların kesinliğini artırmak için ekstra demografik veya davranışsal bilgilere (örneğin yaş, meslek, gelir seviyesi gibi) ihtiyaç olabilir. Bu tür ek bilgiler, her bir kümeyi daha ayrıntılı ve doğru bir şekilde tanımlamamıza yardımcı olabilir. Maalesef üstünde çalıştığım veri setinde bunlar mevcut değil. Projenin devamında pydash kullanmak istediğim için yaş, cinsiyet ve şehir başlıklarını ekleyeceğim. (şehir önceden eklemiştim.) Bu eklemeler tamamen rastgele olup bu analize etki etmeyecek şekilde devam etmem için gereklidir.</p>
+                    <p> Bu analiz sürecini app ve dashboard haline getirmek için yaptığım dash uygulamasını <a href=" https://memretoktay.net/Blog%20Posts/dashboard.html"><b>buradan</b></a> kontrol edebilirsiniz.</p>
                     </section>
                     </section>
                     </section>
