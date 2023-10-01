@@ -73,7 +73,7 @@
                         <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">04/08/2023 • Mehmet Emre Toktay</span></span>
                     </p>
                   </header>
-                  <div class="special-header"><b>Banka Müşteri Segmentasyonu: K-Means, DBscan ve OPTICS ile Analiz</b></div>
+                  <div class="special-header"><b>Bank Customer Segmentation: Analysis with K-Means, DBscan, and OPTICS</b></div>
 
                     <title></title>
                     <style>
@@ -161,19 +161,19 @@
                     <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
                     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
                       <nav id="TOC" role="doc-toc" class="toc-active">
-                        <div class="special-header">İçindekiler</div>
+                        <div class="special-header">Table of Contents</div>
 
                       <ul>
-                      <li><a href="#giriş" id="toc-giriş" class="nav-link active" data-scroll-target="#giriş">1. Giriş </a></li>
-                      <li><a href="#veri-setinin-ilk-incelemesi" id="toc-veri-setinin-ilk-incelemesi" class="nav-link" data-scroll-target="#veri-setinin-ilk-incelemesi">2. Veri Setinin İlk İncelemesi </a></li>
-                      <li><a href="#ön-işleme" id="toc-ön-işleme" class="nav-link" data-scroll-target="#ön-işleme">3. Ön İşleme </a></li>
-                      <li><a href="#keşifsel-veri-analizi-eda" id="toc-keşifsel-veri-analizi-eda" class="nav-link" data-scroll-target="#keşifsel-veri-analizi-eda">4. Keşifsel Veri Analizi (EDA) </a></li>
-                      <li><a href="#kümeleme-modelleri" id="toc-kümeleme-modelleri" class="nav-link" data-scroll-target="#kümeleme-modelleri">5. Kümeleme Modelleri </a>
+                      <li><a href="#Introduction" id="toc-Introduction" class="nav-link active" data-scroll-target="#Introduction">1. Introduction </a></li>
+                      <li><a href="#Initial-Review-of-the-Data-Set" id="toc-Initial-Review-of-the-Data-Set" class="nav-link" data-scroll-target="#Initial-Review-of-the-Data-Set">2. Initial Review of the Data Set </a></li>
+                      <li><a href="#Preprocessing" id="toc-Preprocessing" class="nav-link" data-scroll-target="#Preprocessing">3. Preprocessing </a></li>
+                      <li><a href="#Exploratory-Data-Analysis-(EDA)" id="toc-Exploratory-Data-Analysis-(EDA)" class="nav-link" data-scroll-target="#Exploratory-Data-Analysis-(EDA)">4. Exploratory Data Analysis (EDA) </a></li>
+                      <li><a href="#Clustering-Models" id="toc-Clustering-Models" class="nav-link" data-scroll-target="#Clustering-Models">5. Clustering Models </a>
                       <ul class="collapse">
                       <li><a href="#k-means" id="toc-k-means" class="nav-link" data-scroll-target="#k-means">5.1 K-Means</a>
                       <ul class="collapse">
                       <li><a href="#k-means-normal" id="toc-k-means-normal" class="nav-link" data-scroll-target="#k-means-normal">5.1.1 K-Means Normal</a></li>
-                      <li><a href="#k-means-aykırı-veri-düzeltilmiş" id="toc-k-means-aykırı-veri-düzeltilmiş" class="nav-link" data-scroll-target="#k-means-aykırı-veri-düzeltilmiş">5.1.2 K-Means Aykırı Veri Düzeltilmiş</a></li>
+                      <li><a href="#k-means-Outlier-Adjusted-K-Means" id="toc-k-means-Outlier-Adjusted-K-Means" class="nav-link" data-scroll-target="#k-means-Outlier-Adjusted-K-Means">5.1.2 K-Means Outlier Adjusted K-Means</a></li>
                       <li><a href="#k-means-umap" id="toc-k-means-umap" class="nav-link" data-scroll-target="#k-means-umap">5.1.3 K-Means UMAP</a></li>
                       <li><a href="#k-means-pca" id="toc-k-means-pca" class="nav-link" data-scroll-target="#k-means-pca">5.1.4 K-Means PCA</a></li>
                       </ul></li>
@@ -190,14 +190,14 @@
                       <li><a href="#optics-pca" id="toc-optics-pca" class="nav-link" data-scroll-target="#optics-pca">5.3.3 OPTICS PCA</a></li>
                       </ul></li>
                       </ul></li>
-                      <li><a href="#sonuçlar" id="toc-sonuçlar" class="nav-link" data-scroll-target="#sonuçlar">6. Sonuçlar </a>
+                      <li><a href="#Results" id="toc-Results" class="nav-link" data-scroll-target="#Results">6. Results </a>
                       <ul class="collapse">
                       <li><a href="#kmeans-1" id="toc-kmeans-1" class="nav-link" data-scroll-target="#kmeans-1">KMeans</a>
                       <ul class="collapse">
                       <li><a href="#normal-3" id="toc-normal-3" class="nav-link" data-scroll-target="#normal-3">Normal</a></li>
                       <li><a href="#umap-3" id="toc-umap-3" class="nav-link" data-scroll-target="#umap-3">UMAP</a></li>
                       <li><a href="#pca-3" id="toc-pca-3" class="nav-link" data-scroll-target="#pca-3">PCA</a></li>
-                      <li><a href="#outlier-free-aykırı-değersiz" id="toc-outlier-free-aykırı-değersiz" class="nav-link" data-scroll-target="#outlier-free-aykırı-değersiz">Outlier-free (Aykırı Değersiz)</a></li>
+                      <li><a href="#outlier-free-aykırı-değersiz" id="toc-outlier-free-aykırı-değersiz" class="nav-link" data-scroll-target="#outlier-free-aykırı-değersiz">Outlier-free </a></li>
                       </ul></li>
                       <li><a href="#dbscan-2" id="toc-dbscan-2" class="nav-link" data-scroll-target="#dbscan-2">DBSCAN</a></li>
                       <li><a href="#optics-2" id="toc-optics-2" class="nav-link" data-scroll-target="#optics-2">OPTICS</a>
@@ -205,8 +205,8 @@
                       <li><a href="#normal-4" id="toc-normal-4" class="nav-link" data-scroll-target="#normal-4">Normal:</a></li>
                       <li><a href="#umap-pca" id="toc-umap-pca" class="nav-link" data-scroll-target="#umap-pca">UMAP &amp; PCA:</a></li>
                       </ul></li>
-                      <li><a href="#özet" id="toc-özet" class="nav-link" data-scroll-target="#özet">Özet</a></li>
-                      <li><a href="#kümeleri-tahminlemeanlamlandırma" id="toc-kümeleri-tahminlemeanlamlandırma" class="nav-link" data-scroll-target="#kümeleri-tahminlemeanlamlandırma">Kümeleri tahminleme/anlamlandırma</a>
+                      <li><a href="#Summary" id="toc-Summary" class="nav-link" data-scroll-target="#Summary">Summary</a></li>
+                      <li><a href="#Predicting-interpreting-clusters" id="toc-Predicting-interpreting-clusters" class="nav-link" data-scroll-target="#Predicting-interpreting-clusters">Predicting/interpreting clusters</a>
                       <ul class="collapse">
                       <li><a href="#küme-0" id="toc-küme-0" class="nav-link" data-scroll-target="#küme-0">Küme 0</a></li>
                       <li><a href="#küme-1" id="toc-küme-1" class="nav-link" data-scroll-target="#küme-1">Küme 1</a></li>
@@ -220,7 +220,7 @@
 
                     <header id="title-block-header" class="quarto-title-block default">
                     <div class="quarto-title">
-                    <h1 class="title">Banka Müşteri Segmentasyonu: K-Means, DBscan ve OPTICS ile Analiz</h1>
+                    <h1 class="title">Bank Customer Segmentation: Analysis with K-Means, DBscan, and OPTICS</h1>
                     </div>
 
 
@@ -235,15 +235,15 @@
 
                     </header>
 
-                    <section id="giriş" class="level1">
-                    <h1>1. Giriş</h1>
-                    <p>Bu çalışmada son altı ayda yaklaşık 9000 kredi kartı kullanıcısının kullanım davranışını içeren bir veri seti kullanılacaktır. Müşteri davranışına birkaç gruba ayırmak, etkili ve verimli bir kredi kartı pazarlama stratejisi elde etmek için gereklidir.</p>
-                    <p>Bu not defterinin amacı şunlardır:</p>
-                    <p>  - Veri görselleştirme teknikleri kullanarak veri setini keşfetmek. </p>
-                    <p>  - Modelleri kullanmadan önce veri önişleme yapmak. </p>
-                    <p>  - Farklı kümeleme modelleri kullanarak müşterileri kümeler halinde gruplandırmak. </p>
-                    <p>  - Oluşturulan grupların (profilleme) yorumunu ve analizini yapmak. </p>
-                    <p>  - Yapılan profilleme sonuçlarına ve analizlere dayanarak pazarlama önerileri sunmak.</p>
+                    <section id="Introduction" class="level1">
+                    <h1>1. Introduction</h1>
+                    <p>In this study, a data set containing the usage behavior of approximately 9000 credit card users in the last six months will be used. Dividing customer behavior into several groups is necessary to obtain an effective and efficient credit card marketing strategy.</p>
+                    <p>The objectives of this notebook are as follows:</p>
+                    <p>  - Explore the data set using data visualization techniques. </p>
+                    <p>  - Perform data preprocessing before using models. </p>
+                    <p>  - Group customers into clusters using different clustering models. </p>
+                    <p>  - Interpret and analyze the created groups (profiling). </p>
+                    <p>  - Provide marketing suggestions based on the profiling results and analyses.</p>
                     <div class="cell" data-execution_count="1">
                     <details>
                     <summary>Code</summary>
@@ -272,9 +272,9 @@
                     </details>
                     </div>
                     </section>
-                    <section id="veri-setinin-ilk-incelemesi" class="level1">
-                    <h1 class="custom-header-primary">2. Veri Setinin İlk İncelemesi</h1>
-                    <p>  İlk olarak elimizde bulunan veri setini biraz tanıyalım; </p>
+                    <section id="Initial-Review-of-the-Data-Set" class="level1">
+                    <h1 class="custom-header-primary">2. Initial Review of the Data Set</h1>
+                    <p>  First, let's get acquainted with the data set we have at hand; </p>
                     <div class="cell" data-execution_count="3">
                     <details>
                     <summary>Code</summary>
@@ -431,27 +431,27 @@
                     </div>
                     </div>
                     <p>     </p>
-                    <p>Başlıklarla ilgili biraz detay; </p>
+                    <p>Some detail regarding the headers; </p>
                     <ul>
-                    <li><p><strong>BALANCE</strong>: Kredi kartınızın kullanılabilir kısmı</p></li>
-                    <li><p><strong>BALANCE_FREQUENCY</strong>: Bakiyenin ne sıklıkla güncellendiği, 0 ile 1 arasında puan (1 = sıkça güncellenir, 0 = sıkça güncellenmez)</p></li>
-                    <li><p><strong>PURCHASES</strong>: Hesaptan yapılan alışveriş miktarı</p></li>
-                    <li><p><strong>ONEOFF_PURCHASES</strong>: Tek seferde yapılan en yüksek alışveriş miktarı</p></li>
-                    <li><p><strong>INSTALLMENTS_PURCHASES</strong>: Taksitle yapılan alışveriş miktarı</p></li>
-                    <li><p><strong>CASH_ADVANCE</strong>: Nakit Avans</p></li>
-                    <li><p><strong>PURCHASES_FREQUENCY</strong>: Alışverişlerin ne sıklıkla yapıldığı, 0 ile 1 arasında puan (1 = sıkça alışveriş yapılır, 0 = sıkça alışveriş yapılmaz)</p></li>
-                    <li><p><strong>ONEOFF_PURCHASES_FREQUENCY</strong>: Tek seferdeki alışverişlerin ne sıklıkla yapıldığı (1 = sıkça alışveriş yapılır, 0 = sıkça alışveriş yapılmaz)</p></li>
-                    <li><p><strong>PURCHASES_INSTALLMENTS_FREQUENCY</strong>: Taksitli alışverişlerin ne sıklıkla yapıldığı (1 = sıkça yapılır, 0 = sıkça yapılmaz)</p></li>
-                    <li><p><strong>CASH_ADVANCE_FREQUENCY</strong>: Önceden alınan naktin ne sıklıkla ödendiği</p></li>
-                    <li><p><strong>CASH_ADVANCE_TRX</strong>: “Nakit Avans” ile yapılan işlem sayısı</p></li>
-                    <li><p><strong>PURCHASES_TRX</strong>: Yapılan alışveriş işlemlerinin sayısı</p></li>
-                    <li><p><strong>CREDIT_LIMIT</strong>: Kullanıcının kredi kartı limiti</p></li>
-                    <li><p><strong>PAYMENTS</strong>: Kullanıcı tarafından yapılan ödeme miktarı</p></li>
-                    <li><p><strong>MINIMUM_PAYMENTS</strong>: Kullanıcı tarafından yapılan minimum ödeme miktarı</p></li>
-                    <li><p><strong>PRC_FULL_PAYMENT</strong>: Kullanıcı tarafından yapılan tam ödemenin yüzdesi</p></li>
-                    <li><p><strong>TENURE</strong>: Kullanıcının kredi kartı hizmet süresi</p></li>
+                    <li><p><strong>BALANCE</strong>: The available usage of your credit card</p></li>
+                    <li><p><strong>BALANCE_FREQUENCY</strong>: How frequently the balance is updated, score between 0 and 1 (1 = frequently updated, 0 = not frequently updated)</p></li>
+                    <li><p><strong>PURCHASES</strong>: The amount of shopping made from the account</p></li>
+                    <li><p><strong>ONEOFF_PURCHASES</strong>: The highest shopping amount made at one time</p></li>
+                    <li><p><strong>INSTALLMENTS_PURCHASES</strong>: The amount of shopping made in installments</p></li>
+                    <li><p><strong>CASH_ADVANCE</strong>: Cash Advance</p></li>
+                    <li><p><strong>PURCHASES_FREQUENCY</strong>:  How frequently shopping is done, score between 0 and 1 (1 = shopping is done frequently, 0 = shopping is not done frequently)</p></li>
+                    <li><p><strong>ONEOFF_PURCHASES_FREQUENCY</strong>: How frequently one-off purchases are made (1 = frequently done, 0 = not frequently done)</p></li>
+                    <li><p><strong>PURCHASES_INSTALLMENTS_FREQUENCY</strong>: How frequently installment purchases are made (1 = frequently done, 0 = not frequently done)</p></li>
+                    <li><p><strong>CASH_ADVANCE_FREQUENCY</strong>:How frequently the cash taken in advance is paid</p></li>
+                    <li><p><strong>CASH_ADVANCE_TRX</strong>:  The number of transactions made with “Cash Advance”</p></li>
+                    <li><p><strong>PURCHASES_TRX</strong>: The number of shopping transactions made</p></li>
+                    <li><p><strong>CREDIT_LIMIT</strong>: The credit card limit of the user</p></li>
+                    <li><p><strong>PAYMENTS</strong>: The amount of payment made by the user</p></li>
+                    <li><p><strong>MINIMUM_PAYMENTS</strong>: The amount of minimum payment made by the user</p></li>
+                    <li><p><strong>PRC_FULL_PAYMENT</strong>: The percentage of full payment made by the user</p></li>
+                    <li><p><strong>TENURE</strong>: The tenure of the user's credit card service</p></li>
                     </ul>
-                    <p>  Veri tiplerini inceleyelim; </p>
+                    <p>  Let's examine the data types; </p>
                     <div class="cell" data-execution_count="4">
                     <details>
                     <summary>Code</summary>
@@ -487,7 +487,7 @@
                     memory usage: 1.3+ MB</code></pre>
                     </div>
                     </div>
-                    <p>Her başlık için temel istatistik değerleri:</p>
+                    <p>Basic statistical values for each header:</p>
                     <div class="cell" data-execution_count="5">
                     <details>
                     <summary>Code</summary>
@@ -689,15 +689,15 @@
                     </div>
                     <ul>
                     <p>     </p>
-                    <li><p>Yukarıdaki tabloda her özelliğin yüzdelik değerlerine dayanarak, <strong>CASH_ADVANCE_TRX, PURCHASES_TRX ve TENURE</strong> özelliklerinin sürekli olmayabileceği sonucu çıkabilir. Ancak bu hipotezi kanıtlamak için kontrol edilmelidirler.</p></li>
-                    <li><p>Her özelliğin sayısına bakıldığında, <strong>CREDIT_LIMIT ve MINIMUM_PAYMENTS</strong> sütunlarında bazı eksik değerler bulunmaktadır.</p></li>
-                    <li><p>Yüzdeliklere bakıldığında, bazı özelliklerin dağılımları ağır bir şekilde skewness görülmekte ve daha ayrıntılı analiz gereklidir.</p></li>
-                    <li><p>Sonuç olarak, grafikleri görselleştirmek ve analiz etmek, veriyi daha derinlemesine anlamada yardımcı olabilir.</p></li>
+                    <li><p>Based on the percentile values of each feature in the table above, it may be concluded that <strong>CASH_ADVANCE_TRX, PURCHASES_TRX and TENURE</strong> features may not be continuous. However, they should be checked to prove this hypothesis.</p></li>
+                    <li><p>Looking at the count of each feature, there are some missing values in the <strong>CREDIT_LIMIT and MINIMUM_PAYMENTS</strong> columns.</p></li>
+                    <li><p>Looking at the percentiles, the distributions of some features are heavily skewed and require more detailed analysis.</p></li>
+                    <li><p>In conclusion, visualizing and analyzing the charts can help in understanding the data more in-depth.</p></li>
                     </ul>
                     </section>
-                    <section id="ön-işleme" class="level1">
-                    <h1 class="custom-header-primary">3. Ön İşleme </h1>
-                    <p>Data setinde ki null değerlerin incelenmesi ve oranı:</p>
+                    <section id="Preprocessing" class="level1">
+                    <h1 class="custom-header-primary">3. Preprocessing </h1>
+                    <p>Analysis and proportion of null values in the dataset:</p>
                     <div class="cell" data-execution_count="6">
                     <details>
                     <summary>Code</summary>
@@ -727,7 +727,7 @@
                     dtype: float64</code></pre>
                     </div>
                     </div>
-                    <p><strong>Minimum_payments ve Credit_Limits</strong> kısımlarında boş veriler bulunmakta analizin devamı için bunlarla ilgileniyoruz;</p>
+                    <p>There are empty values in the <strong>Minimum_payments and Credit_Limits</strong>, and we are addressing these for the continuation of the analysis;</p>
                     <div class="cell" data-execution_count="7">
                     <details>
                     <summary>Code</summary>
@@ -764,7 +764,7 @@
                     dtype: float64</code></pre>
                     </div>
                     </div>
-                    <p>Müşteri Segmentasyonu için gerekli olmayan iki başlığı düşürüyoruz, bu başlıklar analiz sonrası tekrar eklenecektir.</p>
+                    <p>We are dropping two headers that are not necessary for Customer Segmentation; these headers will be added back after the analysis.</p>
                     <div class="cell" data-execution_count="9">
                     <details>
                     <summary>Code</summary>
@@ -772,9 +772,9 @@
                     </details>
                     </div>
                     </section>
-                    <section id="keşifsel-veri-analizi-eda" class="level1">
-                    <h1 class="custom-header-primary">4. Keşifsel Veri Analizi (EDA) 🔍</h1>
-                    <p>Datayı görselleştirmek için <strong>Sweetviz</strong> kütüphanesini kullandım, Sweetvizle ilgili; Python için bir veri görselleştirme kütüphanesidir. <strong>Eksploratif veri analizi (Exploratory Data Analysis - EDA)</strong> amacıyla tasarlanmıştır. Bir veya iki veri çerçevesini (DataFrame) hızla görselleştirerek detaylı ve görsel olarak çekici raporlar üretir.</p>
+                    <section id="Exploratory-Data-Analysis-(EDA)" class="level1">
+                    <h1 class="custom-header-primary">4. Exploratory Data Analysis (EDA) 🔍</h1>
+                    <p>To visualize the data, I used the <strong>Sweetviz</strong> library. Regarding Sweetviz; it is a data visualization library for Python. It is designed for the purpose of <strong>Exploratory Data Analysis (EDA)</strong>. It quickly visualizes one or two data frames, producing detailed and visually appealing reports.</p>
                     <div class="cell" data-execution_count="10">
                     <details>
                     <summary>Code</summary>
@@ -10985,11 +10985,11 @@
                     </div>
                     <ul>
                     <p>   </p>
-                    <li><strong>PURCHASES_FREQUENCY</strong> dışında, başlıkların hiçbirinde dengeli bir dağılım görülmemektedir. Ayrıca, <strong>PURCHASES_FREQUENCY</strong> bile normal bir dağılıma sahip değildir!</li>
-                    <li>Önceki bölümde belirtildiği gibi, bazı başlıklarda ağır bir şekilde <strong>skewness(çarpıklık)</strong> mevcutır. Sonuç olarak <strong>outlierları (aykırı değerleri)</strong>, bulmak için daha ayrıntılı bir inceleme yapılması gerekmektedir. Ayrıca, alışılagelmiş kümeleme algoritmaları yeterince verimli olmayabilir.</li>
+                    <li>Except for <strong>PURCHASES_FREQUENCY</strong>, none of the headers have a balanced distribution. Moreover, even <strong>PURCHASES_FREQUENCY</strong> does not have a normal distribution!</li>
+                    <li>As mentioned in the previous section, there is a significant <strong>skewness</strong> in some headers. As a result, a more detailed examination is needed to identify <strong>outliers</strong>. Also, conventional clustering algorithms may not be efficient enough.</li>
                     </ul>
-                    <p><strong>Veri ölçeklendirmesi</strong>, makine öğrenimi algoritmalarının daha etkili çalışmasını sağlamak için genellikle kullanılır. Özellikle, birçok algoritma, özellikler arasındaki farklı ölçekler nedeniyle yanıltıcı sonuçlar üretebilir. Bu nedenle, tüm özellikleri benzer bir ölçeğe getirmek önemlidir.</p>
-                    <p>Kullandığımız ölçeklendirme yöntemi <strong>StandardScalerdır</strong>. <strong>StandardScaler</strong>, her özelliği, ortalaması 0 ve standart sapması 1 olacak şekilde ölçeklendirir. Bu, z-skor normalleştirmesi olarak da bilinir.</p>
+                    <p><strong>Data scaling</strong> is often used to ensure machine learning algorithms operate more effectively. Specifically, many algorithms can produce misleading results due to different scales among features. Therefore, it's important to bring all features to a similar scale.</p>
+                    <p>The scaling method we used is <strong>StandardScaler</strong>. <strong>StandardScaler</strong> scales each feature to have a mean of 0 and a standard deviation of 1. This is also known as z-score normalization.</p>
                     <div class="cell" data-execution_count="11">
                     <details>
                     <summary>Code</summary>
@@ -10997,10 +10997,10 @@
                     <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_scaled <span class="op">=</span> scaler.fit_transform(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     </div>
-                    <p>Bu kod ile verimiz başarılı bir şekilde ölçeklendirilmiş oldu ve model eğitimi veya diğer analizler için hazır hale getirildi.</p>
-                    <p><strong>Hopkins İstatistiği</strong></p>
-                    <p>Kümeleme analizine başlamadan önce veri setinin kümelemeye uygun olup olmadığını kontrol etmek önemlidir. Bu amaçla, veri setinin rastgele dağılıp dağılmadığını kontrol etmek için <strong>Hopkins İstatistiği</strong> kullanılır.</p>
-                    <p>Hopkins İstatistiği, bir veri setinin kümelemeye ne kadar uygun olduğunu ölçen bir testtir. Değerin 0.5’e yakın olması, verinin rastgele bir dağılıma sahip olduğunu ve bu nedenle kümelemeye uygun olmadığını gösterir. Öte yandan, değer 0.7’den büyükse, veri kümesi muhtemelen kümelemeye uygundur.</p>
+                    <p>With this code, our data has been successfully scaled and is ready for model training or other analyses.</p>
+                    <p><strong>Hopkins Statistic</strong></p>
+                    <p>Before starting the clustering analysis, it is important to check whether the dataset is suitable for clustering. For this purpose, the <strong>Hopkins Statistic</strong> is used to check whether the dataset is randomly distributed.</p>
+                    <p>The Hopkins Statistic is a test that measures how suitable a dataset is for clustering. A value close to 0.5 indicates that the data has a random distribution, and therefore is not suitable for clustering. On the other hand, if the value is greater than 0.7, the dataset is likely suitable for clustering.</p>
                     <div class="cell" data-execution_count="12">
                     <details>
                     <summary>Code</summary>
@@ -11011,8 +11011,8 @@
                     <pre><code>0.034992587280613066</code></pre>
                     </div>
                     </div>
-                    <p>Bu sonuca göre, 0.0351 değeri Hopkins İstatistiği için oldukça düşüktür, bu da veri kümesinin belirgin bir yapıya veya kümeye sahip olmadığını, dolayısıyla kümelemeye pek uygun olmadığını gösterir.</p>
-                    <p>Data setinin genel yapısına önceden baktığımızda aşırı outlier ve skewness olduğunu görmüştük bu yüzden hopkins skorunun tüm data üstünde kullanılması yanıltıcı olabilir. Bu yüzden rastgele %10 luk veri üzerinde tekrardan hopkins testi uyguladım;</p>
+                    <p>According to this result, the value of 0.0351 is quite low for the Hopkins Statistic, indicating that the dataset does not have a clear structure or cluster, and thus may not be suitable for clustering.</p>
+                    <p>Having previously looked at the overall structure of the dataset, we had seen excessive outliers and skewness, so using the Hopkins score over the entire data could be misleading. Therefore, I applied the Hopkins test again on a random 10% of the data;</p>
                     <div class="cell" data-execution_count="13">
                     <details>
                     <summary>Code</summary>
@@ -11064,10 +11064,10 @@
                     .:. Sonuçlar: H0 Kabul .:.</code></pre>
                     </div>
                     </div>
-                    <p>Veri kümesinin tamamı üzerinden yapılan ilk Hopkins istatistiği testinde, verinin rastgele bir dağılıma kıyasla ne kadar kümeleme eğilimli olduğuna dair düşük bir değer elde ettik. Bu sonuç, ilk bakışta verinin belirgin kümeler içermediğini veya kümelerin ayrımının zor olduğunu gösteriyor olabilir.</p>
-                    <p>%10’luk rastgele bir alt küme üzerinde yapılan Hopkins testinin sonucu, verinin yüksek bir kümeleme eğilimine sahip olduğunu gösterdi.</p>
-                    <p>Sonuç olarak, geniş veri kümelerinin analizinde, hem tüm veri seti üzerinde hem de rastgele alt kümeler üzerinde analiz yapmanın avantajları vardır. Her iki yaklaşımın da sonuçları, veri setinin genel yapısının ve kümeleme eğiliminin daha bütünsel bir anlayışını sağlar.</p>
-                    <p>Data setinde bulunan aykırı değerlerinin ortalamasını inceleme zamanı geldi Aykırı değerleri tespit etmek için IQR (çeyrekler arası aralık) metodunu kullandık. ;</p>
+                    <p>In the initial Hopkins statistic test conducted on the entire dataset, we obtained a low value regarding how clustering-prone the data is compared to a random distribution. This result might indicate that at first glance, the data does not contain distinct clusters or the separation of clusters is challenging.</p>
+                    <p>The result of the Hopkins test conducted on a random 10% subset showed that the data has a high tendency for clustering.</p>
+                    <p>Consequently, in the analysis of extensive data sets, there are advantages to conducting analysis both on the entire data set and on random sub-sets. The results of both approaches provide a more holistic understanding of the overall structure of the dataset and its clustering tendency.</p>
+                    <p>It's time to examine the average of the outliers found in the dataset. To detect outliers, we used the IQR (Interquartile Range) method. ;</p>
                     <div class="cell" data-execution_count="14">
                     <details>
                     <summary>Code</summary>
@@ -11106,10 +11106,9 @@
                      'TENURE': 15.26}</code></pre>
                     </div>
                     </div>
-                    <p>Bu sonuçlara göre, bazı özelliklerde; örneğin <strong>BALANCE_FREQUENCY, PRC_FULL_PAYMENT ve TENURE</strong> aykırı değerlerin yüzdesi oldukça yüksektir. Bu özelliklerin veri seti üzerindeki etkilerini ve bu aykırı değerlerin nasıl işleneceğini değerlendirmemiz gerekmektedir. Diğer yandan, bazı özelliklerde; <strong>PURCHASES_FREQUENCY ve PURCHASES_INSTALLMENTS_FREQUENCY</strong> aykırı değer bulunmamaktadır.</p>
-                    <p>Aykırı değerler, analizlerimiz ve modellemelerimiz üzerinde olumsuz etkilere sahip olabileceğinden, bu değerlerle ilgili stratejiler geliştirmemiz önemlidir. Bu stratejiler, aykırı değerlerin silinmesi, dönüştürülmesi veya başka bir yöntemle işlenmesi şeklinde olabilir.</p>
-                    <p>Aykırı değerlerle ilgili her zaman işlem yapılması zorunluluk değildir bazı durumlarda yanıltıcı bile olabilir. Yine de ilerleyen analizlerde aykırı değerler üstünde işlem yapılmış bir veri seti oluşturdum, bu sayede farklı sonuçları inceleme fırsatım oldu.</p>
-                    <div class="cell" data-execution_count="15">
+                    <p>According to these results, in some features; for instance, <strong>BALANCE_FREQUENCY, PRC_FULL_PAYMENT, and TENURE</strong> the percentage of outliers is quite high. It's necessary to evaluate the effects of these features on the dataset and how to handle these outliers. On the other hand, in some features; there are no outliers in <strong>PURCHASES_FREQUENCY and PURCHASES_INSTALLMENTS_FREQUENCY</strong>.</p>
+                    <p>Outliers could have adverse effects on our analyses and modelings, hence, it's important to develop strategies regarding these values. These strategies could be in the form of deletion, transformation, or handling them via another method.</p>
+                    <p>It's not always obligatory to deal with outliers as in some cases it could even be misleading. However, in the subsequent analyses, I created a dataset where actions have been taken on outliers, thus had the opportunity to examine different results.</p>                    <div class="cell" data-execution_count="15">
                     <details>
                     <summary>Code</summary>
                     <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> preprocess_data(data):</span>
@@ -11176,15 +11175,15 @@
                     <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_wo <span class="op">=</span> preprocess_data(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     </div>
-                    <p>Bu veri ön işleme fonksiyonu, bazı belirli sütunları kategorik aralıklara ayırmak için oluşturulmuştur. Bu sütunlar için önceden tanımlanmış sınırlar kullanılarak, bu sınırlara dayalı olarak yeni özellikler türetilmiştir. İlgili özelliklerin sayısal değerleri korunurken, bu değerlere karşılık gelen kategorik aralıkları belirleyen yeni sütunlar oluşturulmuştur.</p>
-                    <p><strong>Özellik Sınırları:</strong></p>
-                    <p>Belirli sütunlar için değer aralıklarını temsil eden sınırlar belirlenmiştir. Örneğin, ‘BALANCE’ sütunu için sınırlar: 0, 500, 1000, 3000, 5000, 10000 olarak tanımlanmıştır. Bu sınırlar, belirli bir özellikteki değerlerin hangi aralıkta olduğunu belirlemek için kullanılır. Sınırların Uygulanması:</p>
-                    <p>Her bir sütun için assign_range adında bir yardımcı fonksiyon kullanılmıştır. Bu fonksiyon, belirli bir sütunun değerlerini alarak bu değerleri tanımlanan sınırlara göre kategorik bir sütuna dönüştürür. Örneğin, ‘BALANCE’ sütunu için 750 değerine sahip bir gözlem, ‘BALANCE_RANGE’ sütununda 2 değerine sahip olacaktır. Çünkü bu değer 500 ile 1000 arasında yer almaktadır. Gereksiz Sütunların Kaldırılması:</p>
-                    <p>Kategorik aralıklara dönüştürülen sütunların orijinal sayısal sütunları gereksiz hale gelmiştir. Bu nedenle, bu sütunlar veri setinden kaldırılmıştır. Sonuç olarak, bu fonksiyon, belirli sütunları kategorik aralıklara dönüştürmek için kullanılır ve bu dönüşümün ardından orijinal sayısal sütunları veri setinden kaldırır.</p>
+                    <p>This data preprocessing function has been created to categorize certain columns into categorical ranges. Using predefined boundaries for these columns, new features have been derived based on these boundaries. While retaining the numerical values of the relevant features, new columns have been created to determine the categorical ranges corresponding to these values.</p>
+                    <p><strong>Feature Boundaries:</strong></p>
+                    <p>Boundaries representing value ranges have been determined for certain columns. For example, for the ‘BALANCE’ column, the boundaries have been defined as: 0, 500, 1000, 3000, 5000, 10000. These boundaries are used to determine in which range the values of a particular feature fall. Implementation of Boundaries:</p>
+                    <p>A helper function named assign_range has been used for each column. This function takes the values of a particular column and converts these values into a categorical column based on the defined boundaries. For example, an observation with a value of 750 in the ‘BALANCE’ column will have a value of 2 in the ‘BALANCE_RANGE’ column, as this value falls between 500 and 1000. Removal of Unnecessary Columns:</p>
+                    <p>The original numerical columns have become redundant once the columns are converted into categorical ranges. Therefore, these columns have been removed from the dataset. In conclusion, this function is used to convert certain columns into categorical ranges, and it removes the original numerical columns from the dataset following this conversion.</p>
                     </section>
-                    <section id="kümeleme-modelleri" class="level1">
-                    <h1 class="custom-header-primary">5. Kümeleme Modelleri </h1>
-                    <p>İncelemede 3 farklı kümeleme yöntemini farklı metodolojilerle deneyip en ideal olanı bulmaya çalışcaz. Kümeleme modelleri için <strong>K-Means, DBSCAN ve OPTICS</strong> yöntemlerini kullanacağım. K-means için işlenmemiş dataset, aykırı veriler için işlem yapılmış dataseti, PCA ve UMAP uygulanmış datasetlerini kullanacağım. DBSCAN ve OPTICS doğası gereği aykırı değerlerden çok fazla etkilenmediği için normal,<strong> PCA ve UMAP </strong>data setleri kullanılarak sonuçlar alınacaktır.</p>
+                    <section id="Clustering-Models" class="level1">
+                    <h1 class="custom-header-primary">5. Clustering Models </h1>
+                    <p>In the review, we will try different clustering methods with different methodologies to find the most ideal one. For clustering models, I will use the <strong>K-Means, DBSCAN, and OPTICS</strong> methods. For K-means, I will use the unprocessed dataset, the dataset processed for outliers, and the datasets applied with PCA and UMAP. As DBSCAN and OPTICS are not significantly affected by outliers by nature, results will be obtained using the normal, <strong>PCA, and UMAP</strong> datasets.</p>
                     <div class="cell" data-execution_count="17">
                     <details>
                     <summary>Code</summary>
@@ -11208,22 +11207,21 @@
                     <span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
                     </details>
                     </div>
-                    <p>Bu kod, farklı kümeleme algoritmalarının sonuçlarını ve performans metriklerini saklamak üzere bir yapı inşa ediyor. Özellikle, <em>KMeans</em>, <em>DBSCAN</em> ve <em>OPTICS</em> kümeleme algoritmalarının sonuçlarını değerlendiriyoruz. Ayrıca, bu algoritmaları normal, <em>UMAP</em> indirgenmiş, <em>PCA</em> indirgenmiş ve aykırı değer içermeyen veri setleri üzerinde de test edeceğiz. Analiz için yaptığım yol haritasının şemasını bu kodda görebilirsiniz. Kısaca bahsetmek gerekirse.</p>
-                    <p><em<strong>KMeans:</strong></em> Veriyi belirli bir “k” sayısı olacak şekilde kümeye ayırmak için bir algoritmadır.</p>
-                    <p><em><strong>DBSCAN:</strong></em> Yoğunluk tabanlı bir kümeleme algoritmasıdır ve küme sayısını önceden belirtmeye gerek duymaz.</p>
-                    <p><em><strong>OPTICS:</strong></em> Yoğunluk tabanlı bir kümeleme algoritması olan DBSCAN’in genelleştirilmiş bir versiyonudur.</p>
-                    <p><em><strong>UMAP:</strong></em> Veriyi daha az boyutlu bir uzaya indirgemek için kullanılan bir boyut indirgeme yöntemidir.</p>
-                    <p><em><strong>PCA:</strong></em> Principal Component Analysis’in kısaltmasıdır ve veriyi az sayıda özellikle temsil etmek için kullanılır.</p>
-                    <p><em><strong>Silhouette Coefficient:</strong></em> Bir kümenin içsel uyumu ve kümeler arasındaki ayrımı ölçen bir metrik.</p>
-                    <p><em><strong>Calinski-Harabasz Index:</strong></em> Küme dağılımının kalitesini ölçen bir skor.</p>
-                    <p><em><strong>Davies-Bouldin Index:</strong></em> Küme içi benzerlikleri ile kümeler arası benzerliklerin oranını ölçer. Düşük değerler daha iyi kümelemeyi gösterir.</p>
+                    <p>This code constructs a structure to store the results and performance metrics of different clustering algorithms. Specifically, we are evaluating the results of <em>KMeans</em>, <em>DBSCAN</em> and <em>OPTICS</em> clustering algorithms. Additionally, we will also test these algorithms on normal, <em>UMAP</em> reduced, <em>PCA</em> reduced, and outlier-free datasets. The schema of the roadmap I made for the analysis can be seen in this code. To briefly mention.</p>
+                    <p><em><strong>KMeans:</strong></em> It is an algorithm to cluster the data into a certain "k" number of clusters.</p>
+                    <p><em><strong>DBSCAN:</strong></em> It is a density-based clustering algorithm and does not require specifying the number of clusters in advance.</p>
+                    <p><em><strong>OPTICS:</strong></em> It is a generalized version of DBSCAN, a density-based clustering algorithm.</p>
+                    <p><em><strong>UMAP:</strong></em> It is a dimension reduction method used to reduce the data to a lower-dimensional space.</p>
+                    <p><em><strong>PCA:</strong></em> It is the abbreviation for Principal Component Analysis and is used to represent the data with fewer features.</p>
+                    <p><em><strong>Silhouette Coefficient:</strong></em> A metric measuring the internal cohesion of a cluster and the separation between clusters.</p>
+                    <p><em><strong>Calinski-Harabasz Index:</strong></em> A score measuring the quality of cluster dispersion.</p>
+                    <p><em><strong>Davies-Bouldin Index:</strong></em> It measures the ratio of intra-cluster similarities to inter-cluster similarities. Lower values indicate better clustering.</p>
                     <section id="k-means" class="level2">
                     <h2 class="anchored" data-anchor-id="k-means" class="custom-header-secondary">5.1 K-Means</h2>
-                    <p>K-Means, veriyi belirlenen ‘k’ sayıda kümeye bölmek için kullanılan bir kümeleme algoritmasıdır. Algoritma, her bir küme merkezini rastgele başlatarak çalışır ve ardından bu merkezleri, kümelerdeki veri noktalarının ortalaması olacak şekilde iteratif olarak günceller. Bu süreç, belirlenen bir kriteri (örneğin, merkezlerin hareket etmediği bir durumu) karşılayana kadar devam eder. K-Means sürecini destekleyici olarak dirsek yöntemi ve Silhouette skoru kullanıldı;</p>
-                    <p><b>Dirsek Yöntemi (Elbow Method)</b> K-means algoritması için en zor kararların başında, verinin kaç kümeye ayrılması gerektiğini belirlemek gelir. Dirsek yöntemi, bu kararı vermek için kullanılan yaygın bir tekniktir. Bu yöntem, farklı k değerleri için toplam iç kareler toplamının (WCSS) hesaplanmasını içerir. K değerinin artmasıyla WCSS azalır. Ancak belirli bir k değerinden sonra, bu azalma miktarı önemsiz hale gelir. Bu “dirsek” olarak adlandırılan nokta, optimal k değerini belirlememize yardımcı olur.</p>
-                    <p><b>Silhouette Skoru</b> Silhouette skoru, kümelerin ne kadar iyi tanımlandığını ölçer. Bu skor, -1 ile 1 arasında değerler alır. 1’e yakın bir değer, noktaların kendi kümelerinde benzer ve diğer kümelerden farklı olduğunu gösterirken, -1’e yakın bir değer bu noktaların yanlış kümelenmiş olduğunu gösterir. 0 değeri, kümelerin birbirinden ne kadar ayrıldığı konusunda belirsizlik olduğunu gösterir.</p>
-                    <section id="k-means-normal" class="level3">
-                    <h3 class="anchored" data-anchor-id="k-means-normal"><strong>5.1.1 K-Means Normal</strong></h3>
+                    <p>K-Means is a clustering algorithm used to divide the data into ‘k’ number of clusters. The algorithm operates by randomly initializing each cluster center, and then iteratively updating these centers to be the average of the data points in the clusters. This process continues until a defined criterion (e.g., a situation where the centers do not move) is met. The elbow method and Silhouette score were used as supportive to the K-Means process;</p>
+                    <p><b>Elbow Method</b> One of the toughest decisions for the K-means algorithm is determining how many clusters the data should be divided into. The elbow method is a common technique used for this decision. This method involves calculating the total within-cluster sum of squares (WCSS) for different k values. As the value of k increases, WCSS decreases. However, after a certain k value, this reduction amount becomes insignificant. This point called the "elbow" helps us to determine the optimal k value.</p>
+                    <p><b>Silhouette Score</b> The Silhouette score measures how well the clusters are defined. This score takes values between -1 and 1. A value close to 1 indicates that the points are similar within their clusters and different from other clusters, while a value close to -1 indicates that these points are clustered incorrectly. A value of 0 indicates uncertainty about how far apart the clusters are from each other.</p>
+                    <section id="k-means-normal" class="level3">                    <h3 class="anchored" data-anchor-id="k-means-normal"><strong>5.1.1 K-Means Normal</strong></h3>
                     <div class="cell" data-execution_count="18">
                     <details>
                     <summary>Code</summary>
@@ -11261,11 +11259,11 @@
                     <p><img src="final_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
                     </div>
                     </div>
-                    <p><b>Grafiğin Değerlendirilmesi</b></p>
-                    <p>Grafiği değerlendirirken şunlara dikkat edilmelidir:</p>
-                    <p><b>Dirsek Noktası</b>: WCSS grafiğini (mavi çizgi) incelerken, WCSS’nin önemli ölçüde azalmadığı k değerini arayın. Bu nokta, optimal k değerini belirlememiz için bir ipucu olarak kullanılabilir.</p>
-                    <p><b>Silhouette Skoru</b>: Silhouette skoru grafiğini (turuncu çizgi) incelerken, en yüksek skorlu k değerini arayın. Yüksek bir silhouette skoru, iyi tanımlanmış kümeler olduğunu gösterir.</p>
-                    <p>Bu iki ölçümü birlikte kullanarak, veri kümesi için en uygun k değerini belirleyebilirsiniz.</p>
+                    <p><b>Evaluation of the Graph</b></p>
+                    <p>Consider the following when evaluating the graph:</p>
+                    <p><b>Elbow Point</b>: When examining the WCSS graph (blue line), look for the k value where WCSS does not decrease significantly. This point can serve as a clue to determine the optimal k value.</p>
+                    <p><b>Silhouette Score</b>: When examining the silhouette score graph (orange line), look for the k value with the highest score. A high silhouette score indicates well-defined clusters.</p>
+                    <p>By using these two measurements together, you can determine the most suitable k value for the dataset.</p>
                     <div class="cell" data-execution_count="19">
                     <details>
                     <summary>Code</summary>
@@ -11337,14 +11335,14 @@
                     <p><img src="final_files/figure-html/cell-20-output-3.png" class="img-fluid"></p>
                     </div>
                     </div>
-                    <p><b> 1. 3D Küme Dağılım Grafiği</b> Bu grafik, ölçeklendirilmiş veri setindeki kümelerin 3 boyutlu bir uzayda nasıl dağıldığını gösterir. Her renk, farklı bir kümeyi temsil eder.</p>
-                    <p><em>Gözlem</em>: Eğer kümeler birbirinden belirgin bir şekilde ayrılıyorsa, bu, K-Means algoritmasının iyi bir şekilde kümeleme yaptığını gösterir.</p>
-                    <p><b>2. Silhouette Grafiği</b> Silhouette grafiği, her veri noktasının kendi kümesi içindeki diğer veri noktalarına ne kadar yakın olduğunu ve en yakın diğer kümeye ne kadar uzak olduğunu değerlendirir.</p>
-                    <p><em>Bantlar</em>: Her bant, belirli bir kümeyi temsil eder. Bantın genişliği, o kümedeki veri noktalarının sayısını gösterirken, yüksekliği silhouette skorunu temsil eder.</p>
-                    <p><em>Kırmızı Çizgi</em>: Ortalama silhouette skoru. Bu çizgiye yakın veya üzerinde değerlere sahip kümelerin iyi tanımlanmış olduğunu söyleyebiliriz.</p>
-                    <p><em>Gözlem</em>: Eğer bantlar kırmızı çizgiye yakın veya onun üzerindeyse ve bant genişlikleri benzerse, bu, kümelerin dengeli ve iyi tanımlanmış olduğunu gösterir.</p>
-                    <p><b> 3. Küme Dağılım Yüzdelikleri Grafiği</b> Bu pasta grafiği, her bir kümeye düşen veri noktalarının yüzdelik dağılımını gösterir.</p>
-                    <p><em>Gözlem</em>: Eğer dilimler benzer boyutlardaysa, bu, kümelerin dengeli bir şekilde dağıldığını gösterir. Ancak bir veya birden fazla dilimin diğerlerine göre çok büyük veya çok küçük olduğunu görürseniz, bu, belirli kümelerin diğerlerinden daha fazla veya daha az veri noktasına sahip olduğunu gösterir.</p>
+                    <p><b>1. 3D Cluster Distribution Graph</b> This graph shows how clusters are distributed in a 3-dimensional space in the scaled dataset. Each color represents a different cluster.</p>
+                    <p><em>Observation</em>: If the clusters are distinctly separated from each other, it indicates that the K-Means algorithm has clustered well.</p>
+                    <p><b>2. Silhouette Graph</b> The silhouette graph evaluates how close each data point is to other data points in its own cluster, and how far it is from the nearest other cluster.</p>
+                    <p><em>Bands</em>: Each band represents a specific cluster. The width of the band represents the number of data points in that cluster, while its height represents the silhouette score.</p>
+                    <p><em>Red Line</em>: Average silhouette score. We can say that clusters with values close to or above this line are well-defined.</p>
+                    <p><em>Observation</em>: If the bands are near or above the red line and the band widths are similar, it indicates that the clusters are balanced and well-defined.</p>
+                    <p><b>3. Cluster Distribution Percentages Graph</b> This pie chart shows the percentage distribution of data points falling into each cluster.</p>
+                    <p><em>Observation</em>: If the slices are of similar size, it indicates a balanced distribution of clusters. However, if you see one or more slices significantly larger or smaller than the others, it indicates that certain clusters have more or fewer data points compared to others.</p>
                     <div class="cell" data-execution_count="20">
                     <details>
                     <summary>Code</summary>
@@ -11367,15 +11365,15 @@ Calinski-Harabasz Index: 1604.40,
 Davies-Bouldin Index: 1.60</code></pre>
                     </div>
                     </div>
-                    <p>Sonuçların Değerlendirilmesi Kod çalıştırıldığında elde edilen sonuçların anlamını ve nasıl değerlendirileceğini aşağıda bulabilirsiniz:</p>
-                    <p>Silhouette Coefficient: Bu değer -1 ile 1 arasında değişir. 1’e yakın bir değer, kümelerin iyi tanımlandığını gösterirken, -1’e yakın bir değer, kümelerin yanlış tanımlandığını gösterir. 0, kümelerin birbirine yakın olduğunu veya çakıştığını gösterir.</p>
-                    <p>Calinski-Harabasz Index: Daha yüksek bir değer, kümelerin daha iyi tanımlandığını gösterir. Bu ölçüt, kümelerin yoğunluğu ve dağılımı arasındaki oranı ölçer.</p>
-                    <p>Davies-Bouldin Index: Düşük değerler kümelerin daha iyi tanımlandığını gösterir. Bu indeks, her küme için benzerlik oranını ölçer ve bu oranın ortalama değerini alır.</p>
-                    <p>Bu metrikleri kullanarak, farklı algoritmaların veya aynı algoritmanın farklı parametreleriyle elde edilen kümelenme sonuçlarının kalitesini karşılaştırabilir ve hangi yaklaşımın veriniz için en uygun olduğuna karar verebilirsiniz.</p>
-                    <p>Bu sonuçların genel değerlendirmesini analizin en sonunda paylaşacağım.</p>
+                    <p><b>Evaluation of Results</b> You can find the meaning and how to evaluate the results obtained when the code is run below:</p>
+                    <p>Silhouette Coefficient: This value ranges between -1 and 1. A value closer to 1 indicates well-defined clusters, while a value closer to -1 indicates wrongly defined clusters. 0 indicates that clusters are close to each other or overlapping.</p>
+                    <p>Calinski-Harabasz Index: A higher value indicates better defined clusters. This criterion measures the ratio between the density and distribution of clusters.</p>
+                    <p>Davies-Bouldin Index: Lower values indicate better defined clusters. This index measures the similarity ratio for each cluster and takes the average of this ratio.</p>
+                    <p>By using these metrics, you can compare the quality of clustering results obtained with different algorithms or with different parameters of the same algorithm, and decide which approach is most suitable for your data.</p>
+                    <p>I will share the general evaluation of these results at the end of the analysis.</p>
                     </section>
-                    <section id="k-means-aykırı-veri-düzeltilmiş" class="level3">
-                    <h3 class="anchored" data-anchor-id="k-means-aykırı-veri-düzeltilmiş" class="custom-header-secondary"><strong>5.1.2 K-Means Aykırı Veri Düzeltilmiş</strong></h3>
+                    <section id="k-means-Outlier-Adjusted-K-Means" class="level3">
+                    <h3 class="anchored" data-anchor-id="k-means-Outlier-Adjusted-K-Means" class="custom-header-secondary"><strong>5.1.2 K-Means Outlier Adjusted K-Means</strong></h3>
                     <div class="cell" data-execution_count="21">
                     <details>
                     <summary>Code</summary>
@@ -11514,10 +11512,11 @@ Davies-Bouldin Index: 1.42</code></pre>
                     <h3 class="anchored" data-anchor-id="k-means-umap" class="custom-header-secondary"><strong>5.1.3 K-Means UMAP</strong></h3>
                     <section id="umap-uniform-manifold-approximation-and-projection" class="level4">
                     <h4 class="anchored" data-anchor-id="umap-uniform-manifold-approximation-and-projection"><strong>UMAP (Uniform Manifold Approximation and Projection)</strong></h4>
-                    <p>UMAP, yüksek boyutlu veri setlerini düşük boyutlu bir uzaya görselleştirmek için kullanılan modern bir boyut indirgeme tekniğidir. Özellikle büyük veri setleri için hızlı ve ölçeklenebilir olmasıyla bilinir.</p>
-                    <p><strong>Yerel ve Global Yapının Korunması:</strong> UMAP, verinin hem yerel hem de global yapılarını korumayı amaçlar. Bu, özellikle karmaşık veri yapıları için faydalıdır.</p>
-                    <p><strong>Genel Uygulamalar:</strong> UMAP sadece görselleştirme için değil, aynı zamanda genel boyut indirgeme uygulamaları için de kullanılabilir.</p>
-                    <p>UMAP’in en büyük avantajlarından biri, t-SNE gibi diğer boyut indirgeme yöntemlerine göre daha hızlı çalışması ve daha genel kullanım özelliklerine sahip olmasıdır.</p>
+                    <p>UMAP (Uniform Manifold Approximation and Projection) is a modern dimensionality reduction technique used for visualizing high-dimensional data sets in a lower-dimensional space. It is known for being fast and scalable, especially for large datasets.</p>
+                    <p><strong>Preservation of Local and Global Structure:</strong> UMAP aims to preserve both the local and global structures of the data. This is beneficial, especially for complex data structures.</p>
+                    <p><strong>General Applications:</strong> UMAP is not only used for visualization but also for general dimensionality reduction applications.</p>
+                    <p>One of the biggest advantages of UMAP is that it operates faster and has more general-purpose features compared to other dimensionality reduction methods like t-SNE.</p>
+
                     <div class="cell" data-execution_count="25">
                     <details>
                     <summary>Code</summary>
@@ -11664,11 +11663,11 @@ Davies-Bouldin Index: 0.95</code></pre>
                     <h3 class="anchored" data-anchor-id="k-means-pca" class="custom-header-secondary"><strong>5.1.4 K-Means PCA</strong></h3>
                     <section id="pca-principal-component-analysis" class="level4">
                     <h4 class="anchored" data-anchor-id="pca-principal-component-analysis"><strong>PCA (Principal Component Analysis)</strong></h4>
-                    <p>PCA, çok değişkenli veri setlerinde değişkenler arasındaki varyansı maksimize ederek boyut indirgeme yapmak için kullanılan istatistiksel bir yöntemdir. Temel bileşenler, verinin ana yapısını yakalamak için ortogonal bir şekilde seçilir.</p>
-                    <p><strong>Varyansın Maksimizasyonu:</strong> PCA, veri setindeki maksimum varyansı yakalamak için ana bileşenleri seçer.</p>
-                    <p><strong>Düşük Boyutlu Gösterim:</strong> Veri setini daha az sayıda özellikle temsil ederek, görselleştirme ve modelleme için kullanışlı bir hale getirir.</p>
-                    <p><strong>Açıklanan Varyans:</strong> Her bileşenin veri setinde ne kadar varyansı açıkladığına dair bilgi sağlar, böylece en önemli bileşenleri seçmek daha kolay hale gelir.</p>
-                    <p>PCA, veri bilimi ve makine öğrenimi uygulamalarında sıkça kullanılan popüler bir boyut indirgeme yöntemidir.</p>
+                    <p>PCA (Principal Component Analysis) is a statistical method used for dimensionality reduction in multivariate data sets by maximizing the variance among variables. Principal components are selected orthogonally to capture the main structure of the data.</p>
+                    <p><strong>Variance Maximization:</strong> PCA selects the principal components to capture the maximum variance in the data set.</p>
+                    <p><strong>Low-Dimensional Representation:</strong> It represents the data set with fewer features, making it useful for visualization and modeling.</p>
+                    <p><strong>Explained Variance:</strong> It provides information on how much variance each component explains in the data set, thus making it easier to select the most important components.</p>
+                    <p>PCA is a popular dimensionality reduction method frequently used in data science and machine learning applications.</p>
                     <div class="cell" data-execution_count="29">
                     <details>
                     <summary>Code</summary>
@@ -11805,11 +11804,11 @@ Davies-Bouldin Index: 0.81</code></pre>
                     <h2 class="anchored" data-anchor-id="dbscan" class="custom-header-secondary">5.2 DBSCAN</h2>
                     <section id="dbscan-density-based-spatial-clustering-of-applications-with-noise" class="level4">
                     <h4 class="anchored" data-anchor-id="dbscan-density-based-spatial-clustering-of-applications-with-noise"><strong>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</strong></h4>
-                    <p>DBSCAN, yoğunluk tabanlı bir kümeleme algoritmasıdır. Veri noktalarının yoğun bölgelerini tanımlar ve bu bölgelerdeki noktaları aynı kümeye atar. Yoğun olmayan bölgelerdeki noktalar ise gürültü olarak sınıflandırılır.</p>
-                    <p><strong>Çalışma Prensibi:</strong> - Her veri noktası etrafında belirli bir yarıçapa (<code>eps</code>) sahip bir çevre tanımlanır. Eğer bu çevre içinde <code>min_samples</code> sayısından fazla veri noktası bulunuyorsa, bu nokta yoğun bir bölgenin parçası olarak kabul edilir. - Yoğun bölgeler birleştirilerek geniş kümeler oluşturulur. - Yoğun bölgelerin dışında kalan ve belirli bir çevresi içinde yeterince komşusu olmayan noktalar gürültü olarak etiketlenir.</p>
-                    <p><strong>Avantajları:</strong> - Kümelerin şekilleri hakkında varsayımda bulunmaz. Dolayısıyla, kümeler dairesel olmak zorunda değildir. - Otomatik olarak gürültüyü ayırt edebilir. - Kümelerin sayısını önceden belirtmek zorunda değilsiniz.</p>
-                    <p><strong>Zorlukları:</strong> - Yoğunluk farklarına sahip kümeleri doğru bir şekilde ayrımakta zorlanabilir. - <code>eps</code> ve <code>min_samples</code> parametrelerinin doğru bir şekilde ayarlanması gerekmektedir.</p>
-                    <p>DBSCAN, özellikle gürültülü veri setleri ve karmaşık yapıya sahip kümeler için uygun bir seçenektir.</p>
+                    <p>DBSCAN (Density-Based Spatial Clustering of Applications with Noise) is a density-based clustering algorithm. It identifies dense regions of data points and assigns points in these regions to the same cluster. Points in non-dense regions are classified as noise.</p>
+                    <p><strong>Working Principle:</strong> - A neighborhood of a certain radius (<code>eps</code>) is defined around each data point. If there are more than <code>min_samples</code> data points within this neighborhood, the point is considered part of a dense region. - Dense regions are merged to form broad clusters. - Points outside dense regions and without enough neighbors in their vicinity are labeled as noise.</p>
+                    <p><strong>Advantages:</strong> - It makes no assumptions about the shapes of clusters. Therefore, clusters do not have to be circular. - It can automatically distinguish noise. - You do not have to specify the number of clusters beforehand.</p>
+                    <p><strong>Challenges:</strong> - It may struggle to accurately separate clusters with different densities. - The <code>eps</code> and <code>min_samples</code> parameters need to be properly tuned.</p>
+                    <p>DBSCAN is a suitable option especially for noisy datasets and clusters with complex structures.</p>
                     </section>
                     <section id="dbscan-normal" class="level3">
                     <h3 class="anchored" data-anchor-id="dbscan-normal" class="custom-header-secondary"><strong>5.2.1 DBSCAN Normal</strong></h3>
@@ -12065,11 +12064,11 @@ Davies-Bouldin Index: 0.78</code></pre>
                     <h2 class="anchored" data-anchor-id="optics" class="custom-header-secondary">5.3 OPTICS</h2>
                     <section id="optics-ordering-points-to-identify-the-clustering-structure" class="level4">
                     <h4 class="anchored" data-anchor-id="optics-ordering-points-to-identify-the-clustering-structure"><strong>OPTICS (Ordering Points To Identify the Clustering Structure)</strong></h4>
-                    <p>OPTICS, yoğunluk tabanlı bir kümeleme algoritmasıdır ve DBSCAN’ın bir genelleştirmesi olarak düşünülebilir. Ancak, tek bir <code>eps</code> değeri yerine veri setindeki farklı yoğunluklardaki yapıları tanımlayabilmesiyle bilinir.</p>
-                    <p><strong>Çalışma Prensibi:</strong> - Her veri noktası için ulaşılabilirlik mesafesi hesaplanır. Bu, bir noktanın belirli bir yoğunlukta diğer bir noktaya ne kadar yakın olduğunu belirler. - Bu mesafelere dayanarak bir ulaşılabilirlik grafiği oluşturulur. - Grafik üzerinde vadiler, yoğunluk tabanlı kümeleri gösterir.</p>
-                    <p><strong>Avantajları:</strong> - Farklı yoğunluklardaki kümeleri tespit edebilir. - <code>eps</code> parametresinin sabit bir değerini seçmek zorunda kalmazsınız. - Otomatik olarak gürültüyü ayırt edebilir.</p>
-                    <p><strong>Zorlukları:</strong> - Hesaplama maliyeti yüksek olabilir, özellikle büyük veri setleri için. - Sonuçların yorumlanması DBSCAN’a göre biraz daha zor olabilir.</p>
-                    <p>OPTICS, yoğunluğu değişen bölgelerin bulunduğu veri setleri için oldukça kullanışlıdır. Farklı yoğunluklardaki kümeler arasında geçişleri tespit etmede başarılıdır.</p>
+                    <p>OPTICS (Ordering Points To Identify the Clustering Structure) is a density-based clustering algorithm and can be considered as a generalization of DBSCAN. However, it is known for its ability to identify structures of different densities in the dataset, instead of using a single <code>eps</code> value.</p>
+                    <p><strong>Working Principle:</strong> - The reachability distance is calculated for each data point. This determines how close a point is to another point at a certain density. - Based on these distances, a reachability graph is created. - Valleys in the graph indicate density-based clusters.</p>
+                    <p><strong>Advantages:</strong> - It can detect clusters of varying densities. - You do not have to select a fixed value for the <code>eps</code> parameter. - It can automatically distinguish noise.</p>
+                    <p><strong>Challenges:</strong> - The computational cost can be high, especially for large datasets. - Interpretation of the results might be slightly more challenging compared to DBSCAN.</p>
+                    <p>OPTICS is quite useful for datasets with regions of varying density. It is successful in detecting transitions between clusters of different densities.</p>
                     </section>
                     <section id="optics-normal" class="level3">
                     <h3 class="anchored" data-anchor-id="optics-normal" class="custom-header-secondary"><strong>5.3.1 OPTICS Normal</strong></h3>
@@ -12220,8 +12219,8 @@ Davies-Bouldin Index: 1.68</code></pre>
                     </section>
                     </section>
                     </section>
-                    <section id="sonuçlar" class="level1">
-                    <h1 class="custom-header-primary">6. Sonuçlar </h1>
+                    <section id="Results" class="level1">
+                    <h1 class="custom-header-primary">6. Results </h1>
                     <div class="cell" data-execution_count="48">
                     <details>
                     <summary>Code</summary>
@@ -12435,69 +12434,69 @@ Davies-Bouldin Index: 1.68</code></pre>
                     <section id="normal-3" class="level3">
                     <h3 class="anchored" data-anchor-id="normal-3">Normal</h3>
                     <ul>
-                    <li><p><strong>Silhouette Katsayısı (SC):</strong> 0.25<br>
-                    <em>Bu ölçüt -1 ile 1 arasında değişir. Daha yüksek değerler, nesnenin kendi kümesine iyi uydurulduğunu ve komşu kümelerle zayıf bir şekilde eşleştiğini gösterir. 0.25 skoru, kümelerin bir miktar örtüştüğünü ve iyileştirme yapılabileceğini gösterir.</em></p></li>
-                    <li><p><strong>Calinski-Harabasz İndeksi (CHI):</strong> 1604.40<br>
-                    <em>Küme içi değişkenlik ile küme arası değişkenlik oranıdır. Daha yüksek değerler, kümelerin yoğun ve iyi ayrıldığını gösterir.</em></p></li>
-                    <li><p><strong>Davies-Bouldin İndeksi (DBI):</strong> 1.60<br>
-                    <em>Her kümenin en benzer kümeyle ortalama benzerlik oranıdır. 0’a yakın değerler daha iyidir. 1.60 skoru, ılımlı bir kümeleme yapısı olduğunu gösterir.</em></p></li>
-                    </ul>
-                    </section>
-                    <section id="umap-3" class="level3">
-                    <h3 class="anchored" data-anchor-id="umap-3">UMAP</h3>
-                    <ul>
-                    <li><p><strong>SC:</strong> 0.41<br>
-                    <em>UMAP uygulandıktan sonra normal verilere göre daha iyi tanımlanmış kümeleri gösteren bir iyileşme.</em></p></li>
-                    <li><p><strong>CHI:</strong> 7902.77<br>
-                    <em>UMAP’ın kümeleme yapısını iyileştirmeye yardımcı olduğunu gösteren önemli bir artış.</em></p></li>
-                    <li><p><strong>DBI:</strong> 0.97<br>
-                    <em>UMAP uygulandıktan sonra kümelerin daha iyi ayrıldığını gösteren bir azalma.</em></p></li>
-                    </ul>
-                    </section>
-                    <section id="pca-3" class="level3">
-                    <h3 class="anchored" data-anchor-id="pca-3">PCA</h3>
-                    <ul>
-                    <li><p><strong>SC:</strong> 0.45<br>
-                    <em>PCA uygulandıktan sonra UMAP ve normal verilere kıyasla daha iyi küme tanımı.</em></p></li>
-                    <li><p><strong>CHI:</strong> 5337.49<br>
-                    <em>UMAP’tan daha düşük ancak normalden daha yüksek; PCA’nın da iyi bir kümeleme yapısına yardımcı olduğunu gösteriyor.</em></p></li>
-                    <li><p><strong>DBI:</strong> 0.81<br>
-                    <em>Normal veri kullanımına kıyasla kümelerin daha iyi ayrıldığını gösteriyor.</em></p></li>
-                    </ul>
-                    </section>
-                    <section id="outlier-free-aykırı-değersiz" class="level3">
-                    <h3 class="anchored" data-anchor-id="outlier-free-aykırı-değersiz">Outlier-free (Aykırı Değersiz)</h3>
-                    <p><em>Bu kategorideki metrikler, aykırı değerlerin kaldırılmasının normal verilere göre kümeleme yapısını biraz daha iyi hale getirdiğini, ancak PCA veya UMAP gibi boyut indirgeme tekniklerini uygulamak kadar iyi olmadığını gösteriyor.</em></p>
-                    </section>
-                    </section>
-                    <section id="dbscan-2" class="level2">
-                    <h2 class="anchored" data-anchor-id="dbscan-2">DBSCAN</h2>
-                    <p><em>DBSCAN, normal ve pca veri kümeleri için genellikle KMeans’den daha iyi SC puanları üretmiştir. Özellikle 0.80 SC ile pca veri kümesi çok iyi tanımlanmış kümeleri gösteriyor. DBI puanları da, özellikle pca veri kümesi için, KMeans’e göre daha iyi küme ayrımını yansıtmaktadır. Ancak, CHI puanı, normal veri kümesi için daha iyi olmasına rağmen, UMAP veri kümesi için önemli ölçüde düşmektedir. Bu, daha az yoğun kümeleri veya daha büyük küme örtüşmesini gösteriyor.</em></p>
-                    </section>
-                    <section id="optics-2" class="level2">
-                    <h2 class="anchored" data-anchor-id="optics-2">OPTICS</h2>
-                    <section id="normal-4" class="level3">
-                    <h3 class="anchored" data-anchor-id="normal-4">Normal:</h3>
-                    <ul>
-                    <li><strong>SC:</strong> -0.45<br>
-                    <em>Negatif bir siluet puanı, kümelerin iyi tanımlanmadığını ve önemli ölçüde örtüştüğünü gösterir. Diğer metrikler de zayıf bir kümeleme yapısını yansıtmaktadır.</em></li>
-                    </ul>
-                    </section>
-                    <section id="umap-pca" class="level3">
-                    <h3 class="anchored" data-anchor-id="umap-pca">UMAP &amp; PCA:</h3>
-                    <p><em>Bu veri kümeleri için metrikler de umut vaat etmemektedir. Negatif veya düşük siluet puanları ve çok düşük CHI puanları, zayıf küme tanımını ve yoğunluğunu gösterir.</em></p>
-                    </section>
-                    </section>
-                    <section id="özet" class="level2">
-                    <h2 class="anchored" data-anchor-id="özet">Özet</h2>
-                    <p><strong>UMAP veya PCA ile KMeans</strong><br>
-                    UMAP veya PCA ile KMeans en iyi sonucu veriyor gibi görünmektedir. PCA siluet katsayısında hafif bir üstünlük göstermekle birlikte, her iki yöntem de kümelerin iyi tanımlandığını gösteriyor. Bu, belirli bir uygulama için iki yaklaşımı da değerlendirmeye değer olabilir.</p>
+                      <li><p><strong>Silhouette Coefficient (SC):</strong> 0.25<br>
+                      <em>This metric ranges between -1 and 1. Higher values indicate that the object is well-fitted to its own cluster and has a weak match with neighboring clusters. The score of 0.25 suggests that the clusters overlap to some extent and there is room for improvement.</em></p></li>
+                      <li><p><strong>Calinski-Harabasz Index (CHI):</strong> 1604.40<br>
+                      <em>It is the ratio of within-cluster variance to between-cluster variance. Higher values indicate that clusters are dense and well-separated.</em></p></li>
+                      <li><p><strong>Davies-Bouldin Index (DBI):</strong> 1.60<br>
+                      <em>It is the average similarity ratio of each cluster with its most similar cluster. Values close to 0 are better. The score of 1.60 indicates a moderate clustering structure.</em></p></li>
+                      </ul>
+                      </section>
+                      <section id="umap-3" class="level3">
+                      <h3 class="anchored" data-anchor-id="umap-3">UMAP</h3>
+                      <ul>
+                      <li><p><strong>SC:</strong> 0.41<br>
+                      <em>An improvement showing better defined clusters compared to the normal data after UMAP is applied.</em></p></li>
+                      <li><p><strong>CHI:</strong> 7902.77<br>
+                      <em>A significant increase indicating that UMAP helped in improving the clustering structure.</em></p></li>
+                      <li><p><strong>DBI:</strong> 0.97<br>
+                      <em>A decrease indicating better separation of clusters after UMAP is applied.</em></p></li>
+                      </ul>
+                      </section>
+                      <section id="pca-3" class="level3">
+                      <h3 class="anchored" data-anchor-id="pca-3">PCA</h3>
+                      <ul>
+                      <li><p><strong>SC:</strong> 0.45<br>
+                      <em>Better cluster definition after PCA is applied, compared to UMAP and normal data.</em></p></li>
+                      <li><p><strong>CHI:</strong> 5337.49<br>
+                      <em>Lower than UMAP but higher than normal; indicates that PCA also aided in achieving a good clustering structure.</em></p></li>
+                      <li><p><strong>DBI:</strong> 0.81<br>
+                      <em>Indicates better separation of clusters compared to using normal data.</em></p></li>
+                      </ul>
+                      </section>
+                      <section id="outlier-free-aykırı-değersiz" class="level3">
+                      <h3 class="anchored" data-anchor-id="outlier-free-aykırı-değersiz">Outlier-free (Without Outliers)</h3>
+                      <p><em>Metrics in this category show that removing outliers made the clustering structure slightly better compared to normal data, but not as good as applying dimension reduction techniques like PCA or UMAP.</em></p>
+                      </section>
+                      </section>
+                      <section id="dbscan-2" class="level2">
+                      <h2 class="anchored" data-anchor-id="dbscan-2">DBSCAN</h2>
+                      <p><em>DBSCAN generally produced better SC scores for normal and pca data clusters compared to KMeans. Especially with a 0.80 SC, the pca data set shows very well defined clusters. DBI scores also reflect better cluster separation, especially for the pca data set, compared to KMeans. However, the CHI score, while being better for the normal data set, drops significantly for the UMAP data set. This indicates less dense clusters or greater cluster overlap.</em></p>
+                      </section>
+                      <section id="optics-2" class="level2">
+                      <h2 class="anchored" data-anchor-id="optics-2">OPTICS</h2>
+                      <section id="normal-4" class="level3">
+                      <h3 class="anchored" data-anchor-id="normal-4">Normal:</h3>
+                      <ul>
+                      <li><strong>SC:</strong> -0.45<br>
+                      <em>A negative silhouette score indicates that the clusters are not well-defined and overlap significantly. Other metrics also reflect a weak clustering structure.</em></li>
+                      </ul>
+                      </section>
+                      <section id="umap-pca" class="level3">
+                      <h3 class="anchored" data-anchor-id="umap-pca">UMAP &amp; PCA:</h3>
+                      <p><em>Metrics for these data sets are not promising. Negative or low silhouette scores and very low CHI scores indicate poor cluster definition and density.</em></p>
+                      </section>
+                      </section>
+                    <section id="Summary" class="level2">
+                    <h2 class="anchored" data-anchor-id="Summary">Summary</h2>
+                    <p><strong>KMeans with UMAP or PCA</strong><br>
+                    KMeans combined with UMAP or PCA seems to yield the best results. Although PCA shows a slight advantage in silhouette coefficient, both methods indicate well-defined clusters. This could make it worthwhile to evaluate both approaches for a specific application.</p>
                     <p><strong>DBSCAN</strong><br>
-                    DBSCAN ile PCA’nın birleşimi, oldukça yüksek bir siluet katsayısına sahip olup, bu da bu yaklaşımın da kümeleri oldukça iyi tanımladığını gösteriyor. Ancak, UMAP ile elde edilen sonuçlar DBSCAN için o kadar başarılı değil.</p>
+                    The combination of DBSCAN with PCA has a fairly high silhouette coefficient, indicating that this approach also defines clusters quite well. However, the results obtained with UMAP are not as successful for DBSCAN.</p>
                     <p><strong>OPTICS</strong><br>
-                    OPTICS’in performansı, kullanılan veri kümesine bağlı olarak diğer iki yönteme kıyasla genellikle daha düşüktür. Özellikle negatif siluet katsayıları, kümelerin oldukça zayıf tanımlandığını gösteriyor.</p>
+                    The performance of OPTICS is generally lower compared to the other two methods depending on the dataset used. Particularly, the negative silhouette coefficients indicate that the clusters are quite poorly defined.</p>
                     <hr>
-                    <p><strong>Sonuç olarak</strong>, eğer birincil amacınız iyi tanımlanmış kümeler elde etmekse, PCA veya UMAP’ın KMeans ile birleştirilmesi tavsiye edilir. Öte yandan, daha karmaşık yapılarla başa çıkmak için DBSCAN’ı denemeye değer olabilir, özellikle PCA ile birleştirildiğinde. OPTICS’in genel performansı, bu özel veri kümesi için daha düşük olmasına rağmen, farklı veri kümeleri üzerinde farklı sonuçlar üretebilir, bu nedenle her zaman kullanmadan önce değerlendirme yapmak önemlidir.</p>
+                    <p><strong>In conclusion</strong>, if your primary goal is to obtain well-defined clusters, it is recommended to combine KMeans with PCA or UMAP. On the other hand, it might be worth trying DBSCAN to deal with more complex structures, especially when combined with PCA. Despite the lower overall performance of OPTICS for this particular dataset, it might produce different results on different datasets, therefore, it's important to evaluate before using it.</p>
                     <div class="cell" data-execution_count="54">
                     <details>
                     <summary>Code</summary>
@@ -12646,44 +12645,44 @@ Davies-Bouldin Index: 1.68</code></pre>
                     </div>
                     </div>
                     </section>
-                    <section id="kümeleri-tahminlemeanlamlandırma" class="level2">
-                    <h2 class="anchored" data-anchor-id="kümeleri-tahminlemeanlamlandırma">Kümeleri tahminleme/anlamlandırma</h2>
+                    <section id="Predicting-interpreting-clusters" class="level2">
+                    <h2 class="anchored" data-anchor-id="Predicting-interpreting-clusters">Predicting/interpreting clusters</h2>
                     <section id="küme-0" class="level3">
                     <h3 class="anchored" data-anchor-id="küme-0">Küme 0</h3>
                     <ul>
-                    <li><p><strong>Bakiye (BALANCE):</strong> Bu grubun müşterileri ortalama seviyede bir bakiye taşıyor. Bu, ne çok yüksek ne de çok düşük bir harcama kapasitesine sahip oldukları anlamına gelir.</p></li>
-                    <li><p><strong>Alışverişler (PURCHASES):</strong> Bu gruptaki müşteriler ortalama seviyede alışveriş yapmaktadırlar, ancak bu alışverişleri hem tek seferde hem de taksitlerle yapıyorlar.</p></li>
-                    <li><p><strong>Nakit Avans (CASH_ADVANCE):</strong> Ortalama seviyede nakit avans kullanımı var.</p></li>
-                    <li><p><strong>Satın Alma Sıklığı (PURCHASES_FREQUENCY):</strong> Bu müşteriler düzenli olarak alışveriş yaparlar, ancak oldukça sık değil.</p></li>
-                    <li><p><strong>Kredi Limiti (CREDIT_LIMIT):</strong> Bu grubun kredi limiti diğer gruplara göre daha düşük olabilir.</p></li>
-                    <li><p>Ortalama kullanıcılar olarak değerlendirilebilir. Bu kullanıcılar, kredi kartlarını hem günlük alışverişlerde hem de büyük alışverişlerde kullanabilirler. Nakit avans kullanımının orta seviyede olması, bazen nakit ihtiyaçlarını kartlarından karşıladıklarını gösteriyor.</p></li>
-                    </ul>
-                    <hr>
-                    </section>
-                    <section id="küme-1" class="level3">
-                    <h3 class="anchored" data-anchor-id="küme-1">Küme 1</h3>
-                    <ul>
-                    <li><p><strong>Bakiye (BALANCE):</strong> Bu grubun müşterileri oldukça yüksek bir bakiye taşıyor, bu da yüksek harcama kapasitesine sahip oldukları anlamına gelir.</p></li>
-                    <li><p><strong>Alışverişler (PURCHASES):</strong> Daha az alışveriş yaparlar, bu da bu grubun daha az aktif olduğu anlamına gelir.</p></li>
-                    <li><p><strong>Nakit Avans (CASH_ADVANCE):</strong> Yüksek miktarda nakit avans kullanımı bu grupta belirgindir, bu da bu müşterilerin sıkça nakit ihtiyaçları olduğunu gösterir.</p></li>
-                    <li><p><strong>Satın Alma Sıklığı (PURCHASES_FREQUENCY):</strong> Bu müşteriler daha az sıklıkla alışveriş yaparlar.</p></li>
-                    <li><p><strong>Kredi Limiti (CREDIT_LIMIT):</strong> Bu grubun kredi limiti diğer gruplardan daha yüksektir.</p></li>
-                    <li><p>Bu grup, kredi kartını büyük alışverişler veya yüksek fiyatlı satın almalar için kullanan bireyleri içeriyor gibi gözüküyor. Yüksek bakiyeleri ve kredi limitleri, bu grubun maddi kapasitesinin ve harcama potansiyelinin yüksek olduğunu gösteriyor.</p></li>
-                    </ul>
-                    <hr>
-                    </section>
-                    <section id="küme-2" class="level3">
-                    <h3 class="anchored" data-anchor-id="küme-2">Küme 2</h3>
-                    <ul>
-                    <li><p><strong>Bakiye (BALANCE):</strong> Bu grubun bakiyesi yüksek, ancak Küme 1 kadar değil.</p></li>
-                    <li><p><strong>Alışverişler (PURCHASES):</strong> Bu gruptaki müşteriler çok yüksek miktarda alışveriş yaparlar ve bu alışverişler hem tek seferde hem de taksitli olarak yapılır.</p></li>
-                    <li><p><strong>Nakit Avans (CASH_ADVANCE):</strong> Nakit avans kullanımı ortalamanın biraz üstünde.</p></li>
-                    <li><p><strong>Satın Alma Sıklığı (PURCHASES_FREQUENCY):</strong> Bu müşteri grubu sık sık alışveriş yapar.</p></li>
-                    <li><p><strong>Kredi Limiti (CREDIT_LIMIT):</strong> Bu grubun kredi limiti, diğer iki gruba kıyasla ortalamadır.</p></li>
-                    <li><p>Bu grupta genç bireyler veya öğrencilerin yoğun olma ihtimali yüksek, bu grup, kartlarını günlük küçük harcamalar için kullanan bireyleri temsil ediyor olabilir. Bu yüzden sık alışveriş yapmalarına ve genellikle küçük tutarlar harcamalarına cevap olabilir.</p></li>
-                    </ul>
-                    <p>Ancak bu yorumların kesinliğini artırmak için ekstra demografik veya davranışsal bilgilere (örneğin yaş, meslek, gelir seviyesi gibi) ihtiyaç olabilir. Bu tür ek bilgiler, her bir kümeyi daha ayrıntılı ve doğru bir şekilde tanımlamamıza yardımcı olabilir. Maalesef üstünde çalıştığım veri setinde bunlar mevcut değil. Projenin devamında pydash kullanmak istediğim için yaş, cinsiyet ve şehir başlıklarını ekleyeceğim. (şehir önceden eklemiştim.) Bu eklemeler tamamen rastgele olup bu analize etki etmeyecek şekilde devam etmem için gereklidir.</p>
-                    <p> Bu analiz sürecini app ve dashboard haline getirmek için yaptığım dash uygulamasını <a href=" https://memretoktay.net/Blog%20Posts/dashboard.html"><b>buradan</b></a> kontrol edebilirsiniz.</p>
+                      <li><p><strong>Balance (BALANCE):</strong> The customers of this group carry an average level balance. This means they have neither very high nor very low spending capacity.</p></li>
+                      <li><p><strong>Purchases (PURCHASES):</strong> Customers in this group make purchases at an average level, however, they make these purchases both at once and in installments.</p></li>
+                      <li><p><strong>Cash Advance (CASH_ADVANCE):</strong> There is an average level of cash advance usage.</p></li>
+                      <li><p><strong>Purchase Frequency (PURCHASES_FREQUENCY):</strong> These customers shop regularly, but not very frequently.</p></li>
+                      <li><p><strong>Credit Limit (CREDIT_LIMIT):</strong> The credit limit of this group may be lower compared to other groups.</p></li>
+                      <li><p>They can be evaluated as average users. These users can use their credit cards for both daily shopping and larger purchases. The medium level of cash advance usage shows that they sometimes meet their cash needs from their cards.</p></li>
+                      </ul>
+                      <hr>
+                      </section>
+                      <section id="cluster-1" class="level3">
+                      <h3 class="anchored" data-anchor-id="cluster-1">Cluster 1</h3>
+                      <ul>
+                      <li><p><strong>Balance (BALANCE):</strong> The customers of this group carry quite a high balance, which means they have a high spending capacity.</p></li>
+                      <li><p><strong>Purchases (PURCHASES):</strong> They shop less, which means this group is less active.</p></li>
+                      <li><p><strong>Cash Advance (CASH_ADVANCE):</strong> A high amount of cash advance usage is evident in this group, which shows these customers often have cash needs.</p></li>
+                      <li><p><strong>Purchase Frequency (PURCHASES_FREQUENCY):</strong> These customers shop less frequently.</p></li>
+                      <li><p><strong>Credit Limit (CREDIT_LIMIT):</strong> The credit limit of this group is higher than the other groups.</p></li>
+                      <li><p>This group seems to include individuals who use the credit card for larger purchases or high-priced acquisitions. High balances and credit limits indicate that this group has a high financial capacity and spending potential.</p></li>
+                      </ul>
+                      <hr>
+                      </section>
+                      <section id="cluster-2" class="level3">
+                      <h3 class="anchored" data-anchor-id="cluster-2">Cluster 2</h3>
+                      <ul>
+                      <li><p><strong>Balance (BALANCE):</strong> The balance of this group is high, but not as much as Cluster 1.</p></li>
+                      <li><p><strong>Purchases (PURCHASES):</strong> Customers in this group make very high amounts of purchases and these purchases are made both at once and in installments.</p></li>
+                      <li><p><strong>Cash Advance (CASH_ADVANCE):</strong> Cash advance usage is slightly above average.</p></li>
+                      <li><p><strong>Purchase Frequency (PURCHASES_FREQUENCY):</strong> This customer group shops frequently.</p></li>
+                      <li><p><strong>Credit Limit (CREDIT_LIMIT):</strong> The credit limit of this group is average compared to the other two groups.</p></li>
+                      <li><p>There's a high probability that this group consists of young individuals or students, this group may represent individuals who use their cards for daily small expenses. Hence, this could be the reason for their frequent shopping and generally small amount expenditures.</p></li>
+                      </ul>
+                      <p>However, to increase the accuracy of these interpretations, additional demographic or behavioral information (such as age, occupation, income level) may be needed. Such additional information could help us describe each cluster more detailed and accurately. Unfortunately, these are not available in the dataset I worked on. Since I want to use pydash in the continuation of the project, I will add age, gender, and city headings (I had added the city earlier). These additions are completely random and are necessary for me to proceed without affecting this analysis.</p>
+                      <p> You can check the dash application I made to turn this analysis process into an app and dashboard <a href=" https://memretoktay.net/Blog%20Posts/dashboard.html"><b>here</b></a>.</p>
                     </section>
                     </section>
                     </section>
