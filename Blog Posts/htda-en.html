@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,34 +55,67 @@
                 </span>
               </label>
               <div class="trigger">
-                <a class="page-link" href="../cv/Resume & CV.html">Resume & CV</a>
-                <a class="page-link" href="../pardus/Pardus.html">Pardus</a>
-                <a class="page-link" href="../blog/blog.html">Blog</a>
+                <a class="page-link" href="../cv/Resume & CV-en.html">Resume & CV</a>
+                <a class="page-link" href="../pardus/Pardus-en.html">Pardus</a>
+                <a class="page-link" href="../blog/blog-en.html">Blog</a>
                 <div class="language-selector">
-                <a href="dashboard.html">TR</a> | <a href="dashboard-en.html">EN</a>
+                <a href="htda.html">TR</a> | <a href="htda-en.html">EN</a>
               </div>
             </nav>
           </div>
           <main class="page-content" aria-label="Content">
             <div class="wrapper">
-                <article class="post">
-                    <header class="post-header">
-                        <h1 class="post-title" itemprop="name headline"></h1>
-                        <p class="post-meta">
-                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                                <span itemprop="name">23/09/2023 • Mehmet Emre Toktay</span>
-                            </span>
-                        </p>
+              <article class="post">
+                <header class="post-header">
+                    <h1 class="post-title" itemprop="name headline"></h1>
+                    <p class="post-meta">
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">01/08/2023 • Mehmet Emre Toktay</span></span>
+                    </p>
+                </header>
+                <h2><b>Aspect-Based Sentiment Analysis Application</b></h2>
+                <p><h1><b>Introduction</b></h1></p>
+                <p>Sentiment analysis, a study area widely examined under the discipline of NLP, has found a substantial place for itself. The history of sentiment analysis emerging as a need is parallel to social media. As social media usage has become widespread, the necessity to detect emotions in what people say has also arisen. For many of us, the question, “what do other people think about this?” is a significant criterion in the decision-making stage. Thanks to the internet becoming widespread, the answer to this question has become more accessible for all of us.</p>
+                <p>The general sentiment analysis has two shortcomings; assuming there is only one emotion in a text and being unable to retrieve information about what opinion is expressed on while performing sentiment analysis. The analysis that will reveal these shortcomings is named “Aspect-Based Sentiment Analysis” (ABSA) in literature. The problem attempted to be solved here is extracting all opinions within a text with the aspects they are targeting.</p>
+                <p>If we were to explain with examples;
+                <p><b>Aspect/Direction Determination</b>: This identifies the target in the mentioned text, for example, "battery life", "camera", "service" or "customer service".</p>
+                <p><b>Sentiment Detection</b>: For each determined aspect, the sentiment (positive, negative or neutral) is identified.</p>
+                <p><b>For instance</b>: "The camera quality of this phone is excellent but the battery life is disappointing."
+                Here there are two aspects: "camera quality" and "battery life", with positive and negative sentiments, respectively.</p>
+                <p><h1><b>Technical Application</b></h1></p>
+                <p>The implementation of ABSA involves Natural Language Processing (NLP) techniques and machine learning models. The main steps include:</p>
+                <p><b>Data Preprocessing</b>: Text is cleaned, tokenized, and converted into a format suitable for model training.</p>
+                <p><b>Aspect Extraction</b>: Techniques such as dependency parsing or topic modeling can be used to extract aspects from the text.</p>
+                <p><b>Sentiment Classification</b>: For each extracted aspect, sentiment is classified using traditional algorithms like LSTM, BERT, or SVM.</p>
+                <p><h1><b>Some Applications and Use Cases</b></h1></p>
+                <p>-Analyzing product reviews to determine the most and least liked features.</p>
+                <p>-Measuring guest sentiments about different services and facilities.</p>
+                <p>-Understanding public sentiment about different components of a policy or law.</p>
+                <p><h1><b>Challenges and Limitations</b></h1></p>
+                <p><b>Ambiguity</b>: Texts can sometimes be ambiguous, which means it can be difficult to determine the sentiment.</p>
+                <p><b>Sarcastic Humor</b>: Existing models may struggle to understand sarcastic humor, which could lead to incorrect sentiment predictions.</p>
+                <p><h1><b>Conclusion</b></h1></p>
+                <p>Aspect-Based Sentiment Analysis bridges between broad sentiment summary and detailed text analysis. By focusing on specific aspects within a text, businesses and researchers can obtain richer information and make more informed decisions.</p>
+                <p>This application has the potential to accelerate the work of every company collecting feedback for customer experience, reviewing comments on the internet and social media. It can also aid programs regarding the Voice of Customer (VoC) which is a critical point for LSS and CX titles. For instance, by employing web scraping, every comment written about the company on the internet can be collected, subjected to aspect-based sentiment analysis, and insights can be obtained. Another area where it can be used is to identify and display misleading score/comment relationships, such as Turkish users giving 1 star on Google Play just to have their comments seen, yet expressing their satisfaction in the comment section.</p>
+                <p>The Gradio application below has been prepared to perform aspect-based sentiment analysis on comments. The data set used for machine learning and training contains restaurant reviews. While working on my model, a ready-made model has been used in this application. It has not gone through machine learning processes that would strain my old trusty machine, for being a simple example, hence the f1 score is between 60-70%. If you try examples with Turkish synonyms, or a taunting approach, it may not be able to respond to you. A few examples as:</p>
+        <p><em>-Yemekler güzeldi.</em></p>
+        <p><em>-Servisi beğenmedim.</em></p>
+        <p><em>-Ambiyans fena değildi.</em></p>
+        <p><em>-Restorantı çok beğenmedim. Yemekler çok yavaş geldi ama manzara çok güzeldi.</em></p>
+        <p><em>-Servis çok kötüydü. Çalışanlar çok kabaydı.</em></p>
+        <p><em>-Uzun süre gitmek istiyordum, ilk defa gitme fırsatım oldu. Öncelikle yorumların gerçekliği payı var.
+        Gerçekten temiz ve titiz çalışan bir işletme. Yemekler çok lezzetliydi. Fiyatların çok pahalı olması beni biraz mutsuz etti, düzenli olarak gidilemez.</em></p>
 
-                        <iframe
-                            class="full-width-iframe"
-                            src="https://clustering-dashboard.onrender.com/"
-                        ></iframe>
-                    </header>
-                </article>
-            </div>
-        </main>
+        <iframe
+        	src="https://memretoktay-htda.hf.space"
+        	frameborder="0"
+        	width="850"
+        	height="450"
+        ></iframe>
 
+
+
+        </div>
+      </main>
       <footer class="site-footer">
         <div class="wrapper">
           <h2 class="footer-heading">Mehmet Emre Toktay</h2>

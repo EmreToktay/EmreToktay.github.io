@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,20 +9,14 @@
     <link rel="stylesheet" href="../main.css">
     <link rel="canonical" href="https://memretoktay.net">
     <link rel="alternate" type="application/rss+xml" title="Mehmet Emre Toktay" href="/feed.xml">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5SMHCSCCLY"></script>
     <script>
-      (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-          m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-      ga('create', 'UA-103070243-1', 'auto');
-      ga('send', 'pageview');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5SMHCSCCLY');
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://pixel-v0.wl.r.appspot.com/static/pixel.js"></script>
@@ -30,6 +24,18 @@
       let ccid = "memretoktay.net";
       cc(ccid);
     </script>
+    <style>
+        .language-selector {
+            display: inline-block;
+            margin-right: 0px;  /* margin miktarını azalttık */
+        }
+        .language-selector a {
+            margin-left: 0px;
+            margin-right: 0px;
+            text-decoration: underline;  /* altı çizili yapmak için */
+            color: black;  /* siyah renk */
+        }
+    </style>
   </head>
 
   <body>
@@ -52,6 +58,8 @@
                 <a class="page-link" href="../cv/Resume & CV.html">Resume & CV</a>
                 <a class="page-link" href="../pardus/Pardus.html">Pardus</a>
                 <a class="page-link" href="../blog/blog.html">Blog</a>
+                <div class="language-selector">
+                <a href="htda.html">TR</a> | <a href="htda-en.html">EN</a>
               </div>
             </nav>
           </div>
@@ -79,49 +87,49 @@
         literatürde yapılan tanımlamalara “Hedef Tabanlı Duygu Analizi” (Aspect Based
         Sentiment Analysis) adı verilmektedir. Burada çözülmeye çalışılan problem, metnin
         içindeki bütün görüşlerin, hedef almış oldukları özellikler ile çıkarılabilmesidir.</p>
-        
+
         <p>Örneklerle anlatacak olursak;
         <p><b>Hedef/Yön Belirleme</b>: Bu, bahsedilen metin içerisinde hedef belirler, örneğin "pil ömrü", "kamera", "servis" veya "müşteri hizmetleri".</p>
         <p><b>Duygu Tespiti</b>: Her belirlenen hedef için, duygu (olumlu, olumsuz veya tarafsız) belirlenir.</p>
-        <p><b>Örnek olarak</b>: "Bu telefonun kamera kalitesi mükemmel ancak pil ömrü hayal kırıklığına uğratıyor." 
+        <p><b>Örnek olarak</b>: "Bu telefonun kamera kalitesi mükemmel ancak pil ömrü hayal kırıklığına uğratıyor."
         Burada iki yön bulunmaktadır: "kamera kalitesi" ve "pil ömrü", sırasıyla olumlu ve olumsuz duygulara sahip.</p>
-        
+
 
         <p><h1><b>Teknik Uygulama</b></h1></p>
         <p>ABSA'nın uygulanması Doğal Dil İşleme (NLP) tekniklerini ve makine öğrenme modellerini içerir. Ana adımlar şunları içerir:</p>
-        
+
         <p> <b>Veri Ön İşleme</b>: Metin temizlenir, tokenleştirilir ve model eğitimi için uygun bir formata dönüştürülür.</p>
         <p> <b>Yön Çıkarımı</b>: Metinden yönleri çıkarmak için bağımlılık ayrıştırması veya konu modelleme gibi teknikler kullanılabilir.</p>
         <p> <b>Duygu Sınıflandırma</b>: Her çıkarılan yön için duygu, LSTM, BERT veya SVM gibi geleneksel algoritmalar kullanılarak sınıflandırılır.</p>
-        
+
         <p><h1><b>Bazı Uygulamalar ve Kullanım Durumları</b></h1></p>
         <p>-En çok ve en az beğenilen özellikleri belirlemek için ürün incelemelerini analiz etme.</p>
         <p>-Farklı hizmetler ve olanaklar hakkında misafir duygularını ölçme.</p>
         <p>-Bir politika veya kanunun farklı bileşenleri hakkında halkın duygusunu anlama.</p>
-        
+
         <p><h1><b>Zorluklar ve Sınırlamalar</b></h1></p>
         <p><b>Belirsizlik</b>: Metinler bazen belirsiz olabilir, bu da duyguyu belirlemenin zor olabileceği anlamına gelir.</p>
         <p><b>İğneleyici Mizah</b>: Mevcut modeller, iğneleyici mizahı anlamakta zorlanabilir, bu da yanlış duygu tahminlerine yol açabilir.</p>
-        
+
         <p><h1><b>Sonuç</b></h1></p>
-        <p>Yön Temelli Duygu Analizi, geniş bir duygu özeti ile detaylı metin analizi arasında köprü kurar. Bir metindeki belirli yönler üzerine odaklanarak, 
+        <p>Yön Temelli Duygu Analizi, geniş bir duygu özeti ile detaylı metin analizi arasında köprü kurar. Bir metindeki belirli yönler üzerine odaklanarak,
         işletmeler ve araştırmacılar daha zengin bilgiler elde edebilir ve daha bilinçli kararlar alabilirler.</p>
-        <p>Bu uygulama müşteri deneyimi için geri dönüşler toplayan, internet ve sosyal medya üzerinden yorumları inceleyen her firmanın işini hızlandırıp daha 
+        <p>Bu uygulama müşteri deneyimi için geri dönüşler toplayan, internet ve sosyal medya üzerinden yorumları inceleyen her firmanın işini hızlandırıp daha
         geniş yelpazelede incelemesini sağlayabilecek bir potansiyele sahip.</p>
         <p>Ayrıca LSS ve CX başlıklarının kritik bir noktası olan müşterinin sesi için yardımcı olabilecek bir program olabilir. Olası örnekler verecek olursak web scrapingle firmaya ait yazılmış internet ortamında her yorumu alıp, hedef tabanlı duygu analizine tabi tutulup içgörü alınabilir.
         Başka kullanılabilecek alanı ise Türk kullanıcıların sadece yorumları görünebilsin diye googleplay üstünden 1 yıldız verip yorum kısmında beğendiklerini belirtmeleri bilinen bir haber. Buna benzer yanıltıcı puan/yorum ilişkisini belirlemek ve görüntülüyebilmek için kullanılabilir.</p>
         <p>Alt tarafta bulunan gradio uygulaması yorumlarda hedef tabanlı duygu analizi çıkarmak için hazırlanmıştır.
-         Makine öğrenimi ve eğitmek amaçlı kullanılan veri seti restorant yorumları içermektedir. Kendi modelim üstünde çalışırken bu uygulamada hazır model 
-         kullanılmıştır. Basit bir örnek olması için sevgili emektarımı zorlayacak makine öğrenimi süreçlerinden geçmediğinden f1 score %60-70 arasındadır. 
+         Makine öğrenimi ve eğitmek amaçlı kullanılan veri seti restorant yorumları içermektedir. Kendi modelim üstünde çalışırken bu uygulamada hazır model
+         kullanılmıştır. Basit bir örnek olması için sevgili emektarımı zorlayacak makine öğrenimi süreçlerinden geçmediğinden f1 score %60-70 arasındadır.
          Eğer denemek amaçlı yazdığınız örneklerde Türkçe eş anlamlılar, iğneleme yaklaşımı olursa size cevap veremeyebilir. Bir kaç örnek olarak:</p>
         <p><em>-Yemekler güzeldi.</em></p>
         <p><em>-Servisi beğenmedim.</em></p>
-        <p><em>-Ambiyans fena değildi.</em></p> 
+        <p><em>-Ambiyans fena değildi.</em></p>
         <p><em>-Restorantı çok beğenmedim. Yemekler çok yavaş geldi ama manzara çok güzeldi.</em></p>
         <p><em>-Servis çok kötüydü. Çalışanlar çok kabaydı.</em></p>
-        <p><em>-Uzun süre gitmek istiyordum, ilk defa gitme fırsatım oldu. Öncelikle yorumların gerçekliği payı var. 
+        <p><em>-Uzun süre gitmek istiyordum, ilk defa gitme fırsatım oldu. Öncelikle yorumların gerçekliği payı var.
         Gerçekten temiz ve titiz çalışan bir işletme. Yemekler çok lezzetliydi. Fiyatların çok pahalı olması beni biraz mutsuz etti, düzenli olarak gidilemez.</em></p>
-        
+
         <iframe
         	src="https://memretoktay-htda.hf.space"
         	frameborder="0"
@@ -130,7 +138,7 @@
         ></iframe>
 
 
-                             
+
         </div>
       </main>
       <footer class="site-footer">
