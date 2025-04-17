@@ -69,15 +69,43 @@
                 </header>
                 <div class="additional-content">
 			<center>
-			  <div id="skills-chart" style="width:100%; height:800px;"></div>
-			  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-			  <script>
-			    fetch('skills_radar.html')
-			      .then(response => response.text())
-			      .then(html => {
-			        document.getElementById('skills-chart').innerHTML = html;
-			      });
-			  </script>
+          <!-- Replace the img tag with this div container -->
+          <div id="skills-chart" 
+               style="width:100%; 
+                      height:500px; 
+                      margin: 0 auto;
+                      border: none">
+          </div>
+          
+          <!-- Add these scripts right after the div -->
+          <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+          <script>
+            // Wait for page to fully load
+            document.addEventListener('DOMContentLoaded', function() {
+              // Create iframe as fallback method
+              var iframe = document.createElement('iframe');
+              iframe.src = 'skills_radar.html';
+              iframe.style.width = '100%';
+              iframe.style.height = '500px';
+              iframe.style.border = 'none';
+              
+              // Insert into our container
+              document.getElementById('skills-chart').appendChild(iframe);
+              
+              // Optional: Direct embed fallback
+              setTimeout(function() {
+                if (!iframe.contentDocument || 
+                    !iframe.contentDocument.getElementById('chart')) {
+                  console.log('Trying direct embed...');
+                  fetch('skills_radar.html')
+                    .then(response => response.text())
+                    .then(html => {
+                      document.getElementById('skills-chart').innerHTML = html;
+                    });
+                }
+              }, 500);
+            });
+          </script>
 			</center>
                   <style>
                     #code-section-1 {
