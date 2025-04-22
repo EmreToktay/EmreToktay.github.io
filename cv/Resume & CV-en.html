@@ -68,9 +68,65 @@
                   <h1 class="post-title"></h1>
                 </header>
                 <div class="additional-content">
+                  <script>
+                    function toggleCode(id) {
+                        var codeSection = document.getElementById(id);
+                        if (codeSection.style.display === "none") {
+                            codeSection.style.display = "block";
+                        } else {
+                            codeSection.style.display = "none";
+                        }
+                    }
+                    </script>
+                    <p>As someone who can see an era where generative AI can be used in our daily lives, I consider myself lucky. Although it assists people in many different fields, the most important aspect for me is its role as an information compiler. Considering the data pollution on the internet, this was practically a lifesaver for me.
+                    </p><p></p>
+                      Fundamentally, the process it performs is very similar to what I do in my daily life to learn something—just on a much broader scale. Find, examine, decide what’s correct, and consider the possibilities.
+                    </p> <p>
+                      At the same time, it can carry out this process even for the simplest questions in our daily lives. The potential addiction this could bring is actually a topic that needs to be carefully examined.
+                    </p></p>
+                      As someone who enjoys exploring newly released models, I’ve been truly impressed by DeepSeek, which has come out recently. The versions released on GitHub, especially for math and coding, are definitely worth checking out. I gathered my own professional knowledge in detail and asked it to create a scoring and categorization system based on my characteristics.
+                    </p> <p></p>
+                      I visualized the results using Plotly. Don’t forget to enjoy the beauty of Plotly! :)
+                    </p>
                   <center>
-                    <img alt="Positional features" src="Radar.png" style="float: center; max-width: 100%; margin: 0 0 0em 0em; border-radius: 0px ">
-                  </center>
+                    <!-- Replace the img tag with this div container -->
+                    <div id="skills-chart" 
+                         style="width:100%; 
+                                height:500px; 
+                                margin: 0 auto;
+                                border: none">
+                    </div>
+                    
+                    <!-- Add these scripts right after the div -->
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script>
+                      // Wait for page to fully load
+                      document.addEventListener('DOMContentLoaded', function() {
+                        // Create iframe as fallback method
+                        var iframe = document.createElement('iframe');
+                        iframe.src = 'skills_radar.html';
+                        iframe.style.width = '100%';
+                        iframe.style.height = '500px';
+                        iframe.style.border = 'none';
+                        
+                        // Insert into our container
+                        document.getElementById('skills-chart').appendChild(iframe);
+                        
+                        // Optional: Direct embed fallback
+                        setTimeout(function() {
+                          if (!iframe.contentDocument || 
+                              !iframe.contentDocument.getElementById('chart')) {
+                            console.log('Trying direct embed...');
+                            fetch('skills_radar.html')
+                              .then(response => response.text())
+                              .then(html => {
+                                document.getElementById('skills-chart').innerHTML = html;
+                              });
+                          }
+                        }, 500);
+                      });
+                    </script>
+                </center>
                   <style>
                     #code-section-1 {
                       display: none;
@@ -79,43 +135,108 @@
                   <button onclick="toggleCode('code-section-1')">Show/Hide Code</button>
                   <pre id="code-section-1">
 																		<code>
-    import numpy as np
-    import matplotlib.pyplot as plt
+import plotly.express as px
+import pandas as pd
+import numpy as np
+import os
+
+# Dataset
+categories = [
+'Customer Experience', 'Communication', 'Customer Service', 
+'Time Management', 'Analytical Skills', 'Problem-Solving',
+'Process Improvement', 'Leadership', 'Data Analysis',
+'Statistical Analysis', 'Business Intelligence',
+'Data Visualization', 'Machine Learning', 'Python',
+'Lean Six Sigma', 'Project Management', 'Agile Methodology',
+'CRM Systems', 'Root Cause Analysis', 'Technical Writing',
+'Stakeholder Management'
+]
+
+integration_level = np.array([
+9.8, 9.0, 9.5, 8.5, 9.7, 9.6, 10, 8.8, 9.4,
+9.3, 9.2, 8.9, 7.0, 7.5, 9.9, 8.7, 8.3, 9.1,
+9.4, 8.0, 8.5
+])
+
+df = pd.DataFrame({
+'Skill': categories,
+'Integration': integration_level,
+'Category': 
+['Soft']*8 + ['Technical']*7 + ['Methodology']*6,
+'CV Context': [
+"CX Lead at Lenovo", "Stakeholder presentations",
+"7+ remote team coordination", "BI dashboard automation",
+"MSC Statistics Coursework", "Lean Six Sigma frameworks",
+"16% DSAT reduction project", "MBA leadership experience",
+"IoT POC implementation", "Statistical analysis for Google",
+"CRM data integration", "Production error visualizations",
+"Sentiment analysis projects", "Python scripting",
+"Black Belt certification", "Project management",
+"Agile methodologies", "CRM system workflows",
+"Thesis problem diagnosis", "Technical documentation",
+"B2B/B2C relationship management"
+]
+})
 
 
-    categories = ['Customer Experience', 'Communication skills', 'Customer service skills',
-                  'Time management skills', 'Analytical skills', 'Mathematics skills', 'Problem-solving skills',
-                  'Research skills', 'Writing skills', 'Project management skills', 'Process improvement skills',
-                  'Leadership skills', 'Data analysis skills', 'Statistical analysis skills', 'Programming skills',
-                  'Machine learning skills', 'Data manipulation skills', 'Data visualization skills', 'Business Intelligence',
-                  'Technical skills']
+fig = px.bar_polar(
+df,
+r="Integration",
+theta="Skill",
+color="Category",
+color_discrete_sequence=px.colors.qualitative.Pastel,
+hover_name="Skill",
+hover_data={"CV Context": True,
+ "Integration": ":.1f", "Category": False},
+template="plotly_white",
+range_r=[4, 10.5]
+)
 
 
-    skill_ratings = [0.898, 0.758, 1.000, 0.818, 0.909, 0.757, 0.857, 0.969, 0.818, 0.767, 1.000,
-                     0.847, 0.909, 0.929, 0.812, 0.727, 0.909, 0.767, 0.846, 0.863]
+fig.update_layout(
+polar=dict(
+radialaxis=dict(
+  visible=False,
+  range=[4, 10.5],
+  tickvals=[5, 6.5, 8, 9.5],
+),
+angularaxis=dict(
+  rotation=90,
+  tickfont=dict(size=7)  
+)
+),
+height=450,  # Increased height
+margin=dict(l=50, r=50, t=50, b=50),  
+hoverlabel=dict(
+bgcolor="white",
+font_size=12,
+font_family="Arial"
+),
+legend=dict(
+title_text='',
+orientation='h',
+yanchor='bottom',
+y=-0.15,  
+xanchor='center',
+x=0.5,
+font=dict(size=8)  
+)
+)
 
-    skill_ratings = np.array(skill_ratings) * 100
 
-    N = len(categories)
+fig.update_traces(
+hovertemplate="<b>%{theta}</b><br>Score: %{r}<br><br>%{customdata[0]}"
+)
 
-    fig, ax = plt.subplots(figsize=(7, 7), subplot_kw=dict(polar=True))
 
-    theta = np.linspace(0, 2*np.pi, N, endpoint=False)
-
-    skill_ratings = np.append(skill_ratings, skill_ratings[0])
-    theta = np.append(theta, theta[0])
-
-    ax.plot(theta, skill_ratings)
-
-    ax.fill(theta, skill_ratings, alpha=0.2)
-
-    ax.set_xticks(theta[:-1])
-    ax.set_xticklabels(categories)
-
-    ax.set_ylim(30, 100)
-    ax.set_title('Exploring Professional Skills with ChatGPT',fontsize=16, fontweight='bold')
-    ax.grid(True)
-    plt.show()
+output_path = os.path.join(os.getcwd(), "skills_radar.html")
+fig.write_html(
+output_path,
+full_html=False,
+include_plotlyjs='cdn',
+default_width='100%',
+default_height='450px'  # Match layout height
+)
   </code>
 																	</pre>
                   <script>
@@ -127,43 +248,7 @@
                           codeSection.style.display = "none";
                       }
                   }
-                  </script>
-                  <p>I was curious to explore the potential of ChatGPT as a tool to help me visualize my professional skills. To that end, ChatGPT and I engaged in extended conversations about my work history, training, certifications, and academic writing. Together, we worked to evaluate the skills I had acquired during these experiences, taking into account factors such as the industry sectors of the companies I had worked for, the requirements of job descriptions, and the chronology of my work experiences.
-                  <p>
-                    <center>
-                      <img alt="Positional features" src="indust.png" style="float: center; max-width: 65%; margin: 0 0 0em 0em; border-radius: 0px ">
-                    </center>
-                  <p>During this process, ChatGPT provided me with information and guidance, which I reviewed and revised as needed. While I wasn't always entirely certain of the results, I found the overall experience to be enlightening and beneficial. I wanted to share the results of this evaluation with you, but I must note that these scores are subjective and reflect the perspective of the evaluator.</p>
-                  <style>
-                    #code-section-2 {
-                      display: none;
-                    }
-                  </style>
-                  <button onclick="toggleCode('code-section-2')">Show/Hide Code</button>
-                  <pre id="code-section-2">
-																		<code>
-from wordcloud import WordCloud, get_single_color_func
-import matplotlib.pyplot as plt
-import random
 
-industries = ['Technology', 'BPO', 'Data Management', 'Hospitality', 'SaaS', 'Search Engines','Hardware','Software','BlockChain', 'Fintech']
-counts = [3, 2, 1, 3, 2, 1, 2, 2, 1, 1]
-
-industry_dict = dict(zip(industries, counts))
-
-color_func = get_single_color_func('#ff5733')
-
-def random_color(word, font_size, position, orientation, random_state=None, **kwargs):
-  return tuple(random.randint(0, 255) for _ in range(3))
-
-wordcloud = WordCloud(width=500, height=500, background_color='white', color_func=random_color,
-      min_font_size=0, max_font_size=450).generate_from_frequencies(industry_dict)
-
-plt.figure(figsize=(8,8))
-plt.imshow(wordcloud)
-plt.axis('off')
-plt.title('Industries of Companies Worked With', fontsize=20, fontweight='bold')
-plt.show()
 
   </code>
 																	</pre>
