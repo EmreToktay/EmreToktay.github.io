@@ -171,7 +171,7 @@ var scrollVis = function () {
     .attr('x', width / 2)
     .attr('y', height / 3)
     .style('font-size', '72px')  // Smaller than default (e.g., 36px)
-    .text('Campaigns');
+    .text('Igaming Campaigns');
 
     g.append('text')
     .attr('class', 'sub-title openvis-title')
