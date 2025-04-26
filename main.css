@@ -646,3 +646,22 @@ pre>code {
 .highlight .il {
     color: #099
 }
+/* Full-width content area only */
+body[class*="dashboard"] .page-content .wrapper {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Adjust iframe to use new space */
+body[class*="dashboard"] .full-width-iframe {
+    width: 100%;
+    height: 80vh; /* Adjust as needed */
+}
+body[class*="dashboard"] .post-meta {
+    text-align: center;
+    margin: 10px auto;
+    width: fit-content;
+    position: relative;
+    left: -250px; /* Adjust this value as needed */
+}
