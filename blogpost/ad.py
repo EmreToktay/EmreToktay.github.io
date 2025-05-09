@@ -4,7 +4,7 @@ import os
 
 # 1. Define paths
 notebook_path = r"C:\Users\Memre\Documents\GitHub\EmreToktay.github.io\blogpost\fraud.ipynb"
-output_html_path = r"C:\Users\Memre\Documents\GitHub\EmreToktay.github.io\blogpost\fraud.html"
+output_html_path = r"C:\Users\Memre\Documents\GitHub\EmreToktay.github.io\blogpost\frauda.html"
 
 # 2. Load notebook WITH outputs
 with open(notebook_path, 'r', encoding='utf-8') as f:
