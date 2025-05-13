@@ -69,130 +69,170 @@
                 <header class="post-header">
                     <h1 class="post-title" itemprop="name headline"></h1>
                     <p class="post-meta">
-                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">25/07/2023 • Mehmet Emre Toktay</span></span>
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">13/05/2025 • Mehmet Emre Toktay</span></span>
                     </p>
                 </header>
-
-                
-                      <!-- Compact PDF Viewer Container -->
-                      <div class="pdf-viewer-container" style="max-width: 800px; margin: 1rem auto;">
-                        <div id="pdf-viewer" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                          <!-- Viewer Controls (Top and Bottom) -->
-                          <div style="background: #f5f5f5; padding: 8px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee;">
-                            <button id="prev-page" style="padding: 4px 8px; background: #fff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;">◀ Previous</button>
-                            <span style="font-size: 0.9em;">Page <span id="page-num">1</span> of <span id="page-count">0</span></span>
-                            <button id="next-page" style="padding: 4px 8px; background: #fff; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;">Next ▶</button>
-                          </div>
-                          
-                          <!-- PDF Canvas (Fixed Height) -->
-                          <div style="overflow: auto; max-height: 86h; padding: 10px; background: #fafafa;">
-                            <canvas id="pdf-render" style="max-width: 100%; height: auto; display: block; margin: 0 auto;"></canvas>
-                          </div>
-                          
-                          
-                          <!-- Bottom Controls -->
-                          <div style="background: #f5f5f5; padding: 8px; display: flex; justify-content: center; gap: 10px; border-top: 1px solid #eee;">
-                            <button id="zoom-out">-</button>
-                            <span id="zoom-level">80%</span>
-                            <button id="zoom-in">+</button>
-                          </div>
-                        </div>
-                        
-                        <div style="text-align: center; padding: 0.5rem;">
-                          <a href="lss.pdf" download style="color: #0066cc; text-decoration: none; font-size: 0.9em;">
-                            Download Full PDF
-                          </a>
-                        </div>
-                      </div>
-                
-                    </article>
-                  </div>
-                </main>
-                
-                <!-- PDF.js Scripts -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
-                <script>
-                  // Set the path to the PDF.js worker
-                  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+                <div class="thesis-notice">
+                  <h1>About This Content</h1>
+                  <p>This section contains the application portion of my MBA graduation thesis completed in 2023. For the Turkish-to-English translation, I utilized AI assistance, so there may be some errors - I will definitely correct these in the future :).</p>
                   
-                  let pdfDoc = null,
-                      pageNum = 1,
-                      pageRendering = false,
-                      pageNumPending = null,
-                      scale = 1.0, // Initial zoom level
-                      canvas = document.getElementById('pdf-render'),
-                      ctx = canvas.getContext('2d');
-                
-                  // Load the PDF
-                  pdfjsLib.getDocument('lss.pdf').promise.then(function(pdf) {
-                    pdfDoc = pdf;
-                    document.getElementById('page-count').textContent = pdf.numPages;
-                    renderPage(pageNum);
-                  });
-                
-                  function renderPage(num) {
-                    pageRendering = true;
-                    pdfDoc.getPage(num).then(function(page) {
-                      const viewport = page.getViewport({ scale: scale });
-                      canvas.height = viewport.height;
-                      canvas.width = viewport.width;
-                      
-                      const renderContext = {
-                        canvasContext: ctx,
-                        viewport: viewport
-                      };
-                      
-                      page.render(renderContext).promise.then(function() {
-                        pageRendering = false;
-                        if (pageNumPending !== null) {
-                          renderPage(pageNumPending);
-                          pageNumPending = null;
-                        }
-                      });
-                    });
-                    
-                    document.getElementById('page-num').textContent = num;
-                    document.getElementById('zoom-level').textContent = Math.round(scale * 100) + '%';
-                  }
-                
-                  // Navigation controls
-                  function goPrevious() {
-                    if (pageNum <= 1) return;
-                    pageNum--;
-                    renderPage(pageNum);
-                  }
-                
-                  function goNext() {
-                    if (pageNum >= pdfDoc.numPages) return;
-                    pageNum++;
-                    renderPage(pageNum);
-                  }
-                
-                  document.getElementById('prev-page').addEventListener('click', goPrevious);
-                  document.getElementById('next-page').addEventListener('click', goNext);
-                
-                  // Zoom controls
-                  document.getElementById('zoom-in').addEventListener('click', function() {
-                    if (scale >= 3.0) return;
-                    scale += 0.1;
-                    renderPage(pageNum);
-                  });
-                
-                  document.getElementById('zoom-out').addEventListener('click', function() {
-                    if (scale <= 0.5) return;
-                    scale -= 0.1;
-                    renderPage(pageNum);
-                  });
-                
-                  // Keyboard navigation
-                  document.addEventListener('keydown', function(e) {
-                    if (e.key === 'ArrowLeft') {
-                      goPrevious();
-                    } else if (e.key === 'ArrowRight') {
-                      goNext();
-                    }
-                  });
-                </script>
+                  <p>If you have any questions, please feel free to contact me. Unfortunately, I'm unable to process the JPG charts at this time.</p>
+                  
+                  <p>To view my full thesis on the government database, please visit: 
+                    <a href="https://tez.yok.gov.tr/UlusalTezMerkezi/giris.jsp" target="_blank" rel="noopener noreferrer">
+                      National Thesis Center
+                    </a> 
+                    and search for my name in the author field.
+                  </p>
+                </div>
+<!-- PDF.js Viewer Container -->
+<div class="pdf-viewer-container" style="margin: 2rem 0; position: relative;">
+  <div id="pdf-viewer" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; position: relative;">
+    <!-- Navigation Arrows (Visible) -->
+    <div class="nav-arrow left-arrow" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 10; cursor: pointer; opacity: 0.7; transition: opacity 0.2s; display: block;">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="#0066cc">
+        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+      </svg>
+    </div>
+    <div class="nav-arrow right-arrow" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 10; cursor: pointer; opacity: 0.7; transition: opacity 0.2s; display: block;">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="#0066cc">
+        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+      </svg>
+    </div>
+
+    <!-- Control Bar -->
+    <div style="background: #f5f5f5; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <button id="prev-page" style="padding: 5px 10px; margin-right: 5px;">Previous</button>
+        <button id="next-page" style="padding: 5px 10px;">Next</button>
+      </div>
+      <span>Page: <span id="page-num">1</span> / <span id="page-count">0</span></span>
+    </div>
+
+    <!-- PDF Display Area (Now Visible) -->
+    <div id="pdf-content" style="overflow-y: auto; max-height: 120vh; background: #fafafa;">
+      <canvas id="pdf-render" style="width: 100%; display: block;"></canvas>
+    </div>
+  </div>
+  
+  <!-- Download Link (Now Visible) -->
+  <div style="text-align: center; padding: 1rem;">
+    <a href="lss.pdf" download style="color: #0066cc; text-decoration: none;">
+      Download Full PDF
+    </a>
+  </div>
+</div>
+
+<!-- PDF.js Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+<script>
+  // Set the path to the PDF.js worker
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+  
+  let pdfDoc = null,
+      pageNum = 1,
+      pageRendering = false,
+      pageNumPending = null,
+      scale = 1.5, // Adjusted for better initial display
+      canvas = document.getElementById('pdf-render'),
+      ctx = canvas.getContext('2d'),
+      scrollPosition = 0;
+
+  // Store scroll position before rendering
+  function storeScrollPosition() {
+    const content = document.getElementById('pdf-content');
+    scrollPosition = content.scrollTop;
+  }
+
+  // Restore scroll position after rendering
+  function restoreScrollPosition() {
+    const content = document.getElementById('pdf-content');
+    setTimeout(() => {
+      content.scrollTop = scrollPosition;
+    }, 0);
+  }
+
+  // Load the PDF
+  pdfjsLib.getDocument('lss.pdf').promise.then(function(pdf) {
+    pdfDoc = pdf;
+    document.getElementById('page-count').textContent = pdf.numPages;
+    renderPage(pageNum);
+  }).catch(error => {
+    console.error("PDF loading error:", error);
+    document.getElementById('pdf-content').innerHTML = 
+      '<p style="padding: 20px; text-align: center; color: red;">Error loading PDF. Please check the file path.</p>';
+  });
+
+  function renderPage(num) {
+    storeScrollPosition();
+    pageRendering = true;
+    pdfDoc.getPage(num).then(function(page) {
+      const viewport = page.getViewport({ scale: scale });
+      
+      // Adjust canvas dimensions
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+      
+      const renderContext = {
+        canvasContext: ctx,
+        viewport: viewport
+      };
+      
+      // Render PDF page
+      page.render(renderContext).promise.then(function() {
+        pageRendering = false;
+        restoreScrollPosition();
+        if (pageNumPending !== null) {
+          renderPage(pageNumPending);
+          pageNumPending = null;
+        }
+      });
+    });
+    
+    document.getElementById('page-num').textContent = num;
+  }
+
+  // Navigation functions
+  function goPrevious() {
+    if (pageNum <= 1) return;
+    pageNum--;
+    renderPage(pageNum);
+  }
+
+  function goNext() {
+    if (pageNum >= pdfDoc.numPages) return;
+    pageNum++;
+    renderPage(pageNum);
+  }
+
+  // Button controls
+  document.getElementById('prev-page').addEventListener('click', goPrevious);
+  document.getElementById('next-page').addEventListener('click', goNext);
+
+  // Arrow controls
+  document.querySelector('.left-arrow').addEventListener('click', goPrevious);
+  document.querySelector('.right-arrow').addEventListener('click', goNext);
+
+  // Keyboard controls
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+      goPrevious();
+    } else if (e.key === 'ArrowRight') {
+      goNext();
+    }
+  });
+
+  // Hover effects for arrows
+  const arrows = document.querySelectorAll('.nav-arrow');
+  arrows.forEach(arrow => {
+    arrow.addEventListener('mouseenter', () => {
+      arrow.style.opacity = '1';
+    });
+    arrow.addEventListener('mouseleave', () => {
+      arrow.style.opacity = '0.7';
+    });
+  });
+</script>
       </main>
       <footer class="site-footer">
         <div class="wrapper">
