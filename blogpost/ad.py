@@ -3,8 +3,8 @@ import nbformat
 import os
 
 # 1. Define paths
-notebook_path = r"C:\Users\Memre\Documents\GitHub\EmreToktay.github.io\blogpost\bonus_request.ipynb"
-output_html_path = r"C:\Users\Memre\Documents\GitHub\EmreToktay.github.io\blogpost\bonus_requesta.html"
+notebook_path = r"C:\Users\Memre\Documents\GitHub\EmreToktay.github.io\blogpost\AB Sportsbook.ipynb"
+output_html_path = r"C:\Users\Memre\Documents\GitHub\EmreToktay.github.io\blogpost\AB Sportsbooka.html"
 
 # 2. Load notebook WITH outputs
 with open(notebook_path, 'r', encoding='utf-8') as f:
