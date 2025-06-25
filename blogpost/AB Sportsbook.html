@@ -23,51 +23,50 @@
       let ccid = "memretoktay.net";
       cc(ccid);
     </script>
-    <style>
-        .language-selector {
-            display: inline-block;
-            margin-right: 0px;  /* margin miktarını azalttık */
-        }
-        .language-selector a {
-            margin-left: 0px;
-            margin-right: 0px;
-            text-decoration: underline;  /* altı çizili yapmak için */
-            color: black;  /* siyah renk */
-        }
-  /* Genel yapı */
-  body, html {
-    margin: 0;
-    padding: 0;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    font-size: 16px;
+<style>
+  .language-selector {
+      display: inline-block;
+      margin-right: 0px;
+  }
+  .language-selector a {
+      margin-left: 0px;
+      margin-right: 0px;
+      text-decoration: underline;
+      color: black;
   }
 
-  /* Tüm kutular */
-  div, table, pre, code, blockquote, section, article, td, th {
-    max-width: 100% !important;
-    width: 100% !important;
-    box-sizing: border-box;
-    overflow-x: auto;
-  }
+  @media screen and (max-width: 768px) {
+    /* Sadece küçük ekranlar için geçerli */
+    body, html {
+      margin: 0;
+      padding: 0;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      font-size: 16px;
+    }
 
-  /* Kod blokları ve uzun satırlar */
-  pre, code {
-    white-space: pre-wrap !important;
-    word-break: break-word;
-  }
+    div, table, pre, code, blockquote, section, article, td, th {
+      max-width: 100% !important;
+      width: 100% !important;
+      box-sizing: border-box;
+      overflow-x: auto;
+    }
 
-  /* Plotly ve benzeri grafik div'leri */
-  .js-plotly-plot, .plotly-graph-div {
-    max-width: 100% !important;
-    height: auto !important;
-  }
+    pre, code {
+      white-space: pre-wrap !important;
+      word-break: break-word;
+    }
 
-  /* Tablolar */
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+    .js-plotly-plot, .plotly-graph-div {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
   }
 </style>
   </head>
@@ -111,7 +110,7 @@
         <h1><b>iGaming Data Science Series #3: A/B Test — Did Simplifying the Sportsbook UI Improve User Engagement? </b></h1>
 
         <!-- Responsive iframe container -->
-        <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+        <div style="position: relative; width: 100%; padding-bottom: 85%; height: 0; overflow: hidden;">
           <iframe
             src="AB Sportsbooka.html"
             frameborder="0"
