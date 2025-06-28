@@ -1,64 +1,70 @@
-
+/* Container width limited for readability */
 .container {
-  width: 890px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
+/* Add some top spacing for visuals */
 #graphic {
   padding-top: 40px;
 }
 
-
+/* Sidebar text (left side scrolling sections) */
 #sections {
   position: relative;
   display: inline-block;
-  width: 100px;
-  top: 0px;
+  width: 140px;
+  top: 0;
   z-index: 90;
-  padding-bottom: 150px;
+  padding-bottom: 100px;
 }
 
 .step {
-  margin-bottom: 150px;
-  font-family: "TiemposTextWeb-Regular","Georgia";
+  margin-bottom: 120px;
+  font-family: "TiemposTextWeb-Regular", Georgia, serif;
   font-size: 13px;
-  line-height: 23px;
+  line-height: 19px;
   color: #767678;
 }
 
 #sections .title {
-  font-family: Arial,Helvetica,"san-serif";
-  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   font-weight: bold;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   color: #262626;
-  line-height: 1.2em;
+  line-height: 1.3em;
 }
 
 #extra-space {
-  height: 300px;
+  height: 200px;
 }
 
+/* Main visual area */
 #vis {
   display: inline-block;
   position: fixed;
-  top: 60px;
+  top: 40px;
   z-index: 1;
-  margin-left: 0;
-  /* height: 600px; */
-  /* width: 600px; */
-  /* background-color: #ddd; */
+  margin-left: 160px; /* matches #sections width + spacing */
+  max-width: 400px;
+  width: 100%;
+  height: auto;
 }
 
+/* Text inside visual */
 #vis .title {
-  font-size:120px;
+  font-size: 36px;
   text-anchor: middle;
 }
 
 #vis .sub-title {
-  font-size:80px;
+  font-size: 24px;
   text-anchor: middle;
 }
 
+/* If you're using D3 axes */
 .axis path,
 .axis line {
   fill: none;
@@ -73,8 +79,11 @@
 
 .cough-arrow {
   stroke: #000;
-  stroke-width: 4px;
-
+  stroke-width: 2px;
 }
 
-
+/* Responsive SVG fix */
+#vis svg {
+  width: 100%;
+  height: auto;
+}

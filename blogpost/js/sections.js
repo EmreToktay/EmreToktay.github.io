@@ -8,8 +8,8 @@
 var scrollVis = function () {
   // constants to define the size
   // and margins of the vis area.
-  var width = 800;
-  var height = 420;
+  var width = 400;
+  var height = 300;
   var margin = { top: 0, left: 120, bottom: 40, right: 10 };
 
   // Keep track of which visualization
@@ -109,10 +109,13 @@ var scrollVis = function () {
       svg = d3.select(this).selectAll('svg').data([wordData]);
       var svgE = svg.enter().append('svg');
       // @v4 use merge to combine enter and existing selection
-      svg = svg.merge(svgE);
+svg = svg.merge(svgE);
 
-      svg.attr('width', width + margin.left + margin.right);
-      svg.attr('height', height + margin.top + margin.bottom);
+svg
+  .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .classed("responsive-svg", true);
+
 
       svg.append('g');
 
@@ -238,7 +241,7 @@ var scrollVis = function () {
       .attr('dx', 15)
       .attr('y', function (d, i) { return yBarScale(i);})
       .attr('dy', yBarScale.bandwidth() / 1.2)
-      .style('font-size', '40px')
+      .style('font-size', '20px')
       .attr('fill', 'white')
       .attr('opacity', 0);
 
