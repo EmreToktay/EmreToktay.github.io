@@ -16,7 +16,7 @@ html_exporter.exclude_input = False  # Keep code cells visible
 html_exporter.exclude_output = False  # Ensures outputs are kept
 
 # Add these configurations for Plotly
-html_exporter.template_name = 'classic'
+html_exporter.template_name = 'Lab'
 html_exporter.extra_template_paths = ['.']
 html_exporter.config.TemplateExporter.extra_template_basedirs = ['.'] 
 
