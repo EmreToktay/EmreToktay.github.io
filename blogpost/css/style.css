@@ -1,33 +1,34 @@
 
 .container {
-  width: 890px;
+  width: 100%;
+  max-width: 800px; /* Genişliği daha sınırlı tut */
+  margin: 0 auto;
 }
 
 #graphic {
-  padding-top: 60px;
+  padding-top: 40px; /* Daha az boşluk */
 }
-
 
 #sections {
   position: relative;
   display: inline-block;
-  width: 150px;
+  width: 120px; /* Daralt */
   top: 0px;
   z-index: 90;
-  padding-bottom: 200px;
+  padding-bottom: 150px;
 }
 
 .step {
-  margin-bottom: 200px;
-  font-family: "TiemposTextWeb-Regular","Georgia";
-  font-size: 16px;
-  line-height: 23px;
+  margin-bottom: 150px; /* Aralarındaki boşluğu azalt */
+  font-family: "TiemposTextWeb-Regular","Georgia", serif;
+  font-size: 14px; /* Küçült */
+  line-height: 20px;
   color: #767678;
 }
 
 #sections .title {
-  font-family: Arial,Helvetica,"san-serif";
-  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 2px;
   color: #262626;
@@ -35,46 +36,27 @@
 }
 
 #extra-space {
-  height: 300px;
+  height: 200px;
 }
 
 #vis {
   display: inline-block;
   position: fixed;
-  top: 60px;
+  top: 40px;
   z-index: 1;
   margin-left: 0;
-  /* height: 600px; */
-  /* width: 600px; */
-  /* background-color: #ddd; */
+  max-width: 500px; /* Genişliği sınırla */
 }
 
 #vis .title {
-  font-size:120px;
+  font-size: 60px; /* Daha küçük başlık */
   text-anchor: middle;
 }
 
 #vis .sub-title {
-  font-size:80px;
+  font-size: 40px; /* Daha küçük alt başlık */
   text-anchor: middle;
 }
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #666;
-  shape-rendering: crispEdges;
-}
-
-.highlight {
-  fill: #008080;
-  font-weight: bold;
-}
-
-.cough-arrow {
-  stroke: #000;
-  stroke-width: 4px;
-
-}
 
 
