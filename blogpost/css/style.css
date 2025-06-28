@@ -23,8 +23,8 @@
 .step {
   margin-bottom: 120px;
   font-family: "TiemposTextWeb-Regular", Georgia, serif;
-  font-size: 13px;
-  line-height: 19px;
+  font-size: 12px;
+  line-height: 15px;
   color: #767678;
 }
 
@@ -45,7 +45,7 @@
 #vis {
   display: inline-block;
   position: fixed;
-  top: 40px;
+  top: 25px;
   z-index: 1;
   margin-left: 160px; /* matches #sections width + spacing */
   max-width: 400px;
@@ -60,7 +60,7 @@
 }
 
 #vis .sub-title {
-  font-size: 24px;
+  font-size: 18px;
   text-anchor: middle;
 }
 
