@@ -173,14 +173,14 @@ svg
     .attr('class', 'title openvis-title')
     .attr('x', width / 2)
     .attr('y', height / 3)
-    .style('font-size', '72px')  // Smaller than default (e.g., 36px)
+    .style('font-size', '36px')  // Smaller than default (e.g., 36px)
     .text('Igaming Campaigns');
 
     g.append('text')
     .attr('class', 'sub-title openvis-title')
     .attr('x', width / 2)
     .attr('y', (height / 3) + (height / 5))
-    .style('font-size', '36px')  // Smaller than default (e.g., 24px)
+    .style('font-size', '18x')  // Smaller than default (e.g., 24px)
     .text('Optimizing Pop-Up Timing');
 
     g.selectAll('.openvis-title')
